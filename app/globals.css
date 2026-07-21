@@ -1,0 +1,332 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-eco-cream via-white to-eco-sage/20 text-gray-900 font-sans;
+    background-attachment: fixed;
+  }
+
+  * {
+    @apply border-gray-200;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-eco-gradient text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-eco-green/25 animate-glow-pulse;
+    background-size: 200% 200%;
+  }
+  
+  .btn-secondary {
+    @apply bg-sunset-gradient text-white font-semibold py-4 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:shadow-2xl hover:shadow-eco-orange/25;
+    background-size: 200% 200%;
+  }
+
+  .btn-outline {
+    @apply border-2 border-eco-green text-eco-green font-semibold py-4 px-8 rounded-2xl transition-all duration-500 transform hover:scale-105 hover:bg-eco-green hover:text-white hover:shadow-xl;
+  }
+  
+  .card {
+    @apply bg-white/80 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-white/20;
+  }
+
+  .card-eco {
+    @apply bg-gradient-to-br from-white/90 to-eco-sage/10 backdrop-blur-md rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-eco-green/20;
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-padding:first-of-type {
+    @apply pt-32;
+  }
+  
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+  
+  .text-gradient {
+    @apply bg-eco-gradient bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+
+  .text-gradient-sunset {
+    @apply bg-sunset-gradient bg-clip-text text-transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+  
+  .eco-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(34, 197, 94, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 60%, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  }
+
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl;
+  }
+
+  .floating-element {
+    @apply animate-leaf-float;
+  }
+
+  .eco-border {
+    @apply border-2 border-gradient-to-r from-eco-green to-eco-orange rounded-2xl;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease-in-out infinite;
+  }
+}
+
+/* Кастомные анимации для листьев */
+.leaf {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(45deg, #22c55e, #10b981);
+  border-radius: 50% 0 50% 50%;
+  animation: leafFall 12s linear infinite;
+  opacity: 0.7;
+  filter: drop-shadow(0 2px 4px rgba(34, 197, 94, 0.3));
+}
+
+.leaf:nth-child(even) {
+  background: linear-gradient(45deg, #f97316, #fbbf24);
+  animation-duration: 15s;
+  animation-delay: 2s;
+}
+
+.leaf:nth-child(3n) {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  animation-duration: 18s;
+  animation-delay: 4s;
+}
+
+/* Анимации для цветов */
+.flower {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(45deg, #f97316, #fbbf24);
+  border-radius: 50%;
+  animation: flowerFloat 16s linear infinite;
+  opacity: 0.6;
+  filter: drop-shadow(0 2px 4px rgba(249, 115, 22, 0.3));
+}
+
+.flower:nth-child(even) {
+  background: linear-gradient(45deg, #ec4899, #f472b6);
+  animation-duration: 20s;
+  animation-delay: 3s;
+}
+
+.flower:nth-child(3n) {
+  background: linear-gradient(45deg, #8b5cf6, #a78bfa);
+  animation-duration: 22s;
+  animation-delay: 6s;
+}
+
+/* Анимации для искр */
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: linear-gradient(45deg, #fbbf24, #f59e0b);
+  border-radius: 50%;
+  animation: sparkleTwinkle 8s linear infinite;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 4px rgba(251, 191, 36, 0.6));
+}
+
+.sparkle:nth-child(even) {
+  background: linear-gradient(45deg, #3b82f6, #60a5fa);
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+
+.sparkle:nth-child(3n) {
+  background: linear-gradient(45deg, #10b981, #34d399);
+  animation-duration: 12s;
+  animation-delay: 4s;
+}
+
+@keyframes leafFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@keyframes flowerFloat {
+  0% {
+    transform: translateY(-100vh) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(100vh) rotate(360deg) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkleTwinkle {
+  0% {
+    transform: translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  80% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  100% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Стили для интерактивной карты */
+.map-zone {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.map-zone:hover {
+  transform: scale(1.08);
+  filter: brightness(1.2) drop-shadow(0 10px 20px rgba(34, 197, 94, 0.3));
+}
+
+.map-zone.active {
+  filter: drop-shadow(0 0 20px rgba(34, 197, 94, 0.6));
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+/* Стили для программы */
+.program-tab {
+  @apply px-6 py-3 rounded-2xl font-medium transition-all duration-500 backdrop-blur-sm;
+}
+
+.program-tab.active {
+  @apply bg-eco-gradient text-white shadow-xl;
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+.program-tab:not(.active) {
+  @apply bg-white/60 text-gray-700 hover:bg-white/80 hover:shadow-lg;
+}
+
+/* Стили для мобильной навигации */
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  @apply backdrop-blur-xl bg-white/90;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+/* Стили для счетчика времени */
+.countdown-item {
+  @apply bg-gradient-to-br from-white/90 to-eco-sage/10 backdrop-blur-md rounded-2xl p-6 text-center shadow-xl border border-white/20;
+}
+
+.countdown-number {
+  @apply text-3xl sm:text-4xl font-bold text-gradient;
+}
+
+.countdown-label {
+  @apply text-sm text-gray-600 mt-2 font-medium;
+}
+
+/* Дополнительные эффекты */
+.glow-effect {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.3);
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 50px rgba(34, 197, 94, 0.5);
+}
+
+.eco-shape {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 85%, 85% 100%, 0% 100%);
+}
+
+.leaf-shape {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* Анимации для градиентов */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(34, 197, 94, 0.6);
+  }
+} 
+
+section {
+  padding: 100px 0;
+}
