@@ -34,6 +34,7 @@ import Speakers from '@/components/Speakers';
 import { NatureBackground } from '@/components/decor/SectionBackgrounds';
 import Gallery from '@/components/Gallery';
 import MezzoProfile from '@/components/Mezzo';
+import PerformersCarousel from '@/components/PerformersCarousel';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -194,10 +195,12 @@ export default function Home() {
 
         {/* 4. Карта и программа */}
         <InteractiveMap />
-
+{/* 
         <HostProfile />
 
-        <MezzoProfile />
+        <MezzoProfile /> */}
+
+        <PerformersCarousel />
 
         <Speakers />
         

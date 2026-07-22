@@ -95,7 +95,6 @@ ${formData.message}`;
                 <div>
                   <h4 className="font-semibold text-gray-900">Телефон</h4>
                   <p className="text-gray-600">+7 708 970 91 52</p>
-                  <p className="text-gray-600">+7 727 970 91 52</p>
                   <p className="text-gray-600">РГП "Институт ботаники и фитоинтродукции": +7 708 970 52 66</p>
                 </div>
               </div>
@@ -121,7 +120,7 @@ ${formData.message}`;
                 <motion.a
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  href="https://www.instagram.com/iteachme_kz/"
+                  href="https://www.instagram.com/iteachme.kz/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center text-white hover:from-purple-600 hover:to-pink-600 transition-colors duration-300"

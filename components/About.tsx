@@ -42,10 +42,10 @@ export default function About() {
   ];
 
   const stats = [
-    { number: '18', label: getTranslation('stats.platforms', language), icon: TreePine, bg: '#FFC531' },
+    { number: '11', label: getTranslation('stats.platforms', language), icon: TreePine, bg: '#FFC531' },
     { number: '50+', label: getTranslation('stats.workshops', language), icon: Flower2, bg: '#FF6B4A' },
     { number: '2000+', label: getTranslation('stats.guests', language), icon: Users, bg: '#3DAEDB' },
-    { number: '24', label: getTranslation('stats.hours', language), icon: Globe, bg: '#8B3FC4' },
+    { number: '9', label: getTranslation('stats.hours', language), icon: Globe, bg: '#8B3FC4' },
   ];
 
   return (
