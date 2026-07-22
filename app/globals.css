@@ -51,7 +51,7 @@
   }
   
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 xl:px-10;
   }
   
   .text-gradient {

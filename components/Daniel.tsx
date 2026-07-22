@@ -1,7 +1,7 @@
 'use client';
 
 import OptimizedImage from "./ui/OptimizedImage";
-import Daniel from "../public/images/Daniel_James.png";
+import Daniel from "../public/images/Daniel_James.webp";
 import { HalftoneBackground } from "./decor/SectionBackgrounds";
 import { getTranslation } from '@/data/translations';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -69,6 +69,7 @@ export default function HostProfile() {
 
             <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/10 backdrop-blur">
               <OptimizedImage
+                priority =  {true}
                 src={Daniel.src}
                 alt="Даниэль Джеймс"
               />

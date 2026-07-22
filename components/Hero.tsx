@@ -23,7 +23,11 @@ export default function Hero() {
   ];
 
   return (
-    <section id="home" style={{ backgroundColor: '#2F9E44' }} className="relative overflow-hidden ...">
+    <section
+      id="home"
+      style={{ backgroundColor: '#2F9E44' }}
+      className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
+    >
       <HillsBackground />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
@@ -58,7 +62,7 @@ export default function Hero() {
                 alt="InEco Fest Logo"
                 width={100}
                 height={100}
-                className="max-w-[160px] md:max-w-[200px]"
+                className="max-w-[120px] sm:max-w-[160px] md:max-w-[200px]"
                 priority={true}
               />
             </div>
@@ -71,14 +75,14 @@ export default function Hero() {
             className="mb-10"
           >
             <h1
-              className="text-6xl md:text-8xl lg:text-7xl mb-6 leading-[0.9] text-white"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-6 leading-[0.95] text-white"
               style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.12)' }}
             >
               InEco
               <span style={{ color: '#FFC531' }}>Fest</span>
               : {getTranslation('hero.river', language)}
             </h1>
-            <p className="text-xl md:text-2xl mb-4 max-w-2xl mx-auto text-white/95 font-medium">
+            <p className="text-lg sm:text-xl md:text-2xl mb-4 max-w-2xl mx-auto text-white/95 font-medium px-2">
               {getTranslation('hero.subtitle', language)}
             </p>
           </motion.div>
@@ -87,7 +91,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12"
           >
             {info.map((item, i) => {
               const IconComponent = item.icon;
@@ -95,18 +99,18 @@ export default function Hero() {
                 <motion.div
                   key={item.label}
                   whileHover={{ scale: 1.05, rotate: 0 }}
-                  className="group flex items-center gap-4 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
+                  className="group flex items-start gap-4 rounded-3xl border border-white/15 bg-white/10 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
                   style={{ minHeight: '110px', boxShadow: '0 12px 40px rgba(0,0,0,0.12)' }}
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-white/15">
+                  <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/15">
                       <IconComponent
                           className="h-6 w-6 text-white"
                           strokeWidth={2}
                       />
                   </div>
-                  <div>
-                    <p className="font-bold leading-tight" style={{ color: '#fff' }}>{item.value}</p>
-                    <p className="text-sm leading-tight" style={{ color: '#f4f4f4' }}>{item.label}</p>
+                  <div className="flex min-h-[56px] flex-col justify-center text-left">
+                    <p className="font-bold leading-snug break-words" style={{ color: '#fff' }}>{item.value}</p>
+                    <p className="mt-1 text-sm leading-tight" style={{ color: '#f4f4f4' }}>{item.label}</p>
                   </div>
                 </motion.div>
               );
@@ -124,7 +128,7 @@ export default function Hero() {
               download={language === 'kk' ? 'InEco_Fest_2025_Baғdarlama.docx' : 'InEco_Fest_2025_Программа.docx'}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 rounded-full bg-[#FFD45A] px-10 py-4 text-lg font-semibold text-[#17351E] shadow-lg transition-all duration-300 hover:shadow-2xl"
+              className="inline-flex items-center gap-3 rounded-full bg-[#FFD45A] px-8 py-3.5 text-base sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#17351E] shadow-lg transition-all duration-300 hover:shadow-2xl"
               style={{
                 boxShadow: '0 12px 35px rgba(0,0,0,.18)',
               }}
@@ -137,9 +141,9 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="max-w-3xl mx-auto"
+            className="max-w-3xl mx-auto px-2"
           >
-            <p className="text-lg leading-relaxed mb-6 text-white/95">
+            <p className="text-base sm:text-lg leading-relaxed mb-6 text-white/95">
               {language === 'kk' ? (festivalInfo as any).descriptionKk || festivalInfo.description : festivalInfo.description}
             </p>
             <div

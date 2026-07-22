@@ -21,6 +21,7 @@ export interface Activity {
   speakerKk?: string;
   image?: string;
   type: "workshop" | "lecture" | "exhibition" | "show";
+  speakerLink?: string;
 }
 
 export interface StageEvent {
@@ -330,6 +331,7 @@ export const festivalZones: Zone[] = [
         speaker: 'ОФ "ITeachMe"',
         speakerKk: '"ITeachMe" ҚҚ',
         type: "workshop",
+        speakerLink: "https://iteachme.kz/"
       },
     ],
   },
@@ -354,6 +356,7 @@ export const festivalZones: Zone[] = [
         speaker: "Клуб Зеленых Рейнджеров",
         speakerKk: "Клуб Зеленых Рейнджеров",
         type: "workshop",
+        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
       },
       {
         id: "eco-city-2",
@@ -368,6 +371,7 @@ export const festivalZones: Zone[] = [
         speaker: "Клуб Зеленых Рейнджеров",
         speakerKk: "Клуб Зеленых Рейнджеров",
         type: "workshop",
+        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
       },
       {
         id: "eco-city-3",
@@ -382,6 +386,7 @@ export const festivalZones: Zone[] = [
         speaker: "КазГАСА",
         speakerKk: "ҚазБСҚА",
         type: "workshop",
+        speakerLink: "https://kazgasa.kz/"
       },
       {
         id: "eco-city-4",
@@ -396,6 +401,7 @@ export const festivalZones: Zone[] = [
         speaker: "КазГАСА",
         speakerKk: "ҚазБСҚА",
         type: "workshop",
+        speakerLink: "https://kazgasa.kz/"
       },
       {
         id: "eco-city-5",
@@ -410,6 +416,7 @@ export const festivalZones: Zone[] = [
         speaker: "Национальная волонтёрская сеть",
         speakerKk: "Национальная волонтёрская сеть",
         type: "workshop",
+        speakerLink: "https://qazvolunteer.kz/ru/about"
       },
     ],
   },
@@ -437,6 +444,7 @@ export const festivalZones: Zone[] = [
         speaker: "Recycle Birge",
         speakerKk: "Recycle Birge",
         type: "workshop",
+        speakerLink: "https://recyclebirge.kz/"
       },
       {
         id: "eco-lifestyle-2",
@@ -453,6 +461,7 @@ export const festivalZones: Zone[] = [
         speakerKk:
           "Book Культура, КОМУНИТИПЛЮС, Mindful Generation, Елена Шахматова каллиграфия студиясы",
         type: "workshop",
+        speakerLink: "https://komuniti.kz/"
       },
       {
         id: "eco-lifestyle-3",
@@ -467,6 +476,7 @@ export const festivalZones: Zone[] = [
         speaker: "Клуб Зеленых Рейнджеров",
         speakerKk: "Жасыл Рейнджерлер клубы",
         type: "workshop",
+        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
       },
       {
         id: "eco-lifestyle-4",
@@ -479,6 +489,7 @@ export const festivalZones: Zone[] = [
         speaker: "Институт Ботаники и Фитоинтродукции",
         speakerKk: "Ботаника және фитоинтродукция институты",
         type: "exhibition",
+        speakerLink: "https://botsad.kz/ru/page/about"
       },
       {
         id: "eco-lifestyle-4",
@@ -491,6 +502,7 @@ export const festivalZones: Zone[] = [
         speaker: "Институт Ботаники и Фитоинтродукции",
         speakerKk: "Ботаника және фитоинтродукция институты",
         type: "exhibition",
+        speakerLink: "https://botsad.kz/ru/page/about"
       },
     ],
   },
@@ -516,6 +528,7 @@ export const festivalZones: Zone[] = [
         speaker: "Vasilek.kzt",
         speakerKk: "Vasilek.kzt",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/vasilek.kzt/"
       },
       {
         id: "floristics-2",
@@ -530,6 +543,7 @@ export const festivalZones: Zone[] = [
         speaker: "Zhuldyz Flowers",
         speakerKk: "Zhuldyz Flowers",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/zhuldyzflowers.kz/"
       },
       {
         id: "floristics-3",
@@ -544,6 +558,7 @@ export const festivalZones: Zone[] = [
         speaker: "Клуб Зеленых Рейнджеров",
         speakerKk: "Жасыл Рейнджерлер клубы",
         type: "workshop",
+        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
       },
     ],
   },
@@ -569,6 +584,7 @@ export const festivalZones: Zone[] = [
         speaker: "Zertte Studio",
         speakerKk: "Zertte Studio",
         type: "workshop",
+        speakerLink: "https://zertte-studio.kz/"
       },
       {
         id: "steam-2",
@@ -581,6 +597,7 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
+        speakerLink: "https://amspacealmaty.orgs.biz/"
       },
       {
         id: "steam-3",
@@ -595,6 +612,7 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
+        speakerLink: "https://amspacealmaty.orgs.biz/"
       },
       {
         id: "steam-4",
@@ -609,6 +627,7 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
+        speakerLink: "https://amspacealmaty.orgs.biz/"
       },
       {
         id: "steam-5",
@@ -623,6 +642,7 @@ export const festivalZones: Zone[] = [
         speaker: "Sciencely Almaty",
         speakerKk: "Sciencely Almaty",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/sciencely.almaty/?hl=ru"
       },
       {
         id: "steam-6",
@@ -637,6 +657,7 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/acsmuseum/"
       },
       {
         id: "steam-7",
@@ -651,6 +672,7 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/acsmuseum/"
       }
     ],
   },
@@ -676,6 +698,7 @@ export const festivalZones: Zone[] = [
         speaker: "Анар Абжанова",
         speakerKk: "Анар Абжанова",
         type: "workshop",
+        speakerLink: "https://anara-art.kz/"
       },
       {
         id: "art-2",
@@ -704,6 +727,7 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/acsmuseum/"
       },
     ],
   },
@@ -729,6 +753,7 @@ export const festivalZones: Zone[] = [
         speaker: "Институт Ботаники и Фитоинтродукции",
         speakerKk: "Ботаника және фитоинтродукция институты",
         type: "workshop",
+        speakerLink: "https://botsad.kz/ru/page/about"
       },
     ],
   },
@@ -754,6 +779,7 @@ export const festivalZones: Zone[] = [
         speaker: "Анар Абжанова",
         speakerKk: "Анар Абжанова",
         type: "show",
+        speakerLink: "https://anara-art.kz/"
       },
     ],
   },
@@ -776,9 +802,10 @@ export const festivalZones: Zone[] = [
           "Инклюзивное мероприятие для пап и детей с инвалидностью",
         descriptionKk:
           "Әкелер мен мүгедектігі бар балаларға арналған инклюзивті іс-шара",
-        speaker: "Аудио-гид",
-        speakerKk: "Аудио-гид",
+        speaker: "Даниэль Джеймс",
+        speakerKk: "Даниэль Джеймс",
         type: "workshop",
+        speakerLink: "https://www.danieljames.kz/"
       },
       {
         id: "audio-tour-2",
@@ -834,6 +861,7 @@ export const festivalZones: Zone[] = [
         speaker: "ОФ «КОМУНИТИПЛЮС»",
         speakerKk: "«КОМУНИТИПЛЮС» ҚҚ",
         type: "workshop",
+        speakerLink: "https://komuniti.kz/"
       },
       {
         id: "book-club-2",
@@ -858,6 +886,7 @@ export const festivalZones: Zone[] = [
         speaker: "Фонд ДАРА",
         speakerKk: "ДАРА қоры",
         type: "exhibition",
+        speakerLink: "https://dara.kz/"
       },
     ],
   },
@@ -883,6 +912,7 @@ export const festivalZones: Zone[] = [
         speaker: "Фонд Булата Утемуратова",
         speakerKk: "Бұлат Өтемұратов қоры",
         type: "workshop",
+        speakerLink: "https://utemuratovfund.org/ru/"
       },
       {
         id: "charity-2",
@@ -895,6 +925,7 @@ export const festivalZones: Zone[] = [
         speaker: "ОФ «МамаПро»",
         speakerKk: "«МамаПро» ҚҚ",
         type: "workshop",
+        speakerLink: "https://mamapro.kz/"
       },
       {
         id: "charity-3",
@@ -919,6 +950,7 @@ export const festivalZones: Zone[] = [
         speaker: 'ОФ «Harmony Fund»',
         speakerKk: '«Harmony Fund» ҚҚ',
         type: "workshop",
+        speakerLink: "https://www.hmn.kz/"
       },
       {
         id: "charity-5",
@@ -945,6 +977,7 @@ export const festivalZones: Zone[] = [
         speaker: "Orken Puzzle",
         speakerKk: "Orken Puzzle",
         type: "workshop",
+        speakerLink: "https://www.instagram.com/orken_puzzle/"
       },
       {
         id: "charity-7",
@@ -957,6 +990,7 @@ export const festivalZones: Zone[] = [
         speaker: "Фонд «Мейірім»",
         speakerKk: "«Мейірім» қоры",
         type: "workshop",
+        speakerLink: ""
       },
       {
         id: "charity-8",
@@ -981,6 +1015,7 @@ export const festivalZones: Zone[] = [
         speaker: "Детская деревня SOS",
         speakerKk: "SOS Балалар ауылы",
         type: "workshop",
+        speakerLink: "https://sos-kazakhstan.kz/"
       },
     ],
   },

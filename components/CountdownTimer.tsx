@@ -62,7 +62,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
         className="absolute top-[26px] left-0 right-0 hidden md:block"
         style={{ borderTop: '1px dashed rgba(255,255,255,0.35)' }}
       />
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
         {timeUnits.map((unit, index) => {
           const IconComponent = unit.icon;
           return (
@@ -74,15 +74,13 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
               className="relative text-center"
             >
               <div
-                className="mx-auto mb-4 rounded-full flex items-center justify-center relative z-[5]"
+                className="mx-auto mb-2 sm:mb-4 rounded-full flex items-center justify-center relative z-[5] w-10 h-10 sm:w-[52px] sm:h-[52px]"
                 style={{
-                  width: '52px',
-                  height: '52px',
                   backgroundColor: '#FFFFFF',
                   border: `2px solid #12291B`,
                 }}
               >
-                <IconComponent className="h-5 w-5" style={{ color: unit.accent }} strokeWidth={1.5} />
+                <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" style={{ color: unit.accent }} strokeWidth={1.5} />
               </div>
 
               <motion.div
@@ -90,14 +88,14 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="text-4xl md:text-5xl mb-1 tabular-nums"
+                className="text-3xl sm:text-4xl md:text-5xl mb-1 tabular-nums"
                 style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#fff' }}
               >
                 {unit.value.toString().padStart(2, '0')}
               </motion.div>
 
               <div
-                className="text-xs tracking-[0.2em] uppercase"
+                className="text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase"
                 style={{ fontFamily: 'monospace', color: '#fff' }}
               >
                 {unit.label}

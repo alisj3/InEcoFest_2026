@@ -1,22 +1,24 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu } from 'lucide-react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { getTranslation } from '@/data/translations';
-import OptimizedImage from './ui/OptimizedImage';
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/data/translations";
+import OptimizedImage from "./ui/OptimizedImage";
 
 interface HeaderProps {
   onMenuClick: () => void;
 }
 
 const partners = [
-  { src: '/images/logos/chevron.png', alt: 'Chevron' },
-  { src: '/images/logos/iteachme.png', alt: 'ITeachMe' },
-  { src: '/images/logos/ineco.png', alt: 'InEco Fest' },
-  { src: '/images/logos/botsad.png', alt: 'Ботанический сад' },
-  { src: '/images/logos/institute.png', alt: 'Институт ботаники и фитоинтродукции' },
+  { src: "/images/logos/chevron.png", alt: "Chevron" },
+  { src: "/images/logos/iteachme.png", alt: "ITeachMe" },
+  { src: "/images/logos/ineco.png", alt: "InEco Fest" },
+  { src: "/images/logos/botsad.png", alt: "Ботанический сад" },
+  {
+    src: "/images/logos/institute.png",
+    alt: "Институт ботаники и фитоинтродукции",
+  },
 ];
 
 export default function Header({ onMenuClick }: HeaderProps) {
@@ -28,21 +30,23 @@ export default function Header({ onMenuClick }: HeaderProps) {
       setIsScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage(language === 'ru' ? 'kk' : 'ru');
+    setLanguage(language === "ru" ? "kk" : "ru");
   };
 
   const navItems = [
-    { href: '#home', key: 'nav.home' },
-    { href: '#about', key: 'nav.about' },
-    { href: '#program', key: 'nav.program' },
-    { href: '#map', key: 'nav.map' },
-    { href: '#contact', key: 'nav.contact' },
+    { href: "#home", key: "nav.home" },
+    { href: "#about", key: "nav.about" },
+    { href: "#program", key: "nav.program" },
+    { href: "#map", key: "nav.map" },
+    { href: "#contact", key: "nav.contact" },
   ];
+
+  const burgerColor = isScrolled ? "#12291B" : "#FFFFFF";
 
   return (
     <motion.header
@@ -51,45 +55,65 @@ export default function Header({ onMenuClick }: HeaderProps) {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-10 transition-all duration-300"
       style={{
-        background: isScrolled ? 'rgba(255,255,255,0.82)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(18px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(0,0,0,.08)' : '1px solid transparent',
+        background: isScrolled ? "rgba(255,255,255,0.82)" : "transparent",
+        backdropFilter: isScrolled ? "blur(18px)" : "none",
+        borderBottom: isScrolled
+          ? "1px solid rgba(0,0,0,.08)"
+          : "1px solid transparent",
       }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between py-3">
+        <div className="flex items-center justify-between py-2 md:py-3 gap-3">
           {/* Логотипы партнеров */}
-          <div className="flex items-center space-x-3">
+          <div className="flex flex-1 items-center gap-2 overflow-x-auto scrollbar-hide">
             {partners.map((partner) => (
               <div
                 key={partner.alt}
-                className="flex h-[60px] w-[60px] items-center justify-center rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md transition hover:bg-white/20"
+                className="
+          shrink-0
+          flex
+          h-10 w-10
+          sm:h-12 sm:w-12
+          md:h-[60px] md:w-[60px]
+          items-center
+          justify-center
+          rounded-xl
+          md:rounded-2xl
+          border
+          border-white/20
+          bg-white/10
+          backdrop-blur-md
+          transition
+          hover:bg-white/20
+        "
               >
                 <OptimizedImage
                   src={partner.src}
                   alt={partner.alt}
                   width={50}
                   height={50}
-                  className="w-full h-full object-contain p-1"
+                  className="h-full w-full object-contain p-1"
                 />
               </div>
             ))}
           </div>
 
-          {/* Десктопная навигация */}
-          <nav className="hidden lg:flex items-center space-x-2">
+          {/* Десктопная навигация — теперь только от 1367px и выше */}
+          <nav className="hidden min-[1367px]:flex items-center space-x-2">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.href}
                 href={item.href}
                 className="rounded-full px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300"
                 style={{
-                  color: isScrolled ? '#12291B' : '#FFFFFF',
+                  color: isScrolled ? "#12291B" : "#FFFFFF",
                 }}
                 initial={false}
                 transition={{ duration: 0.4, delay: index * 0.06 }}
                 whileHover={{
-                  backgroundColor: isScrolled ? '#FFC531' : 'rgba(255,255,255,0.2)',
+                  backgroundColor: isScrolled
+                    ? "#FFC531"
+                    : "rgba(255,255,255,0.2)",
                 }}
               >
                 {getTranslation(item.key, language)}
@@ -102,26 +126,33 @@ export default function Header({ onMenuClick }: HeaderProps) {
               className="flex items-center px-4 py-2 rounded-full text-sm font-bold transition-colors"
               style={{
                 fontFamily: '"Baloo 2", sans-serif',
-                backgroundColor: '#FFC531',
-                color: '#12291B',
-                border: '2px solid #12291B',
+                backgroundColor: "#FFC531",
+                color: "#12291B",
+                border: "2px solid #12291B",
               }}
             >
-              {language === 'ru' ? 'RU / KK' : 'KK / RU'}
+              {language === "ru" ? "RU / KK" : "KK / RU"}
             </button>
           </nav>
 
-          {/* Мобильная кнопка меню */}
+          {/* Мобильная / планшетная / до-1367px кнопка меню — минималистичные 3 линии */}
           <button
             onClick={onMenuClick}
-            className="lg:hidden p-2 rounded-xl"
-            style={{
-              backgroundColor: '#FFC531',
-              border: '2px solid #12291B',
-              color: '#12291B',
-            }}
+            aria-label={getTranslation("nav.menu", language) || "Menu"}
+            className="min-[1367px]:hidden shrink-0 flex flex-col items-center justify-center gap-[5px] w-9 h-9"
           >
-            <Menu className="h-5 w-5" strokeWidth={2.2} />
+            <span
+              className="block h-[2px] w-6 rounded-full transition-colors duration-300"
+              style={{ backgroundColor: burgerColor }}
+            />
+            <span
+              className="block h-[2px] w-6 rounded-full transition-colors duration-300"
+              style={{ backgroundColor: burgerColor }}
+            />
+            <span
+              className="block h-[2px] w-6 rounded-full transition-colors duration-300"
+              style={{ backgroundColor: burgerColor }}
+            />
           </button>
         </div>
       </div>

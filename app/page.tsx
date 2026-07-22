@@ -33,6 +33,7 @@ import HostProfile from '@/components/Daniel';
 import Speakers from '@/components/Speakers';
 import { NatureBackground } from '@/components/decor/SectionBackgrounds';
 import Gallery from '@/components/Gallery';
+import MezzoProfile from '@/components/Mezzo';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -86,7 +87,7 @@ export default function Home() {
 
       {/* Мобильное меню (рендерим только когда открыто, чтобы не перекрывать контент при проблемах со стилями) */}
       {isMenuOpen && (
-        <div className="mobile-menu fixed inset-0 z-50 lg:hidden open">
+        <div className="mobile-menu fixed inset-0 z-50 min-[1367px]:hidden open">
           <div className="flex justify-between items-center p-6 border-b border-eco-green/20">
             <motion.h2 
               className="text-2xl font-bold text-gradient"
@@ -195,6 +196,8 @@ export default function Home() {
         <InteractiveMap />
 
         <HostProfile />
+
+        <MezzoProfile />
 
         <Speakers />
         
