@@ -183,7 +183,7 @@ export default function PerformersCarousel() {
   const imageBlock = (
     <div className="relative flex justify-center">
       <div
-        className="absolute h-[520px] w-[520px] rounded-full blur-[120px]"
+        className="pointer-events-none absolute h-[520px] w-[520px] rounded-full blur-[120px]"
         style={{ backgroundColor: `${performer.accent.blur}33` }}
       />
       <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/10 backdrop-blur">
@@ -305,6 +305,21 @@ export default function PerformersCarousel() {
             exit="exit"
             transition={{ duration: 0.45, ease: "easeInOut" }}
             className="grid items-center gap-20 lg:grid-cols-2"
+
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.15}
+            onDragEnd={(e, info) => {
+              const swipe = info.offset.x;
+
+              if (swipe < -80) {
+                manualGoTo(index + 1, 1);
+              }
+
+              if (swipe > 80) {
+                manualGoTo(index - 1, -1);
+              }
+            }}
           >
             {performer.imageSide === "left" ? (
               <>

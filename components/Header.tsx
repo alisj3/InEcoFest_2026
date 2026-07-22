@@ -74,13 +74,13 @@ export default function Header({ onMenuClick }: HeaderProps) {
   flex
   h-10 w-10
   sm:h-12 sm:w-12
-  md:h-[60px] md:w-[60px]
+  md:h-[70px] md:w-[70px]
   items-center
   justify-center
   rounded-xl
   md:rounded-2xl
   border border-black/10
-  bg-white/80
+  bg-white/100
   backdrop-blur-xl
   shadow-lg
   transition
