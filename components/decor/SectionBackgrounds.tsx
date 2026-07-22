@@ -15,24 +15,40 @@ export function HillsBackground() {
 // ABOUT — полутоновая точечная сетка, затухающая к краям
 export function HalftoneBackground() {
   return (
-    <svg className="pointer-events-none absolute inset-0 w-full h-full opacity-[0.35]" preserveAspectRatio="xMidYMid slice">
+    <svg
+      className="pointer-events-none absolute inset-0 h-full w-full opacity-25"
+      preserveAspectRatio="xMidYMid slice"
+    >
       <defs>
         <pattern id="halftone" width="26" height="26" patternUnits="userSpaceOnUse">
-          <circle cx="13" cy="13" r="4" fill="#FFFFFF" />
+          <circle
+            cx="13"
+            cy="13"
+            r="3.5"
+            fill="rgba(255,255,255,0.45)"
+          />
         </pattern>
-        <radialGradient id="fade" cx="50%" cy="40%" r="70%">
+
+        <radialGradient id="fade" cx="50%" cy="50%" r="75%">
           <stop offset="0%" stopColor="white" stopOpacity="1" />
+          <stop offset="65%" stopColor="white" stopOpacity="0.5" />
           <stop offset="100%" stopColor="white" stopOpacity="0" />
         </radialGradient>
+
         <mask id="fadeMask">
           <rect width="100%" height="100%" fill="url(#fade)" />
         </mask>
       </defs>
-      <rect width="100%" height="100%" fill="url(#halftone)" mask="url(#fadeMask)" />
+
+      <rect
+        width="100%"
+        height="100%"
+        fill="url(#halftone)"
+        mask="url(#fadeMask)"
+      />
     </svg>
   );
 }
-
 // COUNTDOWN — расходящиеся лучи прожектора
 // PARK — природный фон
 export function NatureBackground() {

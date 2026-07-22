@@ -101,7 +101,7 @@ const performers: Performer[] = [
       { value: "13", labelKey: "mezzo.stats.experience" },
       { value: "4", labelKey: "mezzo.stats.events" },
       { value: "10+", labelKey: "mezzo.stats.clients" },
-      { value: "2012", labelKey: "mezzo.stats.guests" },
+      { value: "330.000", labelKey: "mezzo.stats.guests" },
     ],
     socials: [
       {
@@ -248,14 +248,17 @@ export default function PerformersCarousel() {
         </div>
       )}
 
-      <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <div className="mt-16 mx-auto grid max-w-2xl grid-cols-2 gap-3">
         {performer.stats.map((item) => (
           <div
             key={item.labelKey}
-            className="rounded-2xl border border-white/10 bg-white/10 p-5 backdrop-blur"
+            className="rounded-xl border border-white/10 bg-white/10 p-4 backdrop-blur"
           >
-            <div className="text-3xl font-bold text-white">{item.value}</div>
-            <div className="mt-2 text-xs md:text-sm leading-5 text-white break-words hyphens-auto">
+            <div className="text-xl md:text-2xl font-bold text-white leading-none">
+              {item.value}
+            </div>
+
+            <div className="mt-2 text-xs leading-4 text-white break-words">
               {getTranslation(item.labelKey, language)}
             </div>
           </div>
@@ -287,11 +290,10 @@ export default function PerformersCarousel() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-            <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/80">
-                {getTranslation("performers.badge", language)}
-            </span> 
+          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-4 text-xl/4 font-semibold uppercase tracking-[0.3em] text-white/90">
+            {getTranslation("performers.badge", language)}
+          </span>
         </div>
-
 
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
@@ -304,7 +306,6 @@ export default function PerformersCarousel() {
             transition={{ duration: 0.45, ease: "easeInOut" }}
             className="grid items-center gap-20 lg:grid-cols-2"
           >
-            
             {performer.imageSide === "left" ? (
               <>
                 {imageBlock}

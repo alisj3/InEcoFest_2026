@@ -70,22 +70,22 @@ export default function Header({ onMenuClick }: HeaderProps) {
               <div
                 key={partner.alt}
                 className="
-          shrink-0
-          flex
-          h-10 w-10
-          sm:h-12 sm:w-12
-          md:h-[60px] md:w-[60px]
-          items-center
-          justify-center
-          rounded-xl
-          md:rounded-2xl
-          border
-          border-white/20
-          bg-white/10
-          backdrop-blur-md
-          transition
-          hover:bg-white/20
-        "
+  shrink-0
+  flex
+  h-10 w-10
+  sm:h-12 sm:w-12
+  md:h-[60px] md:w-[60px]
+  items-center
+  justify-center
+  rounded-xl
+  md:rounded-2xl
+  border border-black/10
+  bg-white/80
+  backdrop-blur-xl
+  shadow-lg
+  transition
+  hover:scale-105
+"
               >
                 <OptimizedImage
                   src={partner.src}
