@@ -56,7 +56,7 @@ export function NatureBackground() {
     <svg
       className="pointer-events-none absolute inset-0 w-full h-full opacity-[0.18]"
       viewBox="0 0 1440 900"
-      preserveAspectRatio="none"
+      preserveAspectRatio="xMidYMid slice"
     >
       {/* Холмы */}
       <path
@@ -105,19 +105,27 @@ export function NatureBackground() {
           transform={`translate(${x},${y}) rotate(${i * 25})`}
         >
           <path
-            d="M0 0 C18 -22 42 -22 60 0 C42 22 18 22 0 0Z"
-            fill="none"
-            stroke="#fff"
-            strokeWidth="1.6"
-          />
-          <line
-            x1="0"
-            y1="0"
-            x2="60"
-            y2="0"
-            stroke="#fff"
-            strokeWidth="1"
-          />
+  d="
+    M0 0
+    C8 -18 24 -30 42 -22
+    C58 -15 58 15 42 22
+    C24 30 8 18 0 0Z
+  "
+  fill="none"
+  stroke="#fff"
+  strokeWidth="1.5"
+/>
+
+<path
+  d="M2 0 L42 0"
+  stroke="#fff"
+  strokeWidth="1"
+/>
+
+<path d="M16 -8 L24 0" stroke="#fff" strokeWidth=".8" />
+<path d="M16 8 L24 0" stroke="#fff" strokeWidth=".8" />
+<path d="M28 -10 L36 0" stroke="#fff" strokeWidth=".8" />
+<path d="M28 10 L36 0" stroke="#fff" strokeWidth=".8" />
         </g>
       ))}
 
