@@ -35,6 +35,7 @@ import { NatureBackground } from '@/components/decor/SectionBackgrounds';
 import Gallery from '@/components/Gallery';
 import MezzoProfile from '@/components/Mezzo';
 import PerformersCarousel from '@/components/PerformersCarousel';
+import EntryFeeNotice from "@/components/EntryFeeNotice";
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -139,13 +140,15 @@ export default function Home() {
         {/* 1. Hero */}
         <Hero />
 
+        <EntryFeeNotice />
+
         {/* 2. Даты / о фестивале */}
         <About />
 
         {/* 3. Обратный отсчёт до даты фестиваля */}
-        <section
+<section
             id="countdown"
-            className="relative overflow-hidden pt-40 pb-28"
+            className="relative overflow-hidden pt-14 pb-10 sm:pt-24 sm:pb-16 md:pt-40 md:pb-28"
             style={{ background: 'linear-gradient(180deg, #218251 0%, #4CB963 100%)' }}
           >
             <NatureBackground />
@@ -174,18 +177,18 @@ export default function Home() {
               className="text-center"
             >
               <span
-                 className="inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90 backdrop-blur-sm"
+                 className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
                 style={{ color: '#fff'}}
               >
                 До открытия
               </span>
               <h2
-                className="text-4xl md:text-6xl mb-4 text-white"
+                className="text-2xl sm:text-4xl md:text-6xl mb-2 sm:mb-4 mt-2 sm:mt-0 text-white"
                 style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
               >
                 {getTranslation('countdown.title', language)}
               </h2>
-              <p className="text-lg mb-16 max-w-2xl mx-auto text-white/95">
+              <p className="text-sm sm:text-lg mb-6 sm:mb-16 max-w-2xl mx-auto text-white/95 px-2">
                 {getTranslation('countdown.subtitle', language)}
               </p>
               <CountdownTimer targetDate="2026-08-07T11:00:00" />

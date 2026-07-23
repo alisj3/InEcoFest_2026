@@ -52,7 +52,7 @@ export default function About() {
     <section
       id='about'
       style={{ backgroundColor: '#218251' }}
-      className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24"
+      className="relative overflow-hidden pt-12 pb-10 sm:pt-20 sm:pb-16 md:pt-28 md:pb-24"
     >
         <HalftoneBackground />
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -78,7 +78,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-4 sm:mb-6 flex justify-center"
+          className="mb-3 sm:mb-6 flex justify-center"
         >
           <span
              className="text-center mx-auto inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
@@ -93,24 +93,24 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-10 sm:mb-16 md:mb-24 rounded-[24px] sm:rounded-[32px] border border-white/15 bg-white/10 p-5 sm:p-8 backdrop-blur-xl md:p-12"
+          className="mb-6 sm:mb-16 md:mb-24 rounded-2xl sm:rounded-[32px] border border-white/15 bg-white/10 p-4 sm:p-8 backdrop-blur-xl md:p-12"
           style={{ boxShadow: '0 20px 50px rgba(0,0,0,.12)' }}
         >
           <span
-            className="mb-4 sm:mb-6 inline-flex rounded-full bg-white/15 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white backdrop-blur"
+            className="mb-2.5 sm:mb-6 inline-flex rounded-full bg-white/15 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white backdrop-blur"
             style={{ backgroundColor: '#3DAEDB', color: '#fff' }}
           >
             {getTranslation('about.mission.title', language)}
           </span>
           <p
-            className="text-lg sm:text-2xl md:text-3xl leading-snug font-bold"
+            className="text-base sm:text-2xl md:text-3xl leading-snug font-bold"
             style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
           >
             {language === 'kk' ? (festivalInfo as any).missionKk || festivalInfo.mission : festivalInfo.mission}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-10 sm:mb-16 md:mb-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 mb-6 sm:mb-16 md:mb-24">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -121,22 +121,22 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 whileHover={{ scale: 1.05, rotate: 0 }}
-                className="rounded-[20px] sm:rounded-[32px] border border-white/15 bg-white/10 p-4 sm:p-6 backdrop-blur-xl"
+                className="rounded-2xl sm:rounded-[32px] border border-white/15 bg-white/10 p-3 sm:p-6 backdrop-blur-xl"
                 style={{ boxShadow: '0 20px 50px rgba(0,0,0,.12)' }}
               >
                 <div
-                  className="w-10 h-10 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl flex items-center justify-center mb-3 sm:mb-5"
+                  className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-5"
                   style={{ backgroundColor: feature.bg, border: '2px solid #12291B' }}
                 >
-                  <IconComponent className="h-5 w-5 sm:h-7 sm:w-7" style={{ color: '#fff' }} strokeWidth={2.2} />
+                  <IconComponent className="h-4 w-4 sm:h-7 sm:w-7" style={{ color: '#fff' }} strokeWidth={2.2} />
                 </div>
                 <h4
-                  className="text-sm sm:text-lg mb-1.5 sm:mb-2 font-bold leading-tight"
+                  className="text-xs sm:text-lg mb-1 sm:mb-2 font-bold leading-tight"
                   style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
                 >
                   {feature.title}
                 </h4>
-                <p className="text-xs sm:text-sm leading-relaxed line-clamp-3 sm:line-clamp-none" style={{ color: '#fff' }}>
+                <p className="text-[11px] sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-none" style={{ color: '#fff' }}>
                   {feature.description}
                 </p>
               </motion.div>
@@ -149,29 +149,29 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-6"
         >
           {stats.map((stat) => {
             const IconComponent = stat.icon;
             return (
               <div
                 key={stat.label}
-                className="group flex h-full flex-col items-center justify-center rounded-[20px] sm:rounded-[28px] border border-white/15 bg-white/10 p-5 sm:p-8 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
+                className="group flex h-full flex-col items-center justify-center rounded-2xl sm:rounded-[28px] border border-white/15 bg-white/10 p-3 sm:p-8 text-center backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
                 style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.12)' }}
               >
                 <div
-                  className="mx-auto mb-2 sm:mb-3 w-9 h-9 sm:w-12 sm:h-12 rounded-full flex items-center justify-center"
+                  className="mx-auto mb-1.5 sm:mb-3 w-7 h-7 sm:w-12 sm:h-12 rounded-full flex items-center justify-center"
                   style={{ backgroundColor: stat.bg, border: '2px solid #12291B' }}
                 >
-                  <IconComponent className="h-4 w-4 sm:h-6 sm:w-6" style={{ color: '#12291B' }} strokeWidth={2.2} />
+                  <IconComponent className="h-3.5 w-3.5 sm:h-6 sm:w-6" style={{ color: '#12291B' }} strokeWidth={2.2} />
                 </div>
                 <div
-                  className="text-2xl sm:text-4xl md:text-5xl mb-1 font-bold"
+                  className="text-xl sm:text-4xl md:text-5xl mb-0.5 font-bold"
                   style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
                 >
                   {stat.number}
                 </div>
-                <div className="text-xs sm:text-sm font-medium" style={{ color: '#fff' }}>
+                <div className="text-[11px] sm:text-sm font-medium" style={{ color: '#fff' }}>
                   {stat.label}
                 </div>
               </div>

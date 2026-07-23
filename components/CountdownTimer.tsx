@@ -88,15 +88,15 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3 }}
-                className="text-3xl sm:text-4xl md:text-5xl mb-1 tabular-nums"
-                style={{ fontFamily: 'Georgia, "Times New Roman", serif', color: '#fff' }}
+                className="text-3xl sm:text-4xl md:text-5xl mb-1 tabular-nums font-bold"
+                style={{ color: '#fff' }}
               >
                 {unit.value.toString().padStart(2, '0')}
               </motion.div>
 
               <div
-                className="text-[10px] sm:text-xs tracking-[0.15em] sm:tracking-[0.2em] uppercase"
-                style={{ fontFamily: 'monospace', color: '#fff' }}
+                className="text-[10px] sm:text-xs font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase"
+                style={{ color: '#fff' }}
               >
                 {unit.label}
               </div>

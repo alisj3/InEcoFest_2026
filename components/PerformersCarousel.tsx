@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import OptimizedImage from "./ui/OptimizedImage";
@@ -155,6 +155,9 @@ export default function PerformersCarousel() {
   const [direction, setDirection] = useState(1);
   const [paused, setPaused] = useState(false);
   const [resetSignal, setResetSignal] = useState(0);
+  const [inView, setInView] = useState(false);
+
+  const sectionRef = useRef<HTMLElement | null>(null);
 
   const goTo = useCallback((newIndex: number, dir: number) => {
     setDirection(dir);
@@ -169,14 +172,30 @@ export default function PerformersCarousel() {
     [goTo],
   );
 
+  // Следим, находится ли секция во вьюпорте — автоплей идёт только когда слайдер виден
   useEffect(() => {
-    if (paused) return;
+    const node = sectionRef.current;
+    if (!node) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (paused || !inView) return;
     const timer = setInterval(() => {
       setDirection(1);
       setIndex((i) => (i + 1) % performers.length);
     }, AUTOPLAY_MS);
     return () => clearInterval(timer);
-  }, [paused, resetSignal]);
+  }, [paused, inView, resetSignal]);
 
   const performer = performers[index];
 
@@ -235,8 +254,8 @@ export default function PerformersCarousel() {
       {performer.socials && performer.socials.length > 0 && (
         <div className="mt-8 flex flex-wrap gap-3">
           {performer.socials.map((social) => (
-            <a
-              key={social.href}
+            
+              <a key={social.href}
               href={social.href}
               target="_blank"
               rel="noopener noreferrer"
@@ -275,6 +294,7 @@ export default function PerformersCarousel() {
 
   return (
     <section
+      ref={sectionRef}
       className="relative overflow-hidden py-24 transition-colors duration-700"
       style={{ backgroundColor: performer.accent.bg }}
       onMouseEnter={() => setPaused(true)}

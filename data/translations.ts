@@ -575,29 +575,37 @@ export const translations: Translations = {
     kk: "Би • Эмоция • Шоу",
   },
 
-"dance.stats.experience": {
-  ru: "год основания",
-  kk: "құрылған жылы",
-},
+  "dance.stats.experience": {
+    ru: "год основания",
+    kk: "құрылған жылы",
+  },
 
-"dance.stats.events": {
-  ru: "международных тура",
-  kk: "халықаралық тур",
-},
+  "dance.stats.events": {
+    ru: "международных тура",
+    kk: "халықаралық тур",
+  },
 
-"dance.stats.clients": {
-  ru: "творческих направления",
-  kk: "шығармашылық бағыт",
-},
+  "dance.stats.clients": {
+    ru: "творческих направления",
+    kk: "шығармашылық бағыт",
+  },
 
-"dance.stats.guests": {
-  ru: "театр",
-  kk: "театр",
-},
-"performers.badge": {
-  ru: "Участники фестиваля",
-  kk: "Фестиваль қатысушылары",
-},
+  "dance.stats.guests": {
+    ru: "театр",
+    kk: "театр",
+  },
+  "performers.badge": {
+    ru: "Участники фестиваля",
+    kk: "Фестиваль қатысушылары",
+  },
+  "speaker.schedule": {
+    ru: "Вся программа",
+    kk: "Толық бағдарлама",
+  },
+  "festival.entryFeeNotice": {
+    ru: "Вход на сам фестиваль бесплатный, но потребуется оплатить стандартный входной билет в Ботанический сад.",
+    kk: "Фестивальға кіру тегін, бірақ Ботаникалық бақтың стандартты кіру билеті бойынша төлем қажет.",
+  },
 };
 
 export const getTranslation = (key: string, language: Language): string => {
