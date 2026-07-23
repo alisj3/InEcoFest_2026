@@ -70,29 +70,27 @@ export default function Header({ onMenuClick }: HeaderProps) {
               <div
                 key={partner.alt}
                 className="
-  shrink-0
-  flex
-  h-10 w-10
-  sm:h-12 sm:w-12
-  md:h-[70px] md:w-[70px]
-  items-center
-  justify-center
-  rounded-xl
-  md:rounded-2xl
-  border border-black/10
-  bg-white/100
-  backdrop-blur-xl
-  shadow-lg
-  transition
-  hover:scale-105
-"
+                  group
+                  shrink-0
+                  flex
+                  h-10 w-10
+                  sm:h-12 sm:w-12
+                  md:h-[70px] md:w-[70px]
+                  items-center
+                  justify-center
+                  rounded-xl
+                  md:rounded-2xl
+                  border border-black/10
+                  bg-white
+                  shadow-lg
+                "
               >
                 <OptimizedImage
                   src={partner.src}
                   alt={partner.alt}
                   width={50}
                   height={50}
-                  className="h-full w-full object-contain p-1"
+                  className="h-full w-full object-contain p-1 transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
             ))}
