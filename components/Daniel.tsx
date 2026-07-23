@@ -17,7 +17,7 @@ export default function HostProfile() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#309155] py-24">
+    <section className="relative overflow-hidden bg-[#388c67] py-24">
       <HalftoneBackground />
 
       {/* Декоративные пятна */}

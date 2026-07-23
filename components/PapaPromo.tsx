@@ -36,7 +36,7 @@ export default function PapaPromo() {
   return (
     <section
       className="relative overflow-hidden py-12 sm:py-16 md:py-24"
-      style={{ backgroundColor: '#218251' }}
+      style={{ backgroundColor: '#388c67' }}
     >
       <NatureBackground />
 

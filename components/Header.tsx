@@ -110,7 +110,7 @@ export default function Header({ onMenuClick }: HeaderProps) {
                 transition={{ duration: 0.4, delay: index * 0.06 }}
                 whileHover={{
                   backgroundColor: isScrolled
-                    ? "#FFC531"
+                    ? "#f9bf00"
                     : "rgba(255,255,255,0.2)",
                 }}
               >
@@ -123,8 +123,8 @@ export default function Header({ onMenuClick }: HeaderProps) {
               onClick={toggleLanguage}
               className="flex items-center px-4 py-2 rounded-full text-sm font-bold transition-colors"
               style={{
-                fontFamily: '"Baloo 2", sans-serif',
-                backgroundColor: "#FFC531",
+                fontFamily: 'var(--font-cera)',
+                backgroundColor: "#f9bf00",
                 color: "#12291B",
                 border: "2px solid #12291B",
               }}

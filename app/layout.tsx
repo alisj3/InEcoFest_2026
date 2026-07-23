@@ -1,18 +1,36 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import localFont from 'next/font/local'
 import Script from 'next/script'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
-const inter = Inter({ 
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-inter',
+const ceraPro = localFont({
+  src: [
+    {
+      path: '../public/fonts/CeraPro-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/CeraPro-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-cera',
+  display: 'swap',
 })
 
-const poppins = Poppins({ 
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800'],
-  variable: '--font-poppins',
+const ceraProDisplay = localFont({
+  src: [
+    {
+      path: '../public/fonts/CeraPro-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-cera-display',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -57,8 +75,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="ru" className={`${inter.variable} ${poppins.variable}`}>
-      <body className={`${inter.className} antialiased`}>
+    <html lang="ru" className={`${ceraPro.variable} ${ceraProDisplay.variable}`}>
+      <body className={`${ceraPro.className} antialiased`}>
         {/* Yandex Metrica */}
         <Script id="yandex-metrica" strategy="afterInteractive">
           {`
@@ -90,4 +108,4 @@ export default function RootLayout({
       </body>
     </html>
   )
-} 
+}

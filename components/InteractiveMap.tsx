@@ -33,7 +33,7 @@ export default function InteractiveMap() {
   };
 
   return (
-    <section id="map" className="relative overflow-hidden bg-gradient-to-b from-[#4CB963] to-[#2F8F54] py-16 sm:py-20 md:py-28">
+    <section id="map" className="relative overflow-hidden bg-gradient-to-b from-[#388c67] to-[#388c67] py-16 sm:py-20 md:py-28">
       <NatureBackground />
 
       <div className="container-custom relative z-[5]">
@@ -207,7 +207,7 @@ export default function InteractiveMap() {
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
-                                      className="ml-0.5 inline-flex shrink-0 items-center text-[#4c6eb9] transition-colors hover:text-[#309155]"
+                                      className="ml-0.5 inline-flex shrink-0 items-center text-[#4c6eb9] transition-colors hover:text-[#388c67]"
                                       aria-label={getTranslation("map.speakerLink", language) || "Link"}
                                     >
                                       {getTranslation("map.link", language)}

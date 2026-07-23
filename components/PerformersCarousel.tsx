@@ -50,7 +50,7 @@ const performers: Performer[] = [
     image: Daniel.src,
     imageSide: "right",
     accent: {
-      bg: "#309155",
+      bg: "#388c67",
       blur: "#C9A15A",
       badgeBorder: "#C9A15A",
       badgeText: "#F6D48D",
@@ -85,7 +85,7 @@ const performers: Performer[] = [
     image: Mezzo.src,
     imageSide: "left",
     accent: {
-      bg: "#218251",
+      bg: "#388c67",
       blur: "#6FA0B8",
       badgeBorder: "#6FA0B8",
       badgeText: "#BFE7F5",
@@ -120,7 +120,7 @@ const performers: Performer[] = [
     image: "/images/Jolda.webp",
     imageSide: "right",
     accent: {
-      bg: "#2F8F54",
+      bg: "#388c67",
       blur: "#FF6B4A",
       badgeBorder: "#FF6B4A",
       badgeText: "#FFD9CC",

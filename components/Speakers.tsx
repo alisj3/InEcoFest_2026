@@ -102,7 +102,7 @@ function SpeakerCard({
       text-xs sm:text-sm
       font-bold
       tracking-wide
-      text-[#218251]
+      text-[#388c67]
       shadow-sm
     "
         >
@@ -159,7 +159,7 @@ function ScheduleStrip({
       className="group flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 rounded-2xl border border-white/20 bg-white px-4 sm:px-6 py-4 sm:py-5 cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
     >
       <div className="flex-shrink-0 sm:w-24 md:w-28">
-        <span className="inline-block whitespace-nowrap rounded-full bg-[#4CB963]/8 px-2.5 py-1 text-xs sm:text-sm font-bold leading-tight text-[#218251] sm:bg-transparent sm:px-0 sm:py-0">
+        <span className="inline-block whitespace-nowrap rounded-full bg-[#4CB963]/8 px-2.5 py-1 text-xs sm:text-sm font-bold leading-tight text-[#388c67] sm:bg-transparent sm:px-0 sm:py-0">
           {entry.time ?? "—"}
         </span>
       </div>
@@ -227,7 +227,7 @@ export default function Speakers() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<SpeakerEntry | null>(
     null,
   );
-  const [activeTab, setActiveTab] = useState("talks");
+  const [activeTab, setActiveTab] = useState("schedule");
 
   const [mounted, setMounted] = useState(false);
 
@@ -267,7 +267,7 @@ export default function Speakers() {
   return (
     <section
       id="program"
-      className="relative overflow-hidden bg-[#309155] py-16 sm:py-20 md:py-28"
+      className="relative overflow-hidden bg-[#388c67] py-16 sm:py-20 md:py-28"
     >
       <NatureBackground />
       <div className="container-custom relative z-[5]">
@@ -315,7 +315,7 @@ export default function Speakers() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full sm:w-auto rounded-full px-6 py-3 text-sm sm:text-base font-bold transition-all ${
                   activeTab === tab.id
-                    ? "bg-[#FFC531] text-[#12291B]"
+                    ? "bg-[#f9bf00] text-[#12291B]"
                     : "text-[#12291B] hover:bg-[#F3F5EF]"
                 }`}
               >

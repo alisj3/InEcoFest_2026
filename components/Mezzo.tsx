@@ -17,7 +17,7 @@ export default function MezzoProfile() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[#218251] py-24">
+    <section className="relative overflow-hidden bg-[#388c67] py-24">
       <HalftoneBackground />
 
       {/* Декоративные пятна */}

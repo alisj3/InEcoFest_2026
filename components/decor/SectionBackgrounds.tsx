@@ -6,8 +6,8 @@ export function HillsBackground() {
       preserveAspectRatio="none"
       style={{ height: '35%' }}
     >
-      <path d="M0 180 C 240 100 360 220 600 140 C 840 60 960 200 1200 120 C 1320 90 1380 130 1440 110 L1440 300 L0 300 Z" fill="#1FA37D" opacity="0.55" />
-      <path d="M0 220 C 200 160 420 260 680 190 C 940 120 1100 240 1440 180 L1440 300 L0 300 Z" fill="#12291B" opacity="0.25" />
+      <path d="M0 180 C 240 100 360 220 600 140 C 840 60 960 200 1200 120 C 1320 90 1380 130 1440 110 L1440 300 L0 300 Z" fill="#4f791f" opacity="0.55" />
+      <path d="M0 220 C 200 160 420 260 680 190 C 940 120 1100 240 1440 180 L1440 300 L0 300 Z" fill="#388c67" opacity="" />
     </svg>
   );
 }
@@ -29,7 +29,7 @@ export function HillsBackgroundYellow() {
       {/* Ближний холм */}
       <path
         d="M0 220 C 200 160 420 260 680 190 C 940 120 1100 240 1440 180 L1440 300 L0 300 Z"
-        fill="#FFC531"
+        fill="#f9bf00"
       />
     </svg>
   );
@@ -72,132 +72,114 @@ export function HalftoneBackground() {
     </svg>
   );
 }
-// COUNTDOWN — расходящиеся лучи прожектора
-// PARK — природный фон
+
+// PARK — природный фон с PNG-листьями
+const LEAF_IMAGES = [
+  '/images/leafes/leaf-1.png',
+  '/images/leafes/leaf-2.png',
+  '/images/leafes/leaf-3.png',
+  '/images/leafes/leaf-4.png',
+  '/images/leafes/leaf-5.png',
+];
+
+// Позиции крупных листьев (в процентах от контейнера, чтобы адаптировалось под любой размер секции)
+const LARGE_LEAVES = [
+  { left: '12%', top: '20%', size: 70, rotate: -15 },
+  { left: '24%', top: '12%', size: 55, rotate: 30 },
+  { left: '85%', top: '19%', size: 65, rotate: -25 },
+  { left: '75%', top: '13%', size: 50, rotate: 12 },
+  { left: '17%', top: '72%', size: 60, rotate: 40 },
+  { left: '82%', top: '72%', size: 68, rotate: -35 },
+];
+
+// Позиции мелких листочков-точек текстуры
+const SMALL_LEAVES = Array.from({ length: 14 }).map((_, i) => ({
+  left: `${(4 + ((i * 53) % 92)).toFixed(1)}%`,
+  top: `${(6 + ((i * 89) % 88)).toFixed(1)}%`,
+  size: 18 + (i % 3) * 4,
+  rotate: i * 17,
+}));
+
 export function NatureBackground() {
   return (
-    <svg
-      className="pointer-events-none absolute inset-0 w-full h-full opacity-[0.18]"
-      viewBox="0 0 1440 900"
-      preserveAspectRatio="xMidYMid slice"
-    >
-      {/* Холмы */}
-      <path
-        d="M0 650C220 560 420 740 720 640C980 550 1180 720 1440 600V900H0Z"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2"
-      />
-
-      <path
-        d="M0 720C260 620 520 820 760 700C980 600 1220 760 1440 680"
-        fill="none"
-        stroke="#fff"
-        strokeWidth="2"
-      />
-
-      {/* Волнистые линии рельефа */}
-      {[0, 40, 80, 120].map((offset) => (
+    <div className="pointer-events-none absolute inset-0 w-full h-full overflow-hidden opacity-[0.35]">
+      {/* Холмы и рельеф — оставлены как тонкие линии для глубины */}
+      <svg
+        className="absolute inset-0 w-full h-full opacity-50"
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="xMidYMid slice"
+      >
         <path
-          key={offset}
-          d={`
-            M0 ${220 + offset}
-            C250 ${170 + offset}
-            450 ${300 + offset}
-            720 ${230 + offset}
-            S1180 ${150 + offset}
-            1440 ${250 + offset}
-          `}
+          d="M0 650C220 560 420 740 720 640C980 550 1180 720 1440 600V900H0Z"
           fill="none"
           stroke="#fff"
-          strokeWidth="1.5"
+          strokeWidth="2"
         />
-      ))}
-
-      {/* Листья */}
-      {[
-        [170, 180],
-        [350, 110],
-        [1230, 170],
-        [1080, 120],
-        [250, 650],
-        [1180, 650],
-      ].map(([x, y], i) => (
-        <g
-          key={i}
-          transform={`translate(${x},${y}) rotate(${i * 25})`}
-        >
+        <path
+          d="M0 720C260 620 520 820 760 700C980 600 1220 760 1440 680"
+          fill="none"
+          stroke="#fff"
+          strokeWidth="2"
+        />
+        {[0, 40, 80, 120].map((offset) => (
           <path
-  d="
-    M0 0
-    C8 -18 24 -30 42 -22
-    C58 -15 58 15 42 22
-    C24 30 8 18 0 0Z
-  "
-  fill="none"
-  stroke="#fff"
-  strokeWidth="1.5"
-/>
-
-<path
-  d="M2 0 L42 0"
-  stroke="#fff"
-  strokeWidth="1"
-/>
-
-<path d="M16 -8 L24 0" stroke="#fff" strokeWidth=".8" />
-<path d="M16 8 L24 0" stroke="#fff" strokeWidth=".8" />
-<path d="M28 -10 L36 0" stroke="#fff" strokeWidth=".8" />
-<path d="M28 10 L36 0" stroke="#fff" strokeWidth=".8" />
-        </g>
-      ))}
-
-      {/* Веточки */}
-      {[
-        [100, 500],
-        [1320, 300],
-        [1230, 730],
-        [220, 770],
-      ].map(([x, y], i) => (
-        <g key={i} transform={`translate(${x},${y})`}>
-          <path
-            d="M0 0 Q40 -30 80 0"
+            key={offset}
+            d={`
+              M0 ${220 + offset}
+              C250 ${170 + offset}
+              450 ${300 + offset}
+              720 ${230 + offset}
+              S1180 ${150 + offset}
+              1440 ${250 + offset}
+            `}
             fill="none"
             stroke="#fff"
             strokeWidth="1.5"
           />
-          <path
-            d="M30 -15 q8 -12 18 -4"
-            fill="none"
-            stroke="#fff"
-            strokeWidth="1"
-          />
-          <path
-            d="M55 -18 q8 -10 16 -2"
-            fill="none"
-            stroke="#fff"
-            strokeWidth="1"
-          />
-        </g>
+        ))}
+      </svg>
+
+      {/* Крупные PNG-листья */}
+      {LARGE_LEAVES.map((leaf, i) => (
+        <img
+          key={`large-${i}`}
+          src={LEAF_IMAGES[i % LEAF_IMAGES.length]}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            left: leaf.left,
+            top: leaf.top,
+            width: leaf.size,
+            height: leaf.size,
+            transform: `rotate(${leaf.rotate}deg)`,
+            objectFit: 'contain',
+          }}
+        />
       ))}
 
-      {/* Маленькие листочки */}
-      {Array.from({ length: 25 }).map((_, i) => {
-        const x = 60 + (i * 53) % 1320;
-        const y = 80 + (i * 89) % 720;
-
-        return (
-          <g key={i} transform={`translate(${x},${y}) rotate(${i * 17})`}>
-            <path
-              d="M0 0 C4 -6 10 -6 14 0 C10 6 4 6 0 0Z"
-              fill="none"
-              stroke="#fff"
-              strokeWidth="0.8"
-            />
-          </g>
-        );
-      })}
-    </svg>
+      {/* Мелкие PNG-листочки для текстуры */}
+      {SMALL_LEAVES.map((leaf, i) => (
+        <img
+          key={`small-${i}`}
+          src={LEAF_IMAGES[i % LEAF_IMAGES.length]}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          style={{
+            position: 'absolute',
+            left: leaf.left,
+            top: leaf.top,
+            width: leaf.size,
+            height: leaf.size,
+            transform: `rotate(${leaf.rotate}deg)`,
+            objectFit: 'contain',
+            opacity: 0.6,
+          }}
+        />
+      ))}
+    </div>
   );
 }
 

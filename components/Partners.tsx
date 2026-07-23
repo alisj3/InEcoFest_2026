@@ -66,7 +66,7 @@ export default function Partners() {
     <section
       id="partners"
       className="relative overflow-hidden py-28"
-      style={{ backgroundColor: '#309155' }}
+      style={{ backgroundColor: '#388c67' }}
     >
   <NatureBackground />
 
@@ -101,7 +101,7 @@ export default function Partners() {
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 {partners.map((partner, index) => {
   const accent =
-    index % 3 === 0 ? '#FFC531' : index % 3 === 1 ? '#3DAEDB' : '#FF6B4A';
+    index % 3 === 0 ? '#f9bf00' : index % 3 === 1 ? '#3DAEDB' : '#FF6B4A';
 
   return (
     <motion.div

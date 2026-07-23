@@ -150,12 +150,12 @@ export default function Home() {
 <section
             id="countdown"
             className="relative overflow-hidden pt-14 pb-10 sm:pt-24 sm:pb-16 md:pt-40 md:pb-28"
-            style={{ background: 'linear-gradient(180deg, #218251 0%, #4CB963 100%)' }}
+            style={{ background: 'linear-gradient(180deg, #388c67 0%, #388c67 100%)' }}
           >
             <NatureBackground />
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
               {[
-                { top: '10%', left: '8%', size: 16, color: '#FFC531' },
+                { top: '10%', left: '8%', size: 16, color: '#f9bf00' },
                 { top: '20%', left: '90%', size: 20, color: '#FF6B4A' },
                 { top: '80%', left: '5%', size: 14, color: '#FFFFFF' },
               ].map((dot, i) => (
@@ -185,7 +185,7 @@ export default function Home() {
               </span>
               <h2
                 className="text-2xl sm:text-4xl md:text-6xl mb-2 sm:mb-4 mt-2 sm:mt-0 text-white"
-                style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
+                style={{ fontFamily: 'var(--font-cera)', fontWeight: 700, textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
               >
                 {getTranslation('countdown.title', language)}
               </h2>

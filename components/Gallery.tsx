@@ -112,7 +112,7 @@ export default function Gallery() {
   }, [selectedIndex]);
 
   return (
-    <section id="gallery" className="relative overflow-hidden bg-[#218251] py-28">
+    <section id="gallery" className="relative overflow-hidden bg-[#388c67] py-28">
       <NatureBackground />
       <div className="container-custom relative z-[5]">
         <motion.div

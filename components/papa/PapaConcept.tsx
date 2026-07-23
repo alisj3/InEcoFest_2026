@@ -38,7 +38,7 @@ export default function PapaConcept() {
     >
       <HalftoneBackground />
 
-      <div className="pointer-events-none absolute -left-20 top-1/4 h-[280px] w-[280px] rounded-full bg-[#FFC531]/10 blur-[100px]" />
+      <div className="pointer-events-none absolute -left-20 top-1/4 h-[280px] w-[280px] rounded-full bg-[#f9bf00]/10 blur-[100px]" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-[280px] w-[280px] rounded-full bg-white/10 blur-[110px]" />
 
       <div className="container-custom relative z-[5]">
@@ -69,7 +69,7 @@ export default function PapaConcept() {
                   key={point.text}
                   className="flex items-center sm:flex-col gap-2.5 sm:gap-2 rounded-xl bg-white/10 px-3.5 py-2.5 sm:py-4 text-left sm:text-center"
                 >
-                  <div className="flex h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#FFC531]">
+                  <div className="flex h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#f9bf00]">
                     <Icon className="h-4 w-4 text-[#3A1409]" strokeWidth={2.2} />
                   </div>
                   <p className="text-xs sm:text-sm leading-snug text-white/90">{point.text}</p>

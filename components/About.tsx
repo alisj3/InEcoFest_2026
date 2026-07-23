@@ -16,7 +16,7 @@ export default function About() {
       title: getTranslation('values.inclusivity', language),
       description: getTranslation('values.inclusivity.desc', language),
       rotate: '-rotate-2',
-      bg: '#FFC531',
+      bg: '#f9bf00',
     },
     {
       icon: Leaf,
@@ -42,7 +42,7 @@ export default function About() {
   ];
 
   const stats = [
-    { number: '11', label: getTranslation('stats.platforms', language), icon: TreePine, bg: '#FFC531' },
+    { number: '11', label: getTranslation('stats.platforms', language), icon: TreePine, bg: '#f9bf00' },
     { number: '50+', label: getTranslation('stats.workshops', language), icon: Flower2, bg: '#FF6B4A' },
     { number: '2000+', label: getTranslation('stats.guests', language), icon: Users, bg: '#3DAEDB' },
     { number: '9', label: getTranslation('stats.hours', language), icon: Globe, bg: '#8B3FC4' },
@@ -51,16 +51,16 @@ export default function About() {
   return (
     <section
       id='about'
-      style={{ backgroundColor: '#218251' }}
+      style={{ backgroundColor: '#388c67' }}
       className="relative overflow-hidden pt-12 pb-10 sm:pt-20 sm:pb-16 md:pt-28 md:pb-24"
     >
         <HalftoneBackground />
           <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
-          { top: '8%', left: '5%', size: 16, color: '#FFC531' },
+          { top: '8%', left: '5%', size: 16, color: '#f9bf00' },
           { top: '15%', left: '92%', size: 20, color: '#FF6B4A' },
           { top: '60%', left: '3%', size: 14, color: '#3DAEDB' },
-          { top: '90%', left: '88%', size: 18, color: '#FFC531' },
+          { top: '90%', left: '88%', size: 18, color: '#f9bf00' },
         ].map((dot, i) => (
           <motion.div
             key={i}
@@ -104,7 +104,7 @@ export default function About() {
           </span>
           <p
             className="text-base sm:text-2xl md:text-3xl leading-snug font-bold"
-            style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
+            style={{ fontFamily: 'var(--font-cera)', color: '#fff' }}
           >
             {language === 'kk' ? (festivalInfo as any).missionKk || festivalInfo.mission : festivalInfo.mission}
           </p>
@@ -132,7 +132,7 @@ export default function About() {
                 </div>
                 <h4
                   className="text-xs sm:text-lg mb-1 sm:mb-2 font-bold leading-tight"
-                  style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
+                  style={{ fontFamily: 'var(--font-cera)', color: '#fff' }}
                 >
                   {feature.title}
                 </h4>
@@ -167,7 +167,7 @@ export default function About() {
                 </div>
                 <div
                   className="text-xl sm:text-4xl md:text-5xl mb-0.5 font-bold"
-                  style={{ fontFamily: '"Baloo 2", sans-serif', color: '#fff' }}
+                  style={{ fontFamily: 'var(--font-cera)', color: '#fff' }}
                 >
                   {stat.number}
                 </div>

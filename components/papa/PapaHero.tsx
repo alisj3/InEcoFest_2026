@@ -36,7 +36,7 @@ export default function PapaHero() {
       <HillsBackgroundYellow />
 
       {/* Мягкие светящиеся пятна на фоне для глубины */}
-      <div className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-[#FFC531]/25 blur-[110px]" />
+      <div className="pointer-events-none absolute -left-32 -top-32 h-[420px] w-[420px] rounded-full bg-[#f9bf00]/25 blur-[110px]" />
       <div className="pointer-events-none absolute -right-24 top-1/3 h-[380px] w-[380px] rounded-full bg-white/15 blur-[130px]" />
       <div className="pointer-events-none absolute bottom-0 left-1/3 h-[300px] w-[300px] rounded-full bg-[#7A2415]/30 blur-[100px]" />
 
@@ -53,11 +53,11 @@ export default function PapaHero() {
       {/* Плавающие декоративные фигуры */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
-          { top: '14%', left: '8%', size: 16, color: '#FFC531' },
+          { top: '14%', left: '8%', size: 16, color: '#f9bf00' },
           { top: '22%', left: '88%', size: 22, color: '#FFFFFF' },
-          { top: '78%', left: '10%', size: 14, color: '#FFC531' },
+          { top: '78%', left: '10%', size: 14, color: '#f9bf00' },
           { top: '50%', left: '4%', size: 10, color: '#FFFFFF' },
-          { top: '88%', left: '78%', size: 18, color: '#FFC531' },
+          { top: '88%', left: '78%', size: 18, color: '#f9bf00' },
           { top: '35%', left: '95%', size: 12, color: '#FFFFFF' },
         ].map((dot, i) => (
           <motion.div
@@ -79,8 +79,8 @@ export default function PapaHero() {
             className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FFC531] opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#FFC531]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f9bf00] opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-[#f9bf00]" />
             </span>
             {kk ? papaInfo.badgeKk : papaInfo.badge}
           </motion.span>

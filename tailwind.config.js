@@ -49,8 +49,8 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-cera)', 'sans-serif'],
+        display: ['var(--font-cera-display)', 'sans-serif'],
       },
       backgroundImage: {
         'eco-gradient': 'linear-gradient(135deg, #22c55e 0%, #10b981 50%, #059669 100%)',

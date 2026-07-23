@@ -12,7 +12,7 @@ export default function Hero() {
   const { language } = useLanguage();
 
   const info = [
-    { icon: Calendar, value: festivalInfo.date, label: getTranslation('hero.date', language), bg: '#FFC531' },
+    { icon: Calendar, value: festivalInfo.date, label: getTranslation('hero.date', language), bg: '#f9bf00' },
     {
       icon: MapPin,
       value: language === 'kk' ? (festivalInfo as any).locationKk || festivalInfo.location : festivalInfo.location,
@@ -25,16 +25,16 @@ export default function Hero() {
   return (
     <section
       id="home"
-      style={{ backgroundColor: '#2F9E44' }}
+      style={{ backgroundColor: '#83a400' }}
       className="relative overflow-hidden pt-20 pb-12 sm:pt-28 sm:pb-16 md:pt-40 md:pb-28"
     >
       <HillsBackground />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
-          { top: '12%', left: '8%', size: 18, color: '#FFC531' },
+          { top: '12%', left: '8%', size: 18, color: '#f9bf00' },
           { top: '20%', left: '85%', size: 24, color: '#FF6B4A' },
           { top: '70%', left: '6%', size: 16, color: '#3DAEDB' },
-          { top: '78%', left: '90%', size: 20, color: '#FFC531' },
+          { top: '78%', left: '90%', size: 20, color: '#f9bf00' },
           { top: '45%', left: '92%', size: 14, color: '#8B3FC4' },
           { top: '85%', left: '35%', size: 18, color: '#FF6B4A' },
         ].map((dot, i) => (
@@ -76,10 +76,10 @@ export default function Hero() {
           >
             <h1
               className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl mb-3 sm:mb-6 leading-[1] sm:leading-[0.95] text-white"
-              style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.12)' }}
+              style={{ fontFamily: 'var(--font-cera)', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.12)' }}
             >
               InEco
-              <span style={{ color: '#FFC531' }}>Fest</span>
+              <span style={{ color: '#f9bf00' }}>Fest</span>
               : {getTranslation('hero.river', language)}
             </h1>
             <p className="text-base sm:text-xl md:text-2xl mb-2 sm:mb-4 max-w-2xl mx-auto text-white/95 font-medium px-2">
