@@ -12,6 +12,29 @@ export function HillsBackground() {
   );
 }
 
+export function HillsBackgroundYellow() {
+  return (
+    <svg
+      className="pointer-events-none absolute inset-x-0 bottom-0 w-full"
+      viewBox="0 0 1440 300"
+      preserveAspectRatio="none"
+      style={{ height: "35%" }}
+    >
+      {/* Дальний холм */}
+      <path
+        d="M0 180 C 240 100 360 220 600 140 C 840 60 960 200 1200 120 C 1320 90 1380 130 1440 110 L1440 300 L0 300 Z"
+        fill="#FFE082"
+      />
+
+      {/* Ближний холм */}
+      <path
+        d="M0 220 C 200 160 420 260 680 190 C 940 120 1100 240 1440 180 L1440 300 L0 300 Z"
+        fill="#FFC531"
+      />
+    </svg>
+  );
+}
+
 // ABOUT — полутоновая точечная сетка, затухающая к краям
 export function HalftoneBackground() {
   return (

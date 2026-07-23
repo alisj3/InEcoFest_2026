@@ -30,6 +30,11 @@ export const translations: Translations = {
     kk: "БАЙЛАНЫС",
   },
 
+  "nav.registration": {
+    ru: "ФОРМА",
+    kk: "ТІРКЕУ"
+  },
+
   // Hero секция
   "hero.river": {
     ru: "Источник",

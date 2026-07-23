@@ -36,6 +36,7 @@ import Gallery from '@/components/Gallery';
 import MezzoProfile from '@/components/Mezzo';
 import PerformersCarousel from '@/components/PerformersCarousel';
 import EntryFeeNotice from "@/components/EntryFeeNotice";
+import PapaPromo from '@/components/PapaPromo';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -206,6 +207,8 @@ export default function Home() {
         <PerformersCarousel />
 
         <Speakers />
+
+        <PapaPromo />
         
         {/* <Program /> */}
         <Gallery />

@@ -17,6 +17,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: 'InEco Fest 2025 - Фестиваль экологии и инклюзии',
+  icons: {
+    icon: [
+      { url: '/images/logos/ineco.png', type: 'image/png' },
+    ],
+  },
   description: 'Присоединяйтесь к InEco Fest 2025 - уникальному фестивалю, объединяющему экологию и инклюзию. Мастер-классы, лекции, выставки и многое другое!',
   keywords: 'фестиваль, экология, инклюзия, мастер-классы, InEco Fest, 2025',
   authors: [{ name: 'InEco Fest Team' }],
