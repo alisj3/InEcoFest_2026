@@ -163,7 +163,7 @@ export default function Hero() {
                 <motion.div
                   key={item.label}
                   whileHover={{ scale: 1.05, rotate: 0 }}
-                  className="group flex items-center sm:items-start gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl border border-white/15 bg-white/10 p-3 sm:p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
+                  className="group flex items-center gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl border border-white/15 bg-white/10 p-3 sm:p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:bg-white/15 hover:shadow-2xl"
                   style={{ boxShadow: '0 12px 40px rgba(0,0,0,0.12)' }}
                 >
                   <div className="flex h-10 w-10 sm:h-14 sm:w-14 shrink-0 items-center justify-center rounded-xl sm:rounded-2xl bg-white/15">
