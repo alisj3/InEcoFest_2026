@@ -84,12 +84,12 @@ const LEAF_IMAGES = [
 
 // Позиции крупных листьев (в процентах от контейнера, чтобы адаптировалось под любой размер секции)
 const LARGE_LEAVES = [
-  { left: '12%', top: '20%', size: 70, rotate: -15 },
-  { left: '24%', top: '12%', size: 55, rotate: 30 },
-  { left: '85%', top: '19%', size: 65, rotate: -25 },
-  { left: '75%', top: '13%', size: 50, rotate: 12 },
-  { left: '17%', top: '72%', size: 60, rotate: 40 },
-  { left: '82%', top: '72%', size: 68, rotate: -35 },
+  { left: '12%', top: '20%', size: 120, rotate: -15 },
+  { left: '24%', top: '12%', size: 95, rotate: 30 },
+  { left: '85%', top: '19%', size: 115, rotate: -25 },
+  { left: '75%', top: '13%', size: 90, rotate: 12 },
+  { left: '17%', top: '72%', size: 110, rotate: 40 },
+  { left: '82%', top: '72%', size: 120, rotate: -35 },
 ];
 
 // Позиции мелких листочков-точек текстуры

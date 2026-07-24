@@ -1,12 +1,76 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Clock, ChevronDown, Leaf } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, MapPin, Clock, ChevronDown, Leaf, Info } from 'lucide-react';
 import { festivalInfo } from '@/data/festival-data';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getTranslation } from '@/data/translations';
 import OptimizedImage from './ui/OptimizedImage';
 import { HillsBackground } from './decor/SectionBackgrounds';
+
+// Картинки для фоновой карусели. Положи файлы в public/images/hero/
+// и при необходимости поменяй пути/добавь ещё.
+const heroImages = [
+  '/images/hero/1.webp',
+  '/images/hero/2.webp',
+  '/images/hero/3.webp',
+];
+
+const SLIDE_DURATION = 5000; // мс между сменой слайдов
+
+function HeroBackgroundCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % heroImages.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={heroImages[index]}
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ opacity: { duration: 1.4, ease: 'easeInOut' }, scale: { duration: SLIDE_DURATION / 1000 + 1.4, ease: 'linear' } }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={heroImages[index]}
+            alt=""
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Цветной оверлей в тон секции, чтобы карусель не спорила по палитре с сайтом */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(160deg, rgba(131,164,0,0.88) 0%, rgba(131,164,0,0.72) 35%, rgba(23,53,30,0.55) 75%, rgba(18,41,27,0.78) 100%)',
+        }}
+      />
+      {/* Дополнительное затемнение снизу — под текст и кнопки */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(18,41,27,0) 0%, rgba(18,41,27,0.35) 70%, rgba(18,41,27,0.55) 100%)',
+        }}
+      />
+    </div>
+  );
+}
 
 export default function Hero() {
   const { language } = useLanguage();
@@ -28,6 +92,7 @@ export default function Hero() {
       style={{ backgroundColor: '#83a400' }}
       className="relative overflow-hidden pt-20 pb-12 sm:pt-28 sm:pb-16 md:pt-40 md:pb-28"
     >
+      <HeroBackgroundCarousel />
       <HillsBackground />
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {[
@@ -80,9 +145,8 @@ export default function Hero() {
             >
               InEco
               <span style={{ color: '#f9bf00' }}>Fest</span>
-              : {getTranslation('hero.river', language)}
             </h1>
-            <p className="text-base sm:text-xl md:text-2xl mb-2 sm:mb-4 max-w-2xl mx-auto text-white/95 font-medium px-2">
+            <p className="text-base sm:text-xl md:text-2xl mb-2 sm:mb-4 max-w-2xl mx-auto text-white/95 font-semibold px-2">
               {getTranslation('hero.subtitle', language)}
             </p>
           </motion.div>
@@ -109,26 +173,48 @@ export default function Hero() {
                       />
                   </div>
                   <div className="flex min-h-0 sm:min-h-[56px] flex-col justify-center text-left">
-                    <p className="text-sm sm:text-base font-bold leading-snug break-words" style={{ color: '#fff' }}>{item.value}</p>
-                    <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm leading-tight" style={{ color: '#f4f4f4' }}>{item.label}</p>
+                    <p className="text-base sm:text-lg font-bold leading-snug break-words" style={{ color: '#fff' }}>
+                      {item.value}
+                    </p>
+                    <p className="mt-0.5 sm:mt-1 text-xl sm:text-lg leading-tight" style={{ color: '#f4f4f4' }}>{item.label}</p>
                   </div>
                 </motion.div>
               );
             })}
           </motion.div>
 
+          {/* Уведомление о входном билете — в том же стеклянном стиле, что и остальной Hero */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+            className="mb-6 sm:mb-10 flex justify-center"
+          >
+            <div
+              className="flex max-w-2xl items-start gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl border border-[#f9bf00]/30 bg-white/10 px-4 sm:px-6 py-3.5 sm:py-4 backdrop-blur-md"
+              style={{ boxShadow: '0 12px 30px rgba(0,0,0,0.1)' }}
+            >
+              <span className="flex h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#f9bf00]">
+                <Info className="h-4 w-4 sm:h-5 sm:w-5 text-[#17351E]" strokeWidth={2.5} />
+              </span>
+              <p className="text-xs sm:text-sm leading-5 sm:leading-6 text-left text-white/95">
+                {getTranslation('festival.entryFeeNotice', language)}
+              </p>
+            </div>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mb-7 sm:mb-14 flex justify-center"
+            className="mb-12 sm:mb-12 flex justify-center"
           >
             <motion.a
               href={language === 'kk' ? '/program-kk.docx' : '/program-ru.docx'}
               download={language === 'kk' ? 'InEco_Fest_2025_Baғdarlama.docx' : 'InEco_Fest_2025_Программа.docx'}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 rounded-full bg-[#FFD45A] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#17351E] shadow-lg transition-all duration-300 hover:shadow-2xl"
+              className="inline-flex items-center gap-3 rounded-full bg-[#f9bf00] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#17351E] shadow-lg transition-all duration-300 hover:shadow-2xl"
               style={{
                 boxShadow: '0 12px 35px rgba(0,0,0,.18)',
               }}
@@ -143,7 +229,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="max-w-3xl mx-auto px-2"
           >
-            <p className="text-sm sm:text-lg leading-relaxed mb-3 sm:mb-6 text-white/95">
+            <p className="text-base sm:text-xl leading-relaxed mb-3 sm:mb-6 text-white/95">
               {language === 'kk' ? (festivalInfo as any).descriptionKk || festivalInfo.description : festivalInfo.description}
             </p>
             <div

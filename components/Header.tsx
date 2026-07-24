@@ -63,9 +63,9 @@ export default function Header({ onMenuClick }: HeaderProps) {
       }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between py-2 md:py-3 gap-3">
+        <div className="flex items-center justify-between py-2 md:py-3 gap-2 sm:gap-3">
           {/* Логотипы партнеров */}
-          <div className="flex flex-1 items-center gap-2 overflow-x-auto scrollbar-hide">
+          <div className="header-logos flex flex-1 min-w-0 items-center gap-1.5 max-[400px]:gap-1 sm:gap-2 overflow-x-auto">
             {partners.map((partner) => (
               <div
                 key={partner.alt}
@@ -73,7 +73,8 @@ export default function Header({ onMenuClick }: HeaderProps) {
                   group
                   shrink-0
                   flex
-                  h-10 w-10
+                  h-9 w-9
+                  max-[400px]:h-8 max-[400px]:w-8
                   sm:h-12 sm:w-12
                   md:h-[70px] md:w-[70px]
                   items-center
@@ -154,6 +155,16 @@ export default function Header({ onMenuClick }: HeaderProps) {
           </button>
         </div>
       </div>
+
+      <style jsx>{`
+        .header-logos {
+          scrollbar-width: none; /* Firefox */
+          -ms-overflow-style: none; /* IE/Edge */
+        }
+        .header-logos::-webkit-scrollbar {
+          display: none; /* Chrome/Safari */
+        }
+      `}</style>
     </motion.header>
   );
 }

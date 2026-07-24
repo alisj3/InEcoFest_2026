@@ -141,13 +141,13 @@ export default function Home() {
         {/* 1. Hero */}
         <Hero />
 
-        <EntryFeeNotice />
+        {/* <EntryFeeNotice /> */}
 
         {/* 2. Даты / о фестивале */}
         <About />
 
         {/* 3. Обратный отсчёт до даты фестиваля */}
-<section
+          <section
             id="countdown"
             className="relative overflow-hidden pt-14 pb-10 sm:pt-24 sm:pb-16 md:pt-40 md:pb-28"
             style={{ background: 'linear-gradient(180deg, #388c67 0%, #388c67 100%)' }}

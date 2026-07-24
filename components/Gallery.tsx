@@ -92,6 +92,10 @@ const photos: GalleryPhoto[] = [
 export default function Gallery() {
   const { language } = useLanguage();
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+
+  const MOBILE_INITIAL_COUNT = 6;
+  const mobilePhotos = showAllMobile ? photos : photos.slice(0, MOBILE_INITIAL_COUNT);
 
   useEffect(() => {
     document.body.style.overflow = selectedIndex !== null ? 'hidden' : '';
@@ -112,7 +116,7 @@ export default function Gallery() {
   }, [selectedIndex]);
 
   return (
-    <section id="gallery" className="relative overflow-hidden bg-[#388c67] py-28">
+    <section id="gallery" className="relative overflow-hidden bg-[#388c67] py-16 sm:py-28">
       <NatureBackground />
       <div className="container-custom relative z-[5]">
         <motion.div
@@ -120,18 +124,60 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mx-auto mb-16 max-w-4xl text-center"
+          className="mx-auto mb-8 sm:mb-16 max-w-4xl text-center"
         >
           <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white/90 backdrop-blur-sm">
             {getTranslation('gallery.badge', language)}
           </span>
-          <h2 className="mt-6 text-5xl font-black leading-tight text-white md:text-6xl">{getTranslation('gallery.title', language)}</h2>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-white/80">
+          <h2 className="mt-6 text-3xl sm:text-5xl font-black leading-tight text-white md:text-6xl">{getTranslation('gallery.title', language)}</h2>
+          <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/80">
             {getTranslation('gallery.subtitle', language)}
           </p>
         </motion.div>
 
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+        {/* Мобильная версия: сетка 2 колонки, короткая по умолчанию + кнопка "Показать больше" */}
+        <div className="md:hidden">
+          <div className="grid grid-cols-2 gap-3">
+            {mobilePhotos.map((photo, i) => (
+              <motion.button
+                key={photo.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: (i % 6) * 0.03 }}
+                onClick={() => setSelectedIndex(i)}
+                className="group relative block aspect-square overflow-hidden rounded-2xl border border-white/20 bg-white/10"
+              >
+                <OptimizedImage
+                  src={photo.src}
+                  alt={language === 'kk' ? photo.altKk : photo.alt}
+                  width={480}
+                  height={480}
+                  className="h-full w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-[#12291B]/70 via-transparent to-transparent">
+                  <p className="p-3 text-left text-xs font-semibold text-white">{language === 'kk' ? photo.altKk : photo.alt}</p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
+          {photos.length > MOBILE_INITIAL_COUNT && (
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => setShowAllMobile((v) => !v)}
+                className="rounded-full border border-white/25 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-white/20"
+              >
+                {showAllMobile
+                  ? (language === 'kk' ? 'Азырақ көрсету' : 'Показать меньше')
+                  : (language === 'kk' ? 'Барлығын көрсету' : 'Показать больше')}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Планшет/десктоп: прежняя masonry-сетка колонками */}
+        <div className="hidden md:block columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
           {photos.map((photo, i) => (
             <motion.button
               key={photo.id}

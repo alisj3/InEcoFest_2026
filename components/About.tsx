@@ -1,39 +1,40 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Users, Heart, Leaf, Target, TreePine, Flower2, Globe } from 'lucide-react';
+import { Users, Heart, Leaf, GraduationCap, TreePine, Flower2, Globe } from 'lucide-react';
 import { festivalInfo } from '@/data/festival-data';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getTranslation } from '@/data/translations';
 import { HalftoneBackground } from './decor/SectionBackgrounds';
+import OptimizedImage from './ui/OptimizedImage';
 
 export default function About() {
   const { language } = useLanguage();
 
   const features = [
     {
-      icon: Users,
+      image: "/images/icons/11.png",
       title: getTranslation('values.inclusivity', language),
       description: getTranslation('values.inclusivity.desc', language),
       rotate: '-rotate-2',
       bg: '#f9bf00',
     },
     {
-      icon: Leaf,
+      image: "/images/leafes/leaf-3.png",
       title: getTranslation('values.ecology', language),
       description: getTranslation('values.ecology.desc', language),
       rotate: 'rotate-1',
       bg: '#FF6B4A',
     },
     {
-      icon: Heart,
+      image: '/images/icons/heart.png',
       title: getTranslation('values.community', language),
       description: getTranslation('values.community.desc', language),
       rotate: '-rotate-1',
       bg: '#3DAEDB',
     },
     {
-      icon: Target,
+      icon: GraduationCap,
       title: getTranslation('values.education', language),
       description: getTranslation('values.education.desc', language),
       rotate: 'rotate-2',
@@ -78,11 +79,11 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-3 sm:mb-6 flex justify-center"
+          className="mb-6 sm:mb-10 md:mb-14 text-center"
         >
           <span
-             className="text-center mx-auto inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
-             style={{ color: '#fff' }}
+            className="text-4xl sm:text-6xl md:text-6xl lg:text-6xl font-black leading-none"
+            style={{ fontFamily: 'var(--font-cera)', color: '#fff' }}
           >
             {getTranslation("about.title", language)}
           </span>
@@ -93,24 +94,24 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-6 sm:mb-16 md:mb-24 rounded-2xl sm:rounded-[32px] border border-white/15 bg-white/10 p-4 sm:p-8 backdrop-blur-xl md:p-12"
+          className="mb-6 sm:mb-10 md:mb-14 rounded-2xl sm:rounded-[32px] border border-white/15 bg-white/10 p-4 sm:p-8 backdrop-blur-xl md:p-12"
           style={{ boxShadow: '0 20px 50px rgba(0,0,0,.12)' }}
         >
           <span
-            className="mb-2.5 sm:mb-6 inline-flex rounded-full bg-white/15 px-3 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white backdrop-blur"
+            className="mb-4 sm:mb-8 inline-flex rounded-full bg-white/15 px-5 py-2.5 sm:px-7 sm:py-3 text-sm sm:text-xl font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white backdrop-blur"
             style={{ backgroundColor: '#3DAEDB', color: '#fff' }}
           >
             {getTranslation('about.mission.title', language)}
           </span>
           <p
-            className="text-base sm:text-2xl md:text-3xl leading-snug font-bold"
+            className="text-base sm:text-xl md:text-2xl leading-snug font-bold"
             style={{ fontFamily: 'var(--font-cera)', color: '#fff' }}
           >
             {language === 'kk' ? (festivalInfo as any).missionKk || festivalInfo.mission : festivalInfo.mission}
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 mb-6 sm:mb-16 md:mb-24">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 mb-6 sm:mb-10 md:mb-14">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
@@ -125,10 +126,24 @@ export default function About() {
                 style={{ boxShadow: '0 20px 50px rgba(0,0,0,.12)' }}
               >
                 <div
-                  className="w-8 h-8 sm:w-14 sm:h-14 rounded-lg sm:rounded-2xl flex items-center justify-center mb-2 sm:mb-5"
-                  style={{ backgroundColor: feature.bg, border: '2px solid #12291B' }}
+                  className="mb-4 flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl"
+                  style={{ backgroundColor: feature.bg }}
                 >
-                  <IconComponent className="h-4 w-4 sm:h-7 sm:w-7" style={{ color: '#fff' }} strokeWidth={2.2} />
+                  {feature.image ? (
+                    <OptimizedImage
+                      src={feature.image}
+                      alt={feature.title}
+                      width={56}
+                      height={56}
+                      className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+                    />
+                  ) : IconComponent ? (
+                    <IconComponent
+                      className="h-12 w-12 sm:h-14 sm:w-14 object-contain"
+                      style={{ color: "#fff" }}
+                      strokeWidth={2.2}
+                    />
+                  ) : null}
                 </div>
                 <h4
                   className="text-xs sm:text-lg mb-1 sm:mb-2 font-bold leading-tight"
