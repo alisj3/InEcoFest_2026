@@ -144,7 +144,7 @@ export default function Hero() {
               style={{ fontFamily: 'var(--font-cera)', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.12)' }}
             >
               InEco
-              <span style={{ color: '#f9bf00' }}>Fest</span>
+              <span style={{ color: '#f9bf00' }}> Fest</span>
             </h1>
             <p className="text-base sm:text-xl md:text-2xl mb-2 sm:mb-4 max-w-2xl mx-auto text-white/95 font-semibold px-2">
               {getTranslation('hero.subtitle', language)}
@@ -197,7 +197,7 @@ export default function Hero() {
               <span className="flex h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#f9bf00]">
                 <Info className="h-4 w-4 sm:h-5 sm:w-5 text-[#17351E]" strokeWidth={2.5} />
               </span>
-              <p className="text-xs sm:text-sm leading-5 sm:leading-6 text-left text-white/95">
+              <p className="text-center text-xs sm:text-sm leading-5 sm:leading-6 text-left text-white/95">
                 {getTranslation('festival.entryFeeNotice', language)}
               </p>
             </div>
@@ -214,7 +214,7 @@ export default function Hero() {
               download={language === 'kk' ? 'InEco_Fest_2025_Baғdarlama.docx' : 'InEco_Fest_2025_Программа.docx'}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 rounded-full bg-[#f9bf00] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#17351E] shadow-lg transition-all duration-300 hover:shadow-2xl"
+              className="inline-flex items-center gap-3 rounded-full bg-[#f9bf00] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#fff] shadow-lg transition-all duration-300 hover:shadow-2xl"
               style={{
                 boxShadow: '0 12px 35px rgba(0,0,0,.18)',
               }}
@@ -229,18 +229,9 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="max-w-3xl mx-auto px-2"
           >
-            <p className="text-base sm:text-xl leading-relaxed mb-3 sm:mb-6 text-white/95">
+            <p className="font-bold text-base sm:text-xl leading-relaxed mb-3 sm:mb-6 text-white/95">
               {language === 'kk' ? (festivalInfo as any).descriptionKk || festivalInfo.description : festivalInfo.description}
             </p>
-            <div
-               className="inline-flex items-center gap-2 sm:gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
-              style={{ color: "#fff" }}
-            >
-              <Leaf className="h-3.5 w-3.5 sm:h-4 sm:w-4" style={{ color: '#fff' }} strokeWidth={2.5} />
-              <span className="font-bold text-xs sm:text-sm" style={{ color: '#fff' }}>
-                {getTranslation('hero.platforms', language)}
-              </span>
-            </div>
           </motion.div>
         </div>
       </div>

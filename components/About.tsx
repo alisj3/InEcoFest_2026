@@ -99,7 +99,7 @@ export default function About() {
         >
           <span
             className="mb-4 sm:mb-8 inline-flex rounded-full bg-white/15 px-5 py-2.5 sm:px-7 sm:py-3 text-sm sm:text-xl font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white backdrop-blur"
-            style={{ backgroundColor: '#3DAEDB', color: '#fff' }}
+            style={{ backgroundColor: '#f9bf00 ', color: '#fff' }}
           >
             {getTranslation('about.mission.title', language)}
           </span>
