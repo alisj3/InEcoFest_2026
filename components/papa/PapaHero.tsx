@@ -72,11 +72,21 @@ export default function PapaHero() {
 
       <div className="container-custom relative z-[5]">
         <div className="mx-auto max-w-4xl text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl sm:text-6xl md:text-7xl leading-[1.02] text-white"
+            style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.15)' }}
+          >
+            {kk ? papaInfo.titleKk : papaInfo.title}
+          </motion.h1>
+
           <motion.span
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
+            className="mt-4 sm:mt-6  inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
           >
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#f9bf00] opacity-75" />
@@ -84,16 +94,6 @@ export default function PapaHero() {
             </span>
             {kk ? papaInfo.badgeKk : papaInfo.badge}
           </motion.span>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="mt-4 sm:mt-6 text-4xl sm:text-6xl md:text-7xl leading-[1.02] text-white"
-            style={{ fontFamily: '"Baloo 2", sans-serif', fontWeight: 700, textShadow: '4px 4px 0 rgba(0,0,0,0.15)' }}
-          >
-            {kk ? papaInfo.titleKk : papaInfo.title}
-          </motion.h1>
 
           {/* Декоративный разделитель под заголовком */}
           <motion.div
@@ -127,7 +127,7 @@ export default function PapaHero() {
                   </div>
                   <div>
                     <p className="text-sm sm:text-base font-bold text-white leading-tight">{item.value}</p>
-                    <p className="text-[10px] sm:text-xs uppercase tracking-wide text-white/70 mt-0.5">{item.label}</p>
+                    <p className="text-[10px] sm:text-xs tracking-wide text-white/70 mt-0.5">{item.label}</p>
                   </div>
                 </motion.div>
               );

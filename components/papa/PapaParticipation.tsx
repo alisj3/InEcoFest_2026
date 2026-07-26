@@ -59,10 +59,10 @@ export default function PapaRegistration() {
           transition={{ duration: 0.5 }}
           className="mb-6 sm:mb-10 flex justify-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm">
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={2.4} />
             {kk ? 'Тіркелу' : 'Регистрация'}
-          </span>
+          </h2>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-8 sm:gap-12 lg:gap-16">

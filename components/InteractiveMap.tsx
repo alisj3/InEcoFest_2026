@@ -44,10 +44,7 @@ export default function InteractiveMap() {
           transition={{ duration: 0.6 }}
           className="mx-auto mb-10 sm:mb-16 max-w-4xl text-center px-2"
         >
-          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm">
-            {getTranslation('map.badge', language)}
-          </span>
-          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-white break-words">
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             {getTranslation('map.title', language)}
           </h2>
           <p className="mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/80">
@@ -161,7 +158,7 @@ export default function InteractiveMap() {
                         </button>
                       </div>
 
-                      <p className="mb-4 sm:mb-6 text-sm leading-relaxed text-[#5F675B] break-words">
+                      <p className="mb-4 sm:mb-6 text-lg leading-relaxed text-[#000] break-words">
                         {language === "kk" ? zone.descriptionKk : zone.description}
                       </p>
 

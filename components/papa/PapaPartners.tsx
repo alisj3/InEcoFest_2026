@@ -12,6 +12,9 @@ const partners = [
     description: 'Организатор проекта',
     descriptionKk: 'Жоба ұйымдастырушысы',
     src: '/images/logos/iteachme.png',
+    // размеры картинки: mobile / desktop (в px)
+    sizeMobile: 44,
+    sizeDesktop: 80,
   },
   {
     name: 'Шинхан Банк Казахстан',
@@ -19,6 +22,8 @@ const partners = [
     description: 'Партнёр проекта',
     descriptionKk: 'Жобаның серіктесі',
     src: '/images/logos/shinhan_bank_kazakhstan.png',
+    sizeMobile: 44,
+    sizeDesktop: 120,
   },
   {
     name: 'GlobalCare',
@@ -26,6 +31,8 @@ const partners = [
     description: 'Партнёр проекта',
     descriptionKk: 'Жобаның серіктесі',
     src: '/images/logos/global_care.png',
+    sizeMobile: 44,
+    sizeDesktop: 120,
   },
   {
     name: 'InEco Fest',
@@ -33,6 +40,8 @@ const partners = [
     description: 'Партнёр проекта',
     descriptionKk: 'Жобаның серіктесі',
     src: '/images/logos/ineco.png',
+    sizeMobile: 44,
+    sizeDesktop: 100,
   },
 ];
 
@@ -57,10 +66,9 @@ export default function PapaPartners() {
           transition={{ duration: 0.5 }}
           className="mb-6 sm:mb-10 flex justify-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm">
-            <HeartHandshake className="h-3 w-3 sm:h-3.5 sm:w-3.5" strokeWidth={2.4} />
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#fff] break-words">
             {kk ? 'Серіктестер' : 'Партнёры'}
-          </span>
+          </h2>
         </motion.div>
 
         <div className="mx-auto grid max-w-3xl grid-cols-2 gap-3 sm:gap-6">
@@ -75,12 +83,28 @@ export default function PapaPartners() {
               className="flex flex-col items-center gap-2 sm:gap-4 rounded-2xl sm:rounded-[24px] border border-white/40 bg-white p-3 sm:p-7 text-center transition-all duration-300 hover:shadow-2xl"
               style={{ boxShadow: '0 12px 30px rgba(58,20,9,0.12)' }}
             >
-              <div className="flex h-11 w-11 sm:h-20 sm:w-20 items-center justify-center">
+              <div
+                className="flex items-center justify-center"
+                style={{
+                  ['--w-mobile' as string]: `${partner.sizeMobile}px`,
+                  ['--w-desktop' as string]: `${partner.sizeDesktop}px`,
+                  width: 'var(--w-mobile)',
+                  height: 'var(--w-mobile)',
+                }}
+              >
+                <style jsx>{`
+                  @media (min-width: 640px) {
+                    div {
+                      width: var(--w-desktop) !important;
+                      height: var(--w-desktop) !important;
+                    }
+                  }
+                `}</style>
                 <OptimizedImage
                   src={partner.src}
                   alt={kk ? partner.nameKk : partner.name}
-                  width={80}
-                  height={80}
+                  width={partner.sizeDesktop}
+                  height={partner.sizeDesktop}
                   className="h-full w-full object-contain"
                 />
               </div>

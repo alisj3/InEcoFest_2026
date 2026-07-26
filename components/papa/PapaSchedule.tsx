@@ -47,14 +47,8 @@ export default function PapaSchedule() {
           transition={{ duration: 0.6 }}
           className="mb-8 sm:mb-14 text-center"
         >
-          <span className="inline-flex rounded-full border border-white/25 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm">
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#fff] break-words">
             {kk ? 'Бағдарлама' : 'Программа'}
-          </span>
-          <h2
-            className="mt-3 sm:mt-5 text-2xl sm:text-4xl md:text-5xl font-bold text-white"
-            style={{ fontFamily: '"Baloo 2", sans-serif', textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
-          >
-            {kk ? 'Күн тәртібі' : 'Ход мероприятия'}
           </h2>
         </motion.div>
 
@@ -101,7 +95,7 @@ export default function PapaSchedule() {
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   className="mb-3 sm:mb-4 flex-1 overflow-hidden rounded-2xl border border-white/20 bg-white px-4 sm:px-5 py-3 sm:py-4"
                 >
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wide text-[#C1442E]">
+                  <span className="text-sm sm:text-base font-bold uppercase tracking-wide text-[#C1442E]">
                     {item.time}
                   </span>
                   <p className="mt-0.5 text-sm sm:text-base font-bold leading-snug text-[#3A1409]">

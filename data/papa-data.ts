@@ -10,7 +10,7 @@ export interface ScheduleItem {
 }
 
 export const papaInfo = {
-  title: 'Папа может всё',
+  title: 'Квест "Папа может всё"',
   titleKk: 'Әке бәрін де істей алады',
   badge: 'Инклюзивный семейный квест',
   badgeKk: 'Инклюзивті отбасылық жоба',

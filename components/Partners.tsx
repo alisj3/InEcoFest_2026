@@ -8,13 +8,13 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { getTranslation } from '@/data/translations';
 
 const partners = [
-  {
-    name: 'InEco',
-    nameKk: 'InEco',
-    description: 'Организатор фестиваля',
-    descriptionKk: 'Фестиваль ұйымдастырушысы',
-    logo: '/images/logos/ineco.png',
-  },
+  // {
+  //   name: 'InEco',
+  //   nameKk: 'InEco',
+  //   description: 'Организатор фестиваля',
+  //   descriptionKk: 'Фестиваль ұйымдастырушысы',
+  //   logo: '/images/logos/ineco.png',
+  // },
   {
     name: 'Chevron',
     nameKk: 'Chevron',
@@ -25,9 +25,23 @@ const partners = [
   {
     name: 'ITeachMe',
     nameKk: 'ITeachMe',
-    description: 'Образовательные технологии',
-    descriptionKk: 'Білім беру технологиялары',
+    description: 'Организатор фестиваля',
+    descriptionKk: "Фестиваль ұйымдастырушысы",
     logo: '/images/logos/iteachme.png',
+  },
+  {
+    name: 'Ботанический Сад',
+    nameKk: 'Ботаникалық Бақ',
+    description: 'Организатор фестиваля и площадка проведения',
+    descriptionKk: 'Фестиваль ұйымдастырушысы және фестиваль өтетін орын',
+    logo: '/images/logos/botsad.png',
+  },
+  {
+    name: 'Институт ботаники и фитоинтродукции',
+    nameKk: 'Ботаника және фитоинтродукция институты',
+    description: 'Научные исследования',
+    descriptionKk: 'Ғылыми зерттеулер',
+    logo: '/images/logos/institute.png',
   },
   {
     name: 'Шинхан Банк Казахстан',
@@ -43,20 +57,6 @@ const partners = [
     descriptionKk: 'Фестивальдің серіктесі',
     logo: '/images/logos/global_care.png',
   },
-  {
-    name: 'Ботанический сад',
-    nameKk: 'Ботаникалық бақ',
-    description: 'Площадка проведения',
-    descriptionKk: 'Фестиваль өтетін орын',
-    logo: '/images/logos/botsad.png',
-  },
-  {
-    name: 'Институт ботаники и фитоинтродукции',
-    nameKk: 'Ботаника және фитоинтродукция институты',
-    description: 'Научные исследования',
-    descriptionKk: 'Ғылыми зерттеулер',
-    logo: '/images/logos/institute.png',
-  }
 ];
 
 export default function Partners() {
@@ -77,23 +77,12 @@ export default function Partners() {
       viewport={{ once: true }}
       className="mb-20 text-center"
     >
-      <span
-        className="inline-block mb-4 rounded-full border border-white/20 bg-white/10 px-5 py-2 text-xs font-bold uppercase tracking-[0.3em] text-white backdrop-blur"
-      >
-        {getTranslation('partners.badge', language)}
-      </span>
 
-      <h2
-        className="text-5xl md:text-6xl text-white"
-        style={{
-          fontFamily: '"Baloo 2", sans-serif',
-          fontWeight: 700,
-        }}
-      >
+      <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
         {getTranslation('partners.title', language)}
       </h2>
 
-      <p className="mx-auto mt-6 max-w-3xl text-lg text-white/80">
+      <p className="font-bold mx-auto mt-6 max-w-3xl text-lg text-white/80">
         {getTranslation('partners.description', language)}
       </p>
     </motion.div>
@@ -116,7 +105,6 @@ export default function Partners() {
       <div className="mb-6 flex justify-center">
         <div
           className="flex h-24 w-24 items-center justify-center rounded-full"
-          style={{ backgroundColor: `${accent}1A` }}
         >
           <OptimizedImage
             src={partner.logo}

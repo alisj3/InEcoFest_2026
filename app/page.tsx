@@ -147,27 +147,27 @@ export default function Home() {
         <About />
 
         {/* 3. Обратный отсчёт до даты фестиваля */}
-          <section
-            id="countdown"
-            className="relative overflow-hidden pt-14 pb-10 sm:pt-24 sm:pb-16 md:pt-40 md:pb-28"
-            style={{ background: 'linear-gradient(180deg, #388c67 0%, #388c67 100%)' }}
-          >
-            <NatureBackground />
-            <div className="pointer-events-none absolute inset-0 overflow-hidden">
-              {[
-                { top: '10%', left: '8%', size: 16, color: '#f9bf00' },
-                { top: '20%', left: '90%', size: 20, color: '#FF6B4A' },
-                { top: '80%', left: '5%', size: 14, color: '#FFFFFF' },
-              ].map((dot, i) => (
-                <motion.div
-                  key={i}
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
-                  className="absolute rounded-full opacity-70"
-                  style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}
-                />
-              ))}
-            </div>
+        <section
+          id="countdown"
+          className="relative overflow-hidden pt-16 pb-14 sm:pt-28 sm:pb-20 md:pt-44 md:pb-32"
+          style={{ background: 'linear-gradient(180deg, #388c67 0%, #388c67 100%)' }}
+        >
+          <NatureBackground />
+          <div className="pointer-events-none absolute inset-0 overflow-hidden">
+            {[
+              { top: '10%', left: '8%', size: 16, color: '#f9bf00' },
+              { top: '20%', left: '90%', size: 20, color: '#FF6B4A' },
+              { top: '80%', left: '5%', size: 14, color: '#FFFFFF' },
+            ].map((dot, i) => (
+              <motion.div
+                key={i}
+                animate={{ y: [0, -12, 0] }}
+                transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
+                className="absolute rounded-full opacity-70"
+                style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}
+              />
+            ))}
+          </div>
 
           <div className="container-custom relative z-[5]">
             <motion.div
@@ -177,21 +177,12 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-center"
             >
-              <span
-                 className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-1.5 sm:px-5 sm:py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.2em] sm:tracking-[0.3em] text-white/90 backdrop-blur-sm"
-                style={{ color: '#fff'}}
-              >
-                До открытия
-              </span>
               <h2
-                className="text-2xl sm:text-4xl md:text-6xl mb-2 sm:mb-4 mt-2 sm:mt-0 text-white"
-                style={{ fontFamily: 'var(--font-cera)', fontWeight: 700, textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
+                className="text-2xl sm:text-4xl md:text-6xl mb-4 sm:mb-20 mt-2 sm:mt-0"
+                style={{ fontFamily: 'var(--font-cera)', fontWeight: 700, color: '#f9bf00', textShadow: '3px 3px 0 rgba(0,0,0,0.12)' }}
               >
                 {getTranslation('countdown.title', language)}
               </h2>
-              <p className="text-sm sm:text-lg mb-6 sm:mb-16 max-w-2xl mx-auto text-white/95 px-2">
-                {getTranslation('countdown.subtitle', language)}
-              </p>
               <CountdownTimer targetDate="2026-08-07T11:00:00" />
             </motion.div>
           </div>

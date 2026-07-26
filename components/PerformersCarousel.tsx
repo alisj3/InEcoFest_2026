@@ -310,9 +310,9 @@ export default function PerformersCarousel() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-4 text-xl/4 font-semibold uppercase tracking-[0.3em] text-white/90">
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             {getTranslation("performers.badge", language)}
-          </span>
+          </h2>
         </div>
 
         <AnimatePresence mode="wait" custom={direction}>

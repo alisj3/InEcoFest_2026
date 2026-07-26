@@ -12,7 +12,7 @@ const text = {
     points: [
       { icon: Users, text: 'Папы и дети играют в одной команде' },
       { icon: Heart, text: 'Инклюзивный формат, доступный всем' },
-      { icon: Leaf, text: 'На территории Ботанического сада' },
+      { icon: Leaf, text: 'На территории Ботанического Сада' },
     ],
   },
   kk: {
@@ -50,10 +50,7 @@ export default function PapaConcept() {
           className="mx-auto max-w-2xl relative overflow-hidden rounded-2xl sm:rounded-[32px] border border-white/15 bg-white/10 p-5 sm:p-10 backdrop-blur-xl text-center"
           style={{ boxShadow: '0 25px 60px rgba(0,0,0,.18)' }}
         >
-          <h3
-            className="ext-xl sm:text-3xl font-bold text-white"
-            style={{ fontFamily: '"Baloo 2", sans-serif', textShadow: '2px 2px 0 rgba(0,0,0,0.12)' }}
-          >
+          <h3 className="mt-4 sm:mt-6 text-xl sm:text-2xl md:text-4xl font-black leading-tight text-[#fff] break-words">
             {t.title}
           </h3>
 

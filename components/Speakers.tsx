@@ -278,15 +278,15 @@ export default function Speakers() {
           transition={{ duration: 0.6 }}
           className="mx-auto mb-10 sm:mb-14 md:mb-20 max-w-4xl text-center px-2"
         >
-          <span className="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-4 text-xl/4 font-semibold uppercase tracking-[0.3em] text-white/90">
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             {getTranslation("stage.title", language)}
-          </span>
+          </h2>
 
           {/* <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-white break-words">
             {getTranslation('speakers.title', language)}
           </h2> */}
 
-          <p className="mx-auto mt-3 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-6 sm:leading-8 text-white/80">
+          <p className="font-bold mx-auto mt-3 sm:mt-6 max-w-2xl text-sm sm:text-base md:text-lg leading-6 sm:leading-8 text-white/80">
             {getTranslation("speakers.description", language)}
           </p>
         </motion.div>

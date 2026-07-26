@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { festivalInfo } from '@/data/festival-data';
 import { Leaf, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube, Sparkles, TreePine } from 'lucide-react';
+import OptimizedImage from './ui/OptimizedImage';
+import logo from "@/public/images/logos/ineco.png"
 
 export default function Footer() {
   const socialLinks = [
@@ -65,11 +67,14 @@ export default function Footer() {
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 <motion.div 
-                  className="w-14 h-14 bg-eco-gradient rounded-2xl flex items-center justify-center shadow-lg"
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg"
                   whileHover={{ rotate: 10, scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Leaf className="text-white h-7 w-7" />
+                  <OptimizedImage
+                    src={logo.src}
+                    alt='logo'
+                    className="text-white h-15 w-15" />
                 </motion.div>
                 <div>
                   <motion.h3 
@@ -80,7 +85,7 @@ export default function Footer() {
                   >
                     InEco Fest
                   </motion.h3>
-                  <p className="text-sm text-gray-400 font-medium">15 августа 2025</p>
+                  <p className="text-sm text-gray-400 font-medium">7 августа 2026</p>
                 </div>
               </motion.div>
               <motion.p 
@@ -205,7 +210,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            © 2025 InEco Fest. Все права защищены.
+            © 2026 InEco Fest. Все права защищены.
           </motion.p>
           <motion.div 
             className="flex space-x-6 mt-4 md:mt-0"
