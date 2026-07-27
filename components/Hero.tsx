@@ -76,7 +76,7 @@ export default function Hero() {
   const { language } = useLanguage();
 
   const info = [
-    { icon: Calendar, value: festivalInfo.date, label: getTranslation('hero.date', language), bg: '#f9bf00' },
+    { icon: Calendar, value: language === 'kk' ? festivalInfo.dateKk : festivalInfo.date, label: getTranslation('hero.date', language), bg: '#f9bf00' },
     {
       icon: MapPin,
       value: language === 'kk' ? (festivalInfo as any).locationKk || festivalInfo.location : festivalInfo.location,
@@ -197,7 +197,7 @@ export default function Hero() {
               <span className="flex h-8 w-8 sm:h-9 sm:w-9 flex-shrink-0 items-center justify-center rounded-full bg-[#f9bf00]">
                 <Info className="h-4 w-4 sm:h-5 sm:w-5 text-[#17351E]" strokeWidth={2.5} />
               </span>
-              <p className="text-center text-xs sm:text-sm leading-5 sm:leading-6 text-left text-white/95">
+              <p className="text-center text-xs sm:text-sm leading-5 sm:leading-6 text-white/95">
                 {getTranslation('festival.entryFeeNotice', language)}
               </p>
             </div>

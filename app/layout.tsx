@@ -34,18 +34,18 @@ const ceraProDisplay = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'InEco Fest 2025 - Фестиваль экологии и инклюзии',
+  title: 'InEco Fest 2026 - Фестиваль экологии и инклюзии',
   icons: {
     icon: [
       { url: '/images/logos/ineco.png', type: 'image/png' },
     ],
   },
-  description: 'Присоединяйтесь к InEco Fest 2025 - уникальному фестивалю, объединяющему экологию и инклюзию. Мастер-классы, лекции, выставки и многое другое!',
-  keywords: 'фестиваль, экология, инклюзия, мастер-классы, InEco Fest, 2025',
+  description: 'Присоединяйтесь к InEco Fest 2026 - уникальному фестивалю, объединяющему экологию и инклюзию. Мастер-классы, лекции, выставки и многое другое!',
+  keywords: 'фестиваль, экология, инклюзия, мастер-классы, InEco Fest, 2026',
   authors: [{ name: 'InEco Fest Team' }],
   openGraph: {
-    title: 'InEco Fest 2025 - Фестиваль экологии и инклюзии',
-    description: 'Присоединяйтесь к InEco Fest 2025 - уникальному фестивалю, объединяющему экологию и инклюзию.',
+    title: 'InEco Fest 2026 - Фестиваль экологии и инклюзии',
+    description: 'Присоединяйтесь к InEco Fest 2026 - уникальному фестивалю, объединяющему экологию и инклюзию.',
     type: 'website',
     locale: 'ru_RU',
     images: [
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'InEco Fest 2025 - Фестиваль экологии и инклюзии',
+    title: 'InEco Fest 2026 - Фестиваль экологии и инклюзии',
     description: 'Присоединяйтесь к InEco Fest 2025 - уникальному фестивалю, объединяющему экологию и инклюзию.',
     images: ['/og-image.jpg'],
   },
