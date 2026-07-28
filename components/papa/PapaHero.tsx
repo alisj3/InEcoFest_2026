@@ -1,10 +1,74 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, MapPin, Clock, Heart, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { papaInfo } from '@/data/papa-data';
 import { HillsBackground, HillsBackgroundYellow } from '../decor/SectionBackgrounds';
+
+// Картинки для фоновой карусели PapaHero. Положи файлы в public/images/papa-hero/
+// и при необходимости поменяй пути/добавь ещё.
+const papaHeroImages = [
+  '/images/papa-hero/1.webp',
+  '/images/papa-hero/2.webp',
+  '/images/papa-hero/3.webp',
+];
+
+const SLIDE_DURATION = 5000; // мс между сменой слайдов
+
+function PapaHeroBackgroundCarousel() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % papaHeroImages.length);
+    }, SLIDE_DURATION);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="absolute inset-0 overflow-hidden">
+      <AnimatePresence mode="sync">
+        <motion.div
+          key={papaHeroImages[index]}
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ opacity: { duration: 1.4, ease: 'easeInOut' }, scale: { duration: SLIDE_DURATION / 1000 + 1.4, ease: 'linear' } }}
+          className="absolute inset-0"
+        >
+          <Image
+            src={papaHeroImages[index]}
+            alt=""
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            quality={85}
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Цветной оверлей в тон секции PapaHero, чтобы карусель не спорила по палитре с сайтом */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            'linear-gradient(160deg, rgba(193,68,46,0.88) 0%, rgba(255,107,74,0.75) 60%, rgba(255,140,66,0.6) 100%)',
+        }}
+      />
+      {/* Дополнительное затемнение снизу — под текст и карточки */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(122,36,21,0) 0%, rgba(122,36,21,0.3) 70%, rgba(122,36,21,0.55) 100%)',
+        }}
+      />
+    </div>
+  );
+}
 
 export default function PapaHero() {
   const { language } = useLanguage();
@@ -33,6 +97,7 @@ export default function PapaHero() {
         sm:pb-20
       "
     >
+      <PapaHeroBackgroundCarousel />
       <HillsBackgroundYellow />
 
       {/* Мягкие светящиеся пятна на фоне для глубины */}
@@ -63,6 +128,7 @@ export default function PapaHero() {
           <motion.div
             key={i}
             animate={{ y: [0, -14, 0] }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             className="absolute rounded-full opacity-70"
             style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}

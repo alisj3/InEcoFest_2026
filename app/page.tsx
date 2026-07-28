@@ -74,10 +74,13 @@ export default function Home() {
 
       {/* Плавающие элементы природы — оставлен только один, остальные убраны для производительности */}
       <motion.div
-        animate={{ 
+        // Было: animate={{...}} — крутилось вечно, даже если TreePine давно ушёл за пределы экрана.
+        // whileInView запускает анимацию только пока элемент реально виден.
+        whileInView={{ 
           y: [0, -20, 0],
           rotate: [0, 5, 0]
         }}
+        viewport={{ once: false, amount: 0.1 }}
         transition={{ 
           duration: 8,
           repeat: Infinity,
@@ -161,7 +164,9 @@ export default function Home() {
             ].map((dot, i) => (
               <motion.div
                 key={i}
-                animate={{ y: [0, -12, 0] }}
+                // Было: animate={{...}} — то же самое, вечный цикл вне зависимости от видимости
+                whileInView={{ y: [0, -12, 0] }}
+                viewport={{ once: false, amount: 0.1 }}
                 transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
                 className="absolute rounded-full opacity-70"
                 style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}

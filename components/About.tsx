@@ -67,7 +67,9 @@ export default function About() {
         ].map((dot, i) => (
           <motion.div
             key={i}
-            animate={{ y: [0, -12, 0] }}
+            // Было: animate={{...}} — крутилось вечно, даже когда секция не в вьюпорте
+            whileInView={{ y: [0, -12, 0] }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             className="absolute rounded-full"
             style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}

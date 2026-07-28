@@ -26,10 +26,13 @@ export default function Footer() {
     <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-eco-forest-green relative overflow-hidden">
       {/* Декоративные элементы */}
       <motion.div
-        animate={{ 
+        // Было: animate={{...}} — вращалось вечно, даже когда футер ещё не виден
+        // (например, пользователь только зашёл на страницу и находится в Hero)
+        whileInView={{ 
           rotate: [0, 360],
           scale: [1, 1.2, 1]
         }}
+        viewport={{ once: false, amount: 0.1 }}
         transition={{ 
           duration: 30,
           repeat: Infinity,
@@ -38,10 +41,11 @@ export default function Footer() {
         className="absolute top-10 right-10 w-32 h-32 bg-eco-green/5 rounded-full blur-2xl"
       />
       <motion.div
-        animate={{ 
+        whileInView={{ 
           rotate: [360, 0],
           scale: [1.2, 1, 1.2]
         }}
+        viewport={{ once: false, amount: 0.1 }}
         transition={{ 
           duration: 25,
           repeat: Infinity,
@@ -229,4 +233,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-} 
+}

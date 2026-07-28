@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import Script from 'next/script'
 import './globals.css'
 import { LanguageProvider } from '@/contexts/LanguageContext'
 
@@ -77,31 +76,6 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${ceraPro.variable} ${ceraProDisplay.variable}`}>
       <body className={`${ceraPro.className} antialiased`}>
-        {/* Yandex Metrica */}
-        <Script id="yandex-metrica" strategy="afterInteractive">
-          {`
-          (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0];
-            k.async=1;k.src=r;a.parentNode.insertBefore(k,a)
-          })(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-
-          ym(1287631042, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-          ym(2218987015, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-          ym(1471884626, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-          ym(2186042337, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
-        `}
-        </Script>
-        <noscript
-          dangerouslySetInnerHTML={{
-            __html:
-              '<div><img src="https://mc.yandex.ru/watch/1287631042" style="position:absolute; left:-9999px;" alt="" /></div>'+
-              '<div><img src="https://mc.yandex.ru/watch/2218987015" style="position:absolute; left:-9999px;" alt="" /></div>'+
-              '<div><img src="https://mc.yandex.ru/watch/1471884626" style="position:absolute; left:-9999px;" alt="" /></div>'+
-              '<div><img src="https://mc.yandex.ru/watch/2186042337" style="position:absolute; left:-9999px;" alt="" /></div>'
-          }}
-        />
         <LanguageProvider>
           {children}
         </LanguageProvider>

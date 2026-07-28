@@ -16,8 +16,8 @@ const partners = [
   //   logo: '/images/logos/ineco.png',
   // },
   {
-    name: 'Chevron',
-    nameKk: 'Chevron',
+    name: 'Шеврон',
+    nameKk: 'Шеврон',
     description: 'Главный партнер фестиваля',
     descriptionKk: 'Фестивальдің бас серіктесі',
     logo: '/images/logos/chevron.png',

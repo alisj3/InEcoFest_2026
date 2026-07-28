@@ -106,6 +106,7 @@ export default function Hero() {
           <motion.div
             key={i}
             animate={{ y: [0, -14, 0] }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 4 + i, repeat: Infinity, ease: 'easeInOut', delay: i * 0.3 }}
             className="absolute rounded-full"
             style={{ top: dot.top, left: dot.left, width: dot.size, height: dot.size, backgroundColor: dot.color }}
@@ -211,7 +212,7 @@ export default function Hero() {
           >
             <motion.a
               href={language === 'kk' ? '/program-kk.docx' : '/program-ru.docx'}
-              download={language === 'kk' ? 'InEco_Fest_2025_Baғdarlama.docx' : 'InEco_Fest_2025_Программа.docx'}
+              download={'InEco_Fest_2026_Программа.docx'}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 rounded-full bg-[#f9bf00] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#fff] shadow-lg transition-all duration-300 hover:shadow-2xl"

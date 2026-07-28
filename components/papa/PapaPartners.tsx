@@ -14,7 +14,7 @@ const partners = [
     src: '/images/logos/iteachme.png',
     // размеры картинки: mobile / desktop (в px)
     sizeMobile: 44,
-    sizeDesktop: 80,
+    sizeDesktop: 70,
   },
   {
     name: 'Шинхан Банк Казахстан',
@@ -34,15 +34,15 @@ const partners = [
     sizeMobile: 44,
     sizeDesktop: 120,
   },
-  {
-    name: 'InEco Fest',
-    nameKk: 'InEco Fest',
-    description: 'Партнёр проекта',
-    descriptionKk: 'Жобаның серіктесі',
-    src: '/images/logos/ineco.png',
-    sizeMobile: 44,
-    sizeDesktop: 100,
-  },
+  // {
+  //   name: 'InEco Fest',
+  //   nameKk: 'InEco Fest',
+  //   description: 'Партнёр проекта',
+  //   descriptionKk: 'Жобаның серіктесі',
+  //   src: '/images/logos/ineco.png',
+  //   sizeMobile: 44,
+  //   sizeDesktop: 100,
+  // },
 ];
 
 export default function PapaPartners() {

@@ -63,7 +63,8 @@ export default function PapaHeader({ onMenuClick }: HeaderProps) {
           <div className="flex flex-1 items-center gap-2 overflow-x-auto scrollbar-hide">
             {partners.map((partner) => (
               <div
-  className="
+                key={partner.alt}
+                className="
     shrink-0
     flex
     h-10 w-10
@@ -78,7 +79,7 @@ export default function PapaHeader({ onMenuClick }: HeaderProps) {
     shadow-lg
     overflow-hidden
   "
->
+              >
                 <OptimizedImage
                   src={partner.src}
                   alt={partner.alt}

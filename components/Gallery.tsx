@@ -132,7 +132,7 @@ export default function Gallery() {
           <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             {getTranslation('gallery.title', language)}
           </h2>
-          <p className="font-bold mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/80">
+          <p className="font-bold mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/80 sm:whitespace-nowrap">
             {getTranslation('gallery.subtitle', language)}
           </p>
         </motion.div>
