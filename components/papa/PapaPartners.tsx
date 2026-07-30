@@ -5,6 +5,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { HeartHandshake } from 'lucide-react';
 import OptimizedImage from '../ui/OptimizedImage';
 
+// Единая высота "коробки" под логотип для ВСЕХ карточек —
+// это то, что выравнивает текст под логотипами по одной линии.
+const LOGO_BOX_MOBILE = 44;
+const LOGO_BOX_DESKTOP = 120;
+
 const partners = [
   {
     name: 'ITeachMe',
@@ -12,7 +17,9 @@ const partners = [
     description: 'Организатор проекта',
     descriptionKk: 'Жоба ұйымдастырушысы',
     src: '/images/logos/iteachme.png',
-    // размеры картинки: mobile / desktop (в px)
+    // это теперь МАКСИМАЛЬНЫЙ размер самого лого внутри одинаковой коробки,
+    // а не размер коробки — поэтому можно оставлять логотип меньше остальных,
+    // не ломая выравнивание текста
     sizeMobile: 44,
     sizeDesktop: 70,
   },
@@ -58,6 +65,27 @@ export default function PapaPartners() {
       <div className="pointer-events-none absolute -left-20 top-0 h-[280px] w-[280px] rounded-full bg-white/15 blur-[110px]" />
       <div className="pointer-events-none absolute -right-24 bottom-0 h-[300px] w-[300px] rounded-full bg-[#3A1409]/10 blur-[120px]" />
 
+      <style jsx>{`
+        .partner-logo-outer {
+          width: var(--box-mobile);
+          height: var(--box-mobile);
+        }
+        .partner-logo-inner {
+          width: var(--w-mobile);
+          height: var(--w-mobile);
+        }
+        @media (min-width: 640px) {
+          .partner-logo-outer {
+            width: var(--box-desktop);
+            height: var(--box-desktop);
+          }
+          .partner-logo-inner {
+            width: var(--w-desktop);
+            height: var(--w-desktop);
+          }
+        }
+      `}</style>
+
       <div className="container-custom relative z-[5]">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -83,30 +111,33 @@ export default function PapaPartners() {
               className="flex flex-col items-center gap-2 sm:gap-4 rounded-2xl sm:rounded-[24px] border border-white/40 bg-white p-3 sm:p-7 text-center transition-all duration-300 hover:shadow-2xl"
               style={{ boxShadow: '0 12px 30px rgba(58,20,9,0.12)' }}
             >
+              {/* Внешняя коробка: у ВСЕХ карточек одинаковая высота/ширина —
+                  это то, что выравнивает текст под логотипами по одной линии.
+                  Внутренняя коробка задаёт РЕАЛЬНЫЙ размер конкретного лого
+                  (надёжнее, чем ограничивать саму <img> через max-width,
+                  т.к. OptimizedImage может перебивать внешние CSS-стили). */}
               <div
-                className="flex items-center justify-center"
+                className="partner-logo-outer flex flex-shrink-0 items-center justify-center"
                 style={{
-                  ['--w-mobile' as string]: `${partner.sizeMobile}px`,
-                  ['--w-desktop' as string]: `${partner.sizeDesktop}px`,
-                  width: 'var(--w-mobile)',
-                  height: 'var(--w-mobile)',
+                  ['--box-mobile' as string]: `${LOGO_BOX_MOBILE}px`,
+                  ['--box-desktop' as string]: `${LOGO_BOX_DESKTOP}px`,
                 }}
               >
-                <style jsx>{`
-                  @media (min-width: 640px) {
-                    div {
-                      width: var(--w-desktop) !important;
-                      height: var(--w-desktop) !important;
-                    }
-                  }
-                `}</style>
-                <OptimizedImage
-                  src={partner.src}
-                  alt={kk ? partner.nameKk : partner.name}
-                  width={partner.sizeDesktop}
-                  height={partner.sizeDesktop}
-                  className="h-full w-full object-contain"
-                />
+                <div
+                  className="partner-logo-inner flex items-center justify-center"
+                  style={{
+                    ['--w-mobile' as string]: `${partner.sizeMobile}px`,
+                    ['--w-desktop' as string]: `${partner.sizeDesktop}px`,
+                  }}
+                >
+                  <OptimizedImage
+                    src={partner.src}
+                    alt={kk ? partner.nameKk : partner.name}
+                    width={partner.sizeDesktop}
+                    height={partner.sizeDesktop}
+                    className="h-full w-full object-contain"
+                  />
+                </div>
               </div>
               <p className="text-[10px] sm:text-sm leading-snug text-[#6D5347]">
                 {kk ? partner.descriptionKk : partner.description}

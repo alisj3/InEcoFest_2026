@@ -32,7 +32,7 @@ export default function About() {
       title: getTranslation('values.community', language),
       description: getTranslation('values.community.desc', language),
       rotate: '-rotate-1',
-      bg: '#7465A3',
+      bg: '#3DAEDB',
       filter: 'brightness(0) invert(1)', // -> белый
     },
     {
@@ -40,15 +40,15 @@ export default function About() {
       title: getTranslation('values.education', language),
       description: getTranslation('values.education.desc', language),
       rotate: 'rotate-2',
-      bg: '#3D7894',
+      bg: '#8B3FC4',
       strokeWidth: 1.6,
     },
   ];
 
   const stats = [
-    { number: '50+', label: getTranslation('stats.workshops', language), icon: Palette, bg: '#FF6B4A', iconColor: '#12291B' },
-    { number: '2000+', label: getTranslation('stats.guests', language), icon: Users, bg: '#3DAEDB', iconColor: '#12291B' },
-    { number: '8+', label: 'Выступлений на сцене', icon: Mic, bg: '#8B3FC4', iconColor: '#fff' },
+    { number: '20+', label: getTranslation('stats.workshops', language), icon: Palette, bg: '#F9BF00', iconColor: '#12291B' },
+    { number: '5000+', label: getTranslation('stats.guests', language), icon: Users, bg: '#3DAEDB', iconColor: '#12291B' },
+    { number: '8+', label: getTranslation('stats.entertainment', language), icon: Mic, bg: '#8B3FC4', iconColor: '#fff' },
   ];
 
   return (

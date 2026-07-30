@@ -95,7 +95,7 @@ ${formData.message}`;
                 <div>
                   <h4 className="font-semibold text-gray-900">Телефон</h4>
                   <p className="text-gray-600">+7 708 970 91 52</p>
-                  <p className="text-gray-600">РГП "Институт ботаники и фитоинтродукции": +7 708 970 52 66</p>
+                  <p className="text-gray-600">{getTranslation("contacts.park", language)}: +7 708 970 52 66</p>
                 </div>
               </div>
 
@@ -104,10 +104,10 @@ ${formData.message}`;
                   <MapPin className="h-6 w-6" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-gray-900">Адрес</h4>
-                  <p className="text-gray-600">Главный Ботанический Сад</p>
-                  <p className="text-gray-600">г. Алматы</p>
-                  <p className="text-gray-600">РГП "Институт ботаники и фитоинтродукции", г. Алматы, ул. Тимирязева 36Д</p>
+                  <h4 className="font-semibold text-gray-900">{getTranslation("contacts.address", language)}</h4>
+                  <p className="text-gray-600">{getTranslation("contacts.parkMain", language)}</p>
+                  <p className="text-gray-600">Алматы</p>
+                  <p className="text-gray-600">{getTranslation("contacts.parkAddress", language)}</p>
                 </div>
               </div>
             </div>

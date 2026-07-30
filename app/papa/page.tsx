@@ -12,6 +12,7 @@ import PapaResults from '@/components/papa/PapaParticipation';
 import PapaParticipation from '@/components/papa/PapaParticipation';
 import PapaHeader from '@/components/papa/PapaHeader';
 import PapaPartners from '@/components/papa/PapaPartners';
+import PapaGallery from '@/components/papa/PapaGallery';
 
 export default function PapaPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -70,6 +71,7 @@ export default function PapaPage() {
         <PapaConcept />
         <PapaSchedule />
         <PapaParticipation />
+        <PapaGallery />
         <PapaPartners/>
       </main>
 

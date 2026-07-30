@@ -1,0 +1,262 @@
+'use client';
+
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import OptimizedImage from '../ui/OptimizedImage';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getTranslation } from '@/data/translations';
+
+interface GalleryPhoto {
+  id: string;
+  src: string;
+  alt: string;
+  altKk: string;
+}
+
+const photos: GalleryPhoto[] = [
+  {
+    id: 'g1',
+    src: '/images/papa-gallery/1.webp',
+    alt: 'Яркие моменты фестиваля',
+    altKk: 'Фестивальдің жарқын сәттері',
+  },
+  {
+    id: 'g2',
+    src: '/images/papa-gallery/2.webp',
+    alt: 'Хорошее настроение',
+    altKk: 'Көтеріңкі көңіл-күй',
+  },
+  {
+    id: 'g3',
+    src: '/images/papa-gallery/3.webp',
+    alt: 'Вдохновение природой',
+    altKk: 'Табиғаттан шабыт',
+  },
+  {
+    id: 'g4',
+    src: '/images/papa-gallery/4.webp',
+    alt: 'Улыбки гостей',
+    altKk: 'Қонақтардың күлкісі',
+  },
+  {
+    id: 'g5',
+    src: '/images/papa-gallery/5.webp',
+    alt: 'Творческая атмосфера',
+    altKk: 'Шығармашылық атмосфера',
+  },
+  {
+    id: 'g6',
+    src: '/images/papa-gallery/6.webp',
+    alt: 'Незабываемые эмоции',
+    altKk: 'Ұмытылмас әсерлер',
+  },
+  {
+    id: 'g7',
+    src: '/images/papa-gallery/7.webp',
+    alt: 'Единение с природой',
+    altKk: 'Табиғатпен үндестік',
+  },
+  {
+    id: 'g8',
+    src: '/images/papa-gallery/8.webp',
+    alt: 'Семейный отдых',
+    altKk: 'Отбасылық демалыс',
+  },
+  {
+    id: 'g9',
+    src: '/images/papa-gallery/9.webp',
+    alt: 'Интересные открытия',
+    altKk: 'Қызықты жаңалықтар',
+  },
+  {
+    id: 'g10',
+    src: '/images/papa-gallery/10.webp',
+    alt: 'Живая атмосфера',
+    altKk: 'Жанды атмосфера',
+  },
+];
+
+export default function PapaGallery() {
+  const { language } = useLanguage();
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [showAllMobile, setShowAllMobile] = useState(false);
+
+  const MOBILE_INITIAL_COUNT = 6;
+  const mobilePhotos = showAllMobile ? photos : photos.slice(0, MOBILE_INITIAL_COUNT);
+
+  useEffect(() => {
+    document.body.style.overflow = selectedIndex !== null ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedIndex]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (selectedIndex === null) return;
+      if (e.key === 'Escape') setSelectedIndex(null);
+      if (e.key === 'ArrowRight') setSelectedIndex((i) => (i === null ? i : (i + 1) % photos.length));
+      if (e.key === 'ArrowLeft') setSelectedIndex((i) => (i === null ? i : (i - 1 + photos.length) % photos.length));
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [selectedIndex]);
+
+  return (
+    <section
+      id="gallery"
+      style={{ background: 'linear-gradient(135deg, #7A2415 0%, #C1442E 50%, #FF6B4A 100%)' }}
+      className="relative overflow-hidden py-16 sm:py-28"
+    >
+      {/* Фоновые пятна в тон PapaRegistration */}
+      <div className="pointer-events-none absolute -left-32 -top-32 h-[440px] w-[440px] rounded-full bg-[#FFC531]/15 blur-[130px]" />
+      <div className="pointer-events-none absolute -right-32 top-1/3 h-[400px] w-[400px] rounded-full bg-white/10 blur-[140px]" />
+      <div className="pointer-events-none absolute bottom-0 left-1/2 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-[#3A1409]/20 blur-[120px]" />
+
+      <div className="container-custom relative z-[5]">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto mb-8 sm:mb-16 max-w-4xl text-center"
+        >
+          <span className="inline-flex rounded-full border border-[#FFC531]/30 bg-black/15 px-5 py-2 text-lg font-semibold uppercase tracking-[0.3em] text-white backdrop-blur-sm">
+            {getTranslation('gallery.badge', language)}
+          </span>
+          <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#FFC531] break-words">
+            {getTranslation('gallery.title', language)}
+          </h2>
+          <p className="font-bold mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
+            {getTranslation('gallery.subtitle', language)}
+          </p>
+        </motion.div>
+
+        {/* Мобильная версия: сетка 2 колонки, короткая по умолчанию + кнопка "Показать больше" */}
+        <div className="md:hidden">
+          <div className="grid grid-cols-2 gap-3">
+            {mobilePhotos.map((photo, i) => (
+              <motion.button
+                key={photo.id}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: (i % 6) * 0.03 }}
+                onClick={() => setSelectedIndex(i)}
+                className="group relative block aspect-square overflow-hidden rounded-2xl border border-[#FFC531]/20 bg-black/15"
+              >
+                <OptimizedImage
+                  src={photo.src}
+                  alt={language === 'kk' ? photo.altKk : photo.alt}
+                  width={480}
+                  height={480}
+                  className="h-full w-full object-cover"
+                />
+                <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-[#3A1409]/80 via-transparent to-transparent">
+                  <p className="p-3 text-left text-xs font-semibold text-white">{language === 'kk' ? photo.altKk : photo.alt}</p>
+                </div>
+              </motion.button>
+            ))}
+          </div>
+
+          {photos.length > MOBILE_INITIAL_COUNT && (
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => setShowAllMobile((v) => !v)}
+                className="rounded-full border border-[#FFC531]/30 bg-black/15 px-6 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-black/25"
+              >
+                {showAllMobile
+                  ? (language === 'kk' ? 'Азырақ көрсету' : 'Показать меньше')
+                  : (language === 'kk' ? 'Барлығын көрсету' : 'Показать больше')}
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Планшет/десктоп: прежняя masonry-сетка колонками */}
+        <div className="hidden md:block columns-3 lg:columns-4 gap-4 [column-fill:_balance]">
+          {photos.map((photo, i) => (
+            <motion.button
+              key={photo.id}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: (i % 8) * 0.03 }}
+              onClick={() => setSelectedIndex(i)}
+              className="group relative mb-4 block w-full overflow-hidden rounded-3xl border border-[#FFC531]/20 bg-black/15"
+            >
+              <OptimizedImage
+                src={photo.src}
+                alt={language === 'kk' ? photo.altKk : photo.alt}
+                width={480}
+                height={480}
+                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+              <div className="pointer-events-none absolute inset-0 flex items-end bg-gradient-to-t from-[#3A1409]/70 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <p className="p-4 text-left text-sm font-semibold text-white">{language === 'kk' ? photo.altKk : photo.alt}</p>
+              </div>
+            </motion.button>
+          ))}
+        </div>
+
+        <AnimatePresence>
+          {selectedIndex !== null && photos[selectedIndex] && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 flex items-center justify-center bg-[#3A1409]/85 backdrop-blur-md p-6"
+              onClick={() => setSelectedIndex(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative w-full max-w-4xl"
+              >
+                <button
+                  onClick={() => setSelectedIndex(null)}
+                  className="absolute -top-14 right-0 rounded-xl bg-black/20 p-3 text-white hover:bg-black/30"
+                  aria-label="Закрыть"
+                >
+                  ✕
+                </button>
+
+                <div className="overflow-hidden rounded-[32px] bg-white">
+                  <OptimizedImage
+                    src={photos[selectedIndex].src}
+                    alt={
+                      language === 'kk'
+                        ? photos[selectedIndex].altKk
+                        : photos[selectedIndex].alt
+                    }
+                    width={1200}
+                    height={800}
+                    className="w-full h-auto max-h-[75vh] object-contain"
+                  />
+                  <p className="p-5 text-center font-semibold text-[#3A1409]">{photos[selectedIndex].alt}</p>
+                </div>
+
+                <button
+                  onClick={() => setSelectedIndex((i) => (i === null ? i : (i - 1 + photos.length) % photos.length))}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-[#3A1409] hover:bg-white"
+                  aria-label="Предыдущее фото"
+                >
+                  ←
+                </button>
+                <button
+                  onClick={() => setSelectedIndex((i) => (i === null ? i : (i + 1) % photos.length))}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-3 text-[#3A1409] hover:bg-white"
+                  aria-label="Следующее фото"
+                >
+                  →
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+}

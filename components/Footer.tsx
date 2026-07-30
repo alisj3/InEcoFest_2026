@@ -5,8 +5,12 @@ import { festivalInfo } from '@/data/festival-data';
 import { Leaf, Mail, Phone, MapPin, Instagram, Facebook, Twitter, Youtube, Sparkles, TreePine } from 'lucide-react';
 import OptimizedImage from './ui/OptimizedImage';
 import logo from "@/public/images/logos/ineco.png"
+import { useLanguage } from '@/contexts/LanguageContext';
+import { getTranslation } from '@/data/translations';
 
 export default function Footer() {
+  const { language } = useLanguage();
+
   const socialLinks = [
     { icon: Instagram, href: '#', label: 'Instagram' },
     { icon: Facebook, href: '#', label: 'Facebook' },
@@ -15,11 +19,11 @@ export default function Footer() {
   ];
 
   const quickLinks = [
-    { href: '#about', label: 'О фестивале' },
-    { href: '#program', label: 'Программа' },
-    { href: '#map', label: 'Карта' },
-    { href: '#partners', label: 'Партнеры' },
-    { href: '#contact', label: 'Контакты' }
+    { href: '#about', label: getTranslation('nav.about', language) },
+    { href: '#program', label: getTranslation('nav.program', language) },
+    { href: '#map', label: getTranslation('nav.map', language) },
+    { href: '#partners', label: getTranslation('nav.partners', language) },
+    { href: '#contact', label: getTranslation('nav.contact', language) }
   ];
 
   return (
@@ -89,7 +93,7 @@ export default function Footer() {
                   >
                     InEco Fest
                   </motion.h3>
-                  <p className="text-sm text-gray-400 font-medium">7 августа 2026</p>
+                  <p className="text-sm text-gray-400 font-medium">{getTranslation('footer.date', language)}</p>
                 </div>
               </motion.div>
               <motion.p 
@@ -98,7 +102,7 @@ export default function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {festivalInfo.description}
+                {language === 'kk' ? (festivalInfo as any).descriptionKk || festivalInfo.description : festivalInfo.description}
               </motion.p>
             </motion.div>
 
@@ -115,6 +119,7 @@ export default function Footer() {
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    aria-label={social.label}
                     className="w-12 h-12 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center hover:bg-eco-green/20 transition-all duration-300 group"
                     whileHover={{ scale: 1.1, y: -2 }}
                     whileTap={{ scale: 0.9 }}
@@ -137,7 +142,7 @@ export default function Footer() {
           >
             <h4 className="text-xl font-bold text-white mb-6 flex items-center">
               <TreePine className="h-5 w-5 text-eco-green mr-2" />
-              Навигация
+              {getTranslation('footer.navigation', language)}
             </h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
@@ -167,7 +172,7 @@ export default function Footer() {
           >
             <h4 className="text-xl font-bold text-white mb-6 flex items-center">
               <Sparkles className="h-5 w-5 text-eco-orange mr-2" />
-              Контакты
+              {getTranslation('footer.contacts', language)}
             </h4>
             <ul className="space-y-4 text-gray-300">
               <motion.li 
@@ -189,13 +194,16 @@ export default function Footer() {
                 <span>+7 708 970 91 52</span>
               </motion.li>
               <motion.li 
-                className="flex items-center space-x-3"
+                className="flex items-start space-x-3"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
               >
-                <MapPin className="h-5 w-5 text-eco-green" />
-                <span>Главный Ботанический Сад</span>
+                <MapPin className="h-5 w-5 text-eco-green mt-1 flex-shrink-0" />
+                <span>
+                  <span className="block font-medium">{getTranslation('contacts.parkMain', language)}</span>
+                  <span className="block text-sm text-gray-400">{getTranslation('contacts.parkAddress', language)}</span>
+                </span>
               </motion.li>
             </ul>
           </motion.div>
@@ -214,7 +222,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            © 2026 InEco Fest. Все права защищены.
+            {getTranslation('footer.copyright', language)}
           </motion.p>
           <motion.div 
             className="flex space-x-6 mt-4 md:mt-0"
@@ -223,10 +231,10 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 1 }}
           >
             <a href="#" className="text-gray-400 hover:text-eco-green transition-colors duration-300 text-sm font-medium">
-              Политика конфиденциальности
+              {getTranslation('footer.privacyPolicy', language)}
             </a>
             <a href="#" className="text-gray-400 hover:text-eco-green transition-colors duration-300 text-sm font-medium">
-              Условия использования
+              {getTranslation('footer.termsOfUse', language)}
             </a>
           </motion.div>
         </motion.div>

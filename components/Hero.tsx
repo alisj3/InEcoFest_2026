@@ -229,7 +229,7 @@ export default function Hero() {
             animate={{ opacity: 1 }} 
             transition={{ duration: 0.6, delay: 0.5 }} 
             className="mx-auto max-w-3xl px-4">
-              <p className="mb-3 text-base font-bold leading-relaxed text-white/95 text-center whitespace-normal lg:whitespace-nowrap sm:mb-6 sm:text-xl">
+              <p className="mb-3 text-base font-bold leading-relaxed text-white/95 text-center whitespace-normal sm:mb-6 sm:text-xl">
               {language === 'kk' ? (festivalInfo as any).descriptionKk || festivalInfo.description : festivalInfo.description}
               </p>
             </motion.div>

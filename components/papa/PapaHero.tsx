@@ -14,6 +14,7 @@ const papaHeroImages = [
   '/images/papa-hero/1.webp',
   '/images/papa-hero/2.webp',
   '/images/papa-hero/3.webp',
+  '/images/papa-hero/4.webp',
 ];
 
 const SLIDE_DURATION = 5000; // мс между сменой слайдов
