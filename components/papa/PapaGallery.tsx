@@ -127,9 +127,6 @@ export default function PapaGallery() {
           <h2 className="mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#FFC531] break-words">
             {getTranslation('gallery.title', language)}
           </h2>
-          <p className="font-bold mx-auto mt-4 sm:mt-6 max-w-2xl text-base sm:text-lg leading-7 sm:leading-8 text-white/85">
-            {getTranslation('gallery.subtitle', language)}
-          </p>
         </motion.div>
 
         {/* Мобильная версия: сетка 2 колонки, короткая по умолчанию + кнопка "Показать больше" */}

@@ -634,6 +634,10 @@ export const translations: Translations = {
   "footer.termsOfUse": {
     ru: "Условия использования",
     kk: "Пайдалану шарттары"
+  },
+  "papa-gallery.subtitle": {
+    ru: "'Папа может всё' прошлых годов",
+    kk: "Өткен жылдардағы 'Әке бәріне қабілетті'"
   }
 };
 
