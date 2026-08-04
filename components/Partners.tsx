@@ -42,7 +42,7 @@ const partners = [
     name: 'Главный Ботанический сад ',
     nameKk: 'Бас Ботаникалық бақ',
     description: 'Площадка проведения',
-    descriptionKk: 'Фестиваль ұйымдастырушысы және фестиваль өтетін орын',
+    descriptionKk: 'Фестиваль өтетін орын',
     logo: '/images/logos/botsad.png',
     sizeMobile: 64,
     sizeDesktop: 80,
