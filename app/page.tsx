@@ -37,6 +37,7 @@ import MezzoProfile from '@/components/Mezzo';
 import PerformersCarousel from '@/components/PerformersCarousel';
 import EntryFeeNotice from "@/components/EntryFeeNotice";
 import PapaPromo from '@/components/PapaPromo';
+import CompanyLogosMarquee from '@/components/Companies';
 
 export default function Home() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -210,6 +211,8 @@ export default function Home() {
         <Gallery />
         
         <Partners />
+
+        <CompanyLogosMarquee />
         
         <Contact />
       </main>

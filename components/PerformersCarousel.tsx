@@ -10,6 +10,7 @@ import Abilay from "../public/images/Abilay.webp";
 import Aiman from "../public/images/Aiman.webp";
 import Madina from "../public/images/Madina.webp";
 import Twiano from "../public/images/Twiano.webp";
+import Dmitriy from "../public/images/Dmitriy.webp";
 import { HalftoneBackground } from "./decor/SectionBackgrounds";
 import { getTranslation } from "@/data/translations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -260,6 +261,35 @@ const performers: Performer[] = [
       {
         label: "Instagram",
         href: "https://www.instagram.com/twiano.duet",
+      },
+    ],
+  },
+  {
+    id: "dmitriy",
+    name: "Дмитрий Гребенкин",
+    image: Dmitriy.src,
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "dmitriy.badge",
+      role: "dmitriy.role",
+      description: "dmitriy.description",
+      mood: "dmitriy.mood",
+      tags: "dmitriy.tags",
+    },
+    stats: [
+      { value: "0", labelKey: "dmitriy.stats.shows" },
+      { value: "0", labelKey: "dmitriy.stats.years" },
+    ],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/dmitriy",
       },
     ],
   },
