@@ -285,10 +285,6 @@ const performers: Performer[] = [
     stats: [
     ],
     socials: [
-      {
-        label: "Instagram",
-        href: "https://www.instagram.com/dmitriy",
-      },
     ],
   },
 ];
