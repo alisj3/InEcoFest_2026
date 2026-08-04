@@ -46,7 +46,7 @@ export default function About() {
   ];
 
   const stats = [
-    { number: '20+', label: getTranslation('stats.workshops', language), icon: Palette, bg: '#F9BF00', iconColor: '#12291B' },
+    { number: '50+', label: getTranslation('stats.workshops', language), icon: Palette, bg: '#F9BF00', iconColor: '#12291B' },
     { number: '5000+', label: getTranslation('stats.guests', language), icon: Users, bg: '#3DAEDB', iconColor: '#12291B' },
     { number: '8+', label: getTranslation('stats.entertainment', language), icon: Mic, bg: '#8B3FC4', iconColor: '#fff' },
   ];

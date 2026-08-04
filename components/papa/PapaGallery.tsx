@@ -74,6 +74,18 @@ const photos: GalleryPhoto[] = [
     alt: 'Живая атмосфера',
     altKk: 'Жанды атмосфера',
   },
+  {
+    id: 'g10',
+    src: '/images/papa-gallery/11.webp',
+    alt: 'Семейный отдых',
+    altKk: 'Жанды атмосфера',
+  },
+  {
+    id: 'g10',
+    src: '/images/papa-gallery/12.webp',
+    alt: 'Живая атмосфера',
+    altKk: 'Жанды атмосфера',
+  },
 ];
 
 export default function PapaGallery() {

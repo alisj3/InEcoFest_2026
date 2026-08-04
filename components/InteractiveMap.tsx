@@ -9,6 +9,7 @@ import OptimizedImage from './ui/OptimizedImage';
 import { NatureBackground } from './decor/SectionBackgrounds';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { getTranslation } from '@/data/translations';
+import CompanyPopover from './CompanyPopover';
 
 export default function InteractiveMap() {
   const { language } = useLanguage();
@@ -30,6 +31,25 @@ export default function InteractiveMap() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+  };
+
+  const getActivityTranslation = (count: number, language: "ru" | "kk") => {
+    if (language === "kk") {
+      return getTranslation("map.activity", language);
+    }
+
+    const mod10 = count % 10;
+    const mod100 = count % 100;
+
+    if (mod10 === 1 && mod100 !== 11) {
+      return getTranslation("map.activity", language);
+    }
+
+    if (mod10 >= 2 && mod10 <= 4 && !(mod100 >= 12 && mod100 <= 14)) {
+      return getTranslation("map.activity_plural", language);
+    }
+
+    return getTranslation("map.activity_plural-2", language);
   };
 
   return (
@@ -110,7 +130,7 @@ export default function InteractiveMap() {
                       </p>
 
                       <p className="text-xs text-[#6D7568] mt-0.5">
-                        {zone.activities.length} {getTranslation("map.activity", language)}
+                        {zone.activities.length} {getActivityTranslation(zone.activities.length, language)}
                       </p>
                     </div>
                   </div>
@@ -193,21 +213,28 @@ export default function InteractiveMap() {
                               {activity.speaker && (
                                 <span className="flex items-center gap-1 min-w-0">
                                   <Users className="h-3 w-3 shrink-0" strokeWidth={1.5} />
-                                  <span className="break-words">
-                                    {language === "kk"
-                                      ? activity.speakerKk ?? activity.speaker
-                                      : activity.speaker}
-                                  </span>
+
+                                  {activity.company ? (
+                                    <CompanyPopover company={activity.company} language={language} align="left">
+                                      <span className="break-words underline decoration-dotted underline-offset-2">
+                                        {language === 'kk' ? activity.speakerKk ?? activity.speaker : activity.speaker}
+                                      </span>
+                                    </CompanyPopover>
+                                  ) : (
+                                    <span className="break-words">
+                                      {language === 'kk' ? activity.speakerKk ?? activity.speaker : activity.speaker}
+                                    </span>
+                                  )}
+
                                   {activity.speakerLink && (
-                                    <a
-                                      href={activity.speakerLink}
+                                    
+                                      <a href={activity.speakerLink}
                                       target="_blank"
                                       rel="noopener noreferrer"
                                       onClick={(e) => e.stopPropagation()}
                                       className="ml-0.5 inline-flex shrink-0 items-center text-[#4c6eb9] transition-colors hover:text-[#388c67]"
-                                      aria-label={getTranslation("map.speakerLink", language) || "Link"}
                                     >
-                                      {getTranslation("map.link", language)}
+                                      {getTranslation('map.link', language)}
                                       <ExternalLink className="h-3 w-3" strokeWidth={1.5} />
                                     </a>
                                   )}

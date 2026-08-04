@@ -41,7 +41,7 @@ const partners = [
   {
     name: 'Главный Ботанический сад ',
     nameKk: 'Бас Ботаникалық бақ',
-    description: 'Организатор фестиваля и площадка проведения',
+    description: 'Площадка проведения',
     descriptionKk: 'Фестиваль ұйымдастырушысы және фестиваль өтетін орын',
     logo: '/images/logos/botsad.png',
     sizeMobile: 64,
@@ -56,24 +56,24 @@ const partners = [
     sizeMobile: 64,
     sizeDesktop: 80,
   },
-  {
-    name: 'Шинхан Банк Казахстан',
-    nameKk: 'Шинхан Банк Казахстан',
-    description: 'Партнер фестиваля',
-    descriptionKk: 'Фестивальдің серіктесі',
-    logo: '/images/logos/shinhan_bank_kazakhstan.png',
-    sizeMobile: 64,
-    sizeDesktop: 140,
-  },
-  {
-    name: 'GlobalCare',
-    nameKk: 'GlobalCare',
-    description: 'Партнер фестиваля',
-    descriptionKk: 'Фестивальдің серіктесі',
-    logo: '/images/logos/global_care.png',
-    sizeMobile: 64,
-    sizeDesktop: 130,
-  },
+  // {
+  //   name: 'Шинхан Банк Казахстан',
+  //   nameKk: 'Шинхан Банк Казахстан',
+  //   description: 'Партнер фестиваля',
+  //   descriptionKk: 'Фестивальдің серіктесі',
+  //   logo: '/images/logos/shinhan_bank_kazakhstan.png',
+  //   sizeMobile: 64,
+  //   sizeDesktop: 140,
+  // },
+  // {
+  //   name: 'GlobalCare',
+  //   nameKk: 'GlobalCare',
+  //   description: 'Партнер фестиваля',
+  //   descriptionKk: 'Фестивальдің серіктесі',
+  //   logo: '/images/logos/global_care.png',
+  //   sizeMobile: 64,
+  //   sizeDesktop: 130,
+  // },
 ];
 
 export default function Partners() {

@@ -204,7 +204,7 @@ export default function Home() {
 
         <Speakers />
 
-        <PapaPromo />
+        {/* <PapaPromo /> */}
         
         {/* <Program /> */}
         <Gallery />

@@ -6,6 +6,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import OptimizedImage from "./ui/OptimizedImage";
 import Daniel from "../public/images/Daniel_James.webp";
 import Mezzo from "../public/images/Mezzo.webp";
+import Abilay from "../public/images/Abilay.webp";
+import Aiman from "../public/images/Aiman.webp";
+import Madina from "../public/images/Madina.webp";
+import Twiano from "../public/images/Twiano.webp";
 import { HalftoneBackground } from "./decor/SectionBackgrounds";
 import { getTranslation } from "@/data/translations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -142,6 +146,120 @@ const performers: Performer[] = [
       {
         label: "Instagram",
         href: "https://www.instagram.com/jolda_/",
+      },
+    ],
+  },
+  {
+    id: "abylay",
+    name: "Абылай Исин",
+    image: Abilay.src,
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "abylay.badge",
+      role: "abylay.role",
+      description: "abylay.description",
+      mood: "abylay.mood",
+      tags: "abylay.tags",
+    },
+    stats: [
+      { value: "10", labelKey: "abylay.stats.experience" },
+      { value: "14", labelKey: "abylay.stats.journalism" },
+      // { value: "0", labelKey: "abylay.stats.clients" },
+      // { value: "0", labelKey: "abylay.stats.media" },
+    ],
+    socials: [
+      {
+        label: "Phone",
+        href: "tel:+77073688650",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/abylai.isin/",
+      },
+    ],
+  },
+  {
+    id: "inclusive-founder",
+    name: "Айман Молдабекова",
+    image: Aiman.src,
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "inclusive.badge",
+      role: "inclusive.role",
+      description: "inclusive.description",
+      mood: "inclusive.mood",
+      tags: "inclusive.tags",
+    },
+    stats: [
+      { value: "30", labelKey: "inclusive.stats.forbes" },
+    ],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/aymanulya/",
+      },
+    ],
+  },
+  {
+    id: "madina",
+    name: "Мадина Ашилова",
+    image: Madina.src,
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "glacier.badge",
+      role: "glacier.role",
+      description: "glacier.description",
+      mood: "glacier.mood",
+      tags: "glacier.tags",
+    },
+    stats: [
+      { value: "20+", labelKey: "glacier.stats.hiked" },
+      { value: "2", labelKey: "glacier.stats.countries" },
+    ],
+  },
+  {
+    id: "twiano",
+    name: "Twiano",
+    image: Twiano.src,
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "twiano.badge",
+      role: "twiano.role",
+      description: "twiano.description",
+      mood: "twiano.mood",
+      tags: "twiano.tags",
+    },
+    stats: [
+      { value: "2", labelKey: "twiano.stats.pianists" },
+    ],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/twiano.duet",
       },
     ],
   },

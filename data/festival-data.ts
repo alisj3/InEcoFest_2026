@@ -9,6 +9,19 @@ export interface Zone {
   activities: Activity[];
 }
 
+export interface CompanyInfo {
+  name: string;
+  logo: string;
+  description: string;
+  descriptionKk?: string;
+  socials?: {
+    instagram?: string;
+    facebook?: string;
+    telegram?: string;
+    website?: string;
+  };
+}
+
 export interface Activity {
   id: string;
   title: string;
@@ -22,6 +35,7 @@ export interface Activity {
   image?: string;
   type: "workshop" | "lecture" | "exhibition" | "show";
   speakerLink?: string;
+  company?: CompanyInfo;
 }
 
 export interface StageEvent {
@@ -307,9 +321,9 @@ export const concerts: SpeakerEntry[] = [
     location: "Главная сцена",
     locationKk: "Басты сахна",
     description:
-      "StandUp концерт от автора проекта “Инвалиды,алға”",
+      "StandUp концерт от автора проекта “Жизнь без границ”",
     descriptionKk:
-      "«Инвалиды, алға» жобасының авторының Stand Up концерті",
+      "«Жизнь без границ» жобасының авторының Stand Up концерті",
   },
   {
     id: "concert-5",
@@ -333,44 +347,14 @@ export const concerts: SpeakerEntry[] = [
 
 export const welcomes: SpeakerEntry[] = [
   {
-    id: "welcome-1",
+    id: "welcome",
     title: "Приветственное слово",
     titleKk: "Құттықтау сөзі",
     type: "Приветствие",
     typeKk: "Құттықтау",
-    org: "Компания «Шеврон» — Евразийское подразделение",
-    orgKk: "«Шеврон» компаниясы — Еуразия бөлімшесі",
-    time: "16:00 до 16:05",
-  },
-  {
-    id: "welcome-2",
-    title: "Приветственное слово",
-    titleKk: "Құттықтау сөзі",
-    type: "Приветствие",
-    typeKk: "Құттықтау",
-    org: "Акимат г. Алматы",
-    orgKk: "Алматы қаласының әкімдігі",
-    time: "16:05 до 16:10",
-  },
-  {
-    id: "welcome-3",
-    title: "Приветственное слово",
-    titleKk: "Құттықтау сөзі",
-    type: "Приветствие",
-    typeKk: "Құттықтау",
-    org: "ITeachMe",
-    orgKk: "ITeachMe",
-    time: "16:10 до 16:15",
-  },
-  {
-    id: "welcome-4",
-    title: "Приветственное слово",
-    titleKk: "Құттықтау сөзі",
-    type: "Приветствие",
-    typeKk: "Құттықтау",
-    org: "Институт ботаники и фитоинтродукции",
-    orgKk: "Ботаника және фитоинтродукция институты",
-    time: "16:15 до 16:20",
+    org: "Компания «Шеврон» — Евразийское подразделение, Акимат г. Алматы, ITeachMe, Институт ботаники и фитоинтродукции",
+    orgKk: "«Шеврон» компаниясы — Еуразия бөлімшесі, Алматы қаласының әкімдігі, ITeachMe, Ботаника және фитоинтродукция институты",
+    time: "16:00 до 16:20",
   },
 ];
 
@@ -399,7 +383,20 @@ export const festivalZones: Zone[] = [
         speaker: 'ОФ "ITeachMe"',
         speakerKk: '"ITeachMe" ҚҚ',
         type: "workshop",
-        speakerLink: "https://iteachme.kz/"
+        speakerLink: "https://iteachme.kz/",
+        company: {
+          name: 'ОФ "ITeachMe"',
+          logo: "/images/company_logos/iteachme.png",
+          description:
+            'Общественный Фонд «ITeachMe» Центр развития компетенций — создаёт равные возможности для всех.',
+          descriptionKk:
+            '«ITeachMe» Құзыреттерді дамыту орталығы» қоғамдық қоры — баршаға тең мүмкіндіктер қалыптастырады.',
+          socials: {
+            website: "https://iteachme.kz/",
+            instagram: "https://www.instagram.com/iteachme.kz/",
+
+          },
+        },
       },
     ],
   },
@@ -420,10 +417,23 @@ export const festivalZones: Zone[] = [
         duration: "105 мин",
         description: 'Мастер-класс “Живая открытка”по проращиванию на картоне для умного озеленения от Zertte Studio',
         descriptionKk: 'Zertte Studio ұсынған ақылды көгалдандыруға арналған картонда өсіру бойынша «Тірі ашықхат» шеберлік сабағы',
-        speaker: "Клуб Зеленых Рейнджеров",
-        speakerKk: "Жасыл Рейнджер Клубынан",
+        speaker: "Zertte Studio",
+        speakerKk: "Zertte Studio",
         type: "workshop",
-        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+        speakerLink: "https://zertte-studio.kz/",
+        company: {
+          name: 'Zertte Studio',
+          logo: "/images/company_logos/Zerte Studio.png",
+          description:
+            'Zertte Studio — это инженерно-креативная лаборатория, открытая для всех жителей и гостей города Алматы.',
+          descriptionKk:
+            'Zertte Studio — Алматы қаласының барлық тұрғындары мен қонақтарына ашық инженерлік-креативтік зертхана.',
+          socials: {
+            website: "https://zertte-studio.kz/",
+            instagram: "https://www.instagram.com/zerttestudio/",
+            
+          },
+        },
       },
       {
         id: "eco-city-2",
@@ -438,6 +448,19 @@ export const festivalZones: Zone[] = [
         speakerKk: "Клуб Зеленых Рейнджеров",
         type: "workshop",
         speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+        company: {
+          name: '«Клуб Зеленых Рейнджеров»',
+          logo: "/images/company_logos/green_ranger.png",
+          description:
+            'Проект «Клуб Зеленых Рейнджеров» —  это серия образовательных встреч и волонтерских акций помощи ботсаду. Клуб объединяет энтузиастов, экспертов, ученых и всех заинтересованных в вопросах городского озеленения, охраны природы, экологичного образа жизни, городской экологии и гражданской науки.',
+          descriptionKk:
+            '«Жасыл рейнджерлер клубы» жобасы — бұл Ботаникалық баққа қолдау көрсетуге бағытталған білім беру кездесулері мен еріктілік акцияларының сериясы. Клуб қаладағы көгалдандыру, табиғатты қорғау, экологиялық өмір салты, қалалық экология және азаматтық ғылым мәселелеріне қызығушылық танытатын энтузиастарды, сарапшыларды, ғалымдарды және барлық ниет білдірушілерді біріктіреді.',
+          socials: {
+            website: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+            instagram: "https://www.instagram.com/botsadkz/",
+            
+          },
+        },
       },
       {
         id: "eco-city-3",
@@ -453,6 +476,19 @@ export const festivalZones: Zone[] = [
         speakerKk: "Жасыл Рейнджер Клубы",
         type: "workshop",
         speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+        company: {
+          name: '«Клуб Зеленых Рейнджеров»',
+          logo: "/images/company_logos/green_ranger.png",
+          description:
+            'Проект «Клуб Зеленых Рейнджеров» —  это серия образовательных встреч и волонтерских акций помощи ботсаду. Клуб объединяет энтузиастов, экспертов, ученых и всех заинтересованных в вопросах городского озеленения, охраны природы, экологичного образа жизни, городской экологии и гражданской науки.',
+          descriptionKk:
+            '«Жасыл рейнджерлер клубы» жобасы — бұл Ботаникалық баққа қолдау көрсетуге бағытталған білім беру кездесулері мен еріктілік акцияларының сериясы. Клуб қаладағы көгалдандыру, табиғатты қорғау, экологиялық өмір салты, қалалық экология және азаматтық ғылым мәселелеріне қызығушылық танытатын энтузиастарды, сарапшыларды, ғалымдарды және барлық ниет білдірушілерді біріктіреді.',
+          socials: {
+            website: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+            instagram: "https://www.instagram.com/botsadkz/",
+            
+          },
+        },
       },
       {
         id: "eco-city-4",
@@ -467,7 +503,19 @@ export const festivalZones: Zone[] = [
         speaker: "Лемана ПРО",
         speakerKk: "Лемана ПРО",
         type: "workshop",
-        speakerLink: "https://lemanapro.kz/"
+        speakerLink: "https://lemanapro.kz/",
+        company: {
+          name: 'Лемана ПРО',
+          logo: "/images/company_logos/lemana_pro.png",
+          description:
+            'Строительный магазин Лемана ПРО в Алматы. В ассортименте интернет-магазина Лемана ПРО представлены товары для строительства, ремонта и обустройства дома с удобной доставкой и по низким ценам.',
+          descriptionKk: 'Алматыдағы Лемана ПРО құрылыс дүкені. Лемана ПРО интернет-дүкенінде құрылысқа, жөндеуге және үйді жайластыруға арналған тауарлардың кең ассортименті қолжетімді. Барлық өнімдер тиімді бағамен және ыңғайлы жеткізу қызметімен ұсынылады.',
+          socials: {
+            website: "https://lemanapro.kz/",
+            instagram: "https://www.instagram.com/lemanapro_kz/",
+            
+          },
+        },
       },
       {
         id: "eco-city-5",
@@ -482,7 +530,19 @@ export const festivalZones: Zone[] = [
         speaker: "Национальная волонтёрская сеть",
         speakerKk: "Национальная волонтёрская сеть",
         type: "workshop",
-        speakerLink: "https://qazvolunteer.kz/ru/about"
+        speakerLink: "https://qazvolunteer.kz/ru/about",
+        company: {
+          name: 'Национальная волонтерская сеть',
+          logo: "/images/company_logos/nvw.jfif",
+          description:
+            'QazVolunteer.kz это – современная площадка, объединяющая волонтеров и волонтерские организации со всей страны в целях развития и популяризации волонтерского движения.',
+          descriptionKk: 'QazVolunteer.kz — волонтерлік қозғалысты дамыту және дәріптеу мақсатында еліміздің түкпір-түкпіріндегі еріктілер мен волонтерлік ұйымдарды біріктіретін заманауи платформа.',
+          socials: {
+            website: "https://qazvolunteer.kz/ru",
+            instagram: "https://www.instagram.com/qazvolunteer.kz/",
+            
+          },
+        },
       },
     ],
   },
@@ -510,7 +570,18 @@ export const festivalZones: Zone[] = [
         speaker: "Recycle Birge",
         speakerKk: "Recycle Birge",
         type: "workshop",
-        speakerLink: "https://recyclebirge.kz/"
+        speakerLink: "https://recyclebirge.kz/",
+        company: {
+          name: 'Recycle Birge',
+          logo: "/images/company_logos/recycle_birge.png",
+          description:
+            'Миссия Recycle БІРГЕ — помогать людям и бизнесу осознанно внедрять экодружелюбные привычки через экопросвещение во всех возможных форматах.',
+          descriptionKk: 'Recycle БІРГЕ миссиясы — адамдар мен бизнеске экологиялық ағартуды барлық қолжетімді форматтар арқылы жүзеге асырып, экологиялық жауапты әдеттерді саналы түрде қалыптастыруға көмектесу.',
+          socials: {
+            website: "https://recyclebirge.kz/",
+            instagram: "https://www.instagram.com/recycle.birge/%20",
+          },
+        },
       },
       {
         id: "eco-lifestyle-2",
@@ -522,12 +593,21 @@ export const festivalZones: Zone[] = [
           'Мастер-класс «Раздельный сбор отходов» с реальными "отходами" (чистые упаковки от различных продуктов, разные фракции)',
         descriptionKk:
           'Нақты "қалдықтармен" (әртүрлі өнімдердің таза қаптамалары, түрлі фракциялар) өтетін «Қалдықтарды бөлек жинау» шеберлік сабағы',
-        speaker:
-          "Book Культура, КОМУНИТИПЛЮС, Mindful generation, Студия каллиграфии Елены Шахматовой",
-        speakerKk:
-          "Book Культура, КОМУНИТИПЛЮС, Mindful Generation, Елена Шахматова каллиграфия студиясы",
+        speaker: "Recycle Birge",
+        speakerKk: "Recycle Birge",
         type: "workshop",
-        speakerLink: "https://komuniti.kz/"
+        speakerLink: "https://recyclebirge.kz/",
+        company: {
+          name: 'Recycle Birge',
+          logo: "/images/company_logos/recycle_birge.png",
+          description:
+            'Миссия Recycle БІРГЕ — помогать людям и бизнесу осознанно внедрять экодружелюбные привычки через экопросвещение во всех возможных форматах.',
+          descriptionKk: 'Recycle БІРГЕ миссиясы — адамдар мен бизнеске экологиялық ағартуды барлық қолжетімді форматтар арқылы жүзеге асырып, экологиялық жауапты әдеттерді саналы түрде қалыптастыруға көмектесу.',
+          socials: {
+            website: "https://recyclebirge.kz/",
+            instagram: "https://www.instagram.com/recycle.birge/%20",
+          },
+        },
       },
       {
         id: "eco-lifestyle-3",
@@ -539,36 +619,45 @@ export const festivalZones: Zone[] = [
           "Игра «Правда/ложь» с карточками. Вопросы на самые разнообразные экопроблемы.",
         descriptionKk:
           "Карточкалармен өтетін «Ақиқат/өтірік» ойыны. Түрлі экологиялық мәселелерге қатысты сұрақтар.",
-        speaker: "Клуб Зеленых Рейнджеров",
-        speakerKk: "Жасыл Рейнджерлер клубы",
+        speaker: "Recycle Birge",
+        speakerKk: "Recycle Birge",
         type: "workshop",
-        speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+        speakerLink: "https://recyclebirge.kz/",
+        company: {
+          name: 'Recycle Birge',
+          logo: "/images/company_logos/recycle_birge.png",
+          description:
+            'Миссия Recycle БІРГЕ — помогать людям и бизнесу осознанно внедрять экодружелюбные привычки через экопросвещение во всех возможных форматах.',
+          descriptionKk: 'Recycle БІРГЕ миссиясы — адамдар мен бизнеске экологиялық ағартуды барлық қолжетімді форматтар арқылы жүзеге асырып, экологиялық жауапты әдеттерді саналы түрде қалыптастыруға көмектесу.',
+          socials: {
+            website: "https://recyclebirge.kz/",
+            instagram: "https://www.instagram.com/recycle.birge/%20",
+          },
+        },
       },
       {
         id: "eco-lifestyle-4",
-        title: '"Zero Waste"',
-        titleKk: '"Zero Waste"',
+        title: 'Мастер-класс «Раскрась шопер» ',
+        titleKk: '«Шоперді безендір» шеберлік сабағы',
         time: "12:00-16:00",
         duration: "240 мин",
-        description: "Игра-викторина по zero waste",
-        descriptionKk: "Zero waste тақырыбындағы ойын-викторина",
-        speaker: "Институт Ботаники и Фитоинтродукции",
-        speakerKk: "Ботаника және фитоинтродукция институты",
+        description: "",
+        descriptionKk: "",
+        speaker: "Recycle Birge",
+        speakerKk: "Recycle Birge",
         type: "exhibition",
-        speakerLink: "https://botsad.kz/ru/page/about"
-      },
-      {
-        id: "eco-lifestyle-4",
-        title: "Мастер-класс «Вторая жизнь пластика»",
-        titleKk: '"Пластиктің екінші өмірі" шеберлік сабағы',
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "изготовление аксессуаров из пластиковых пакетов",
-        descriptionKk: "пластик пакеттерден аксессуарлар жасау",
-        speaker: "Институт Ботаники и Фитоинтродукции",
-        speakerKk: "Ботаника және фитоинтродукция институты",
-        type: "exhibition",
-        speakerLink: "https://botsad.kz/ru/page/about"
+        speakerLink: "https://recyclebirge.kz/",
+        company: {
+          name: 'Recycle Birge',
+          logo: "/images/company_logos/recycle_birge.png",
+          description:
+            'Миссия Recycle БІРГЕ — помогать людям и бизнесу осознанно внедрять экодружелюбные привычки через экопросвещение во всех возможных форматах.',
+          descriptionKk: 'Recycle БІРГЕ миссиясы — адамдар мен бизнеске экологиялық ағартуды барлық қолжетімді форматтар арқылы жүзеге асырып, экологиялық жауапты әдеттерді саналы түрде қалыптастыруға көмектесу.',
+          socials: {
+            website: "https://recyclebirge.kz/",
+            instagram: "https://www.instagram.com/recycle.birge/%20",
+          },
+        },
       },
     ],
   },
@@ -594,7 +683,17 @@ export const festivalZones: Zone[] = [
         speaker: "Vasilek.kzt",
         speakerKk: "Vasilek.kzt",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/vasilek.kzt/"
+        speakerLink: "https://www.instagram.com/vasilek.kzt/",
+        company: {
+          name: 'Vasilek.kzt',
+          logo: "/images/company_logos/Vasilek.png",
+          description:
+            'Vasilek.kz — цветочный магазин в Алматы, предлагающий свежие цветы с еженедельными поставками из Голландии и доставкой по всему городу.',
+          descriptionKk: 'Vasilek.kz — Алматыдағы гүлдер дүкені. Апта сайын Нидерландтан жеткізілетін жаңа гүлдерді ұсынып, қала бойынша ыңғайлы жеткізу қызметін қамтамасыз етеді.',
+          socials: {
+            instagram: "https://www.instagram.com/vasilek.kzt",
+          },
+        },
       },
       {
         id: "floristics-2",
@@ -609,7 +708,17 @@ export const festivalZones: Zone[] = [
         speaker: "Zhuldyz Flowers",
         speakerKk: "Zhuldyz Flowers",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/zhuldyzflowers.kz/"
+        speakerLink: "https://www.instagram.com/zhuldyzflowers.kz/",
+        company: {
+          name: 'Zhuldyz Flowers',
+          logo: "/images/company_logos/Zhuldyz.png",
+          description:
+            'Zhuldyz Flowers — цветочный магазин в Алматы, предлагающий объемные букеты по выгодным ценам и услуги доставки цветов по городу.',
+          descriptionKk: 'Zhuldyz Flowers — Алматыдағы гүлдер дүкені. Мұнда көлемді гүл шоқтары тиімді бағамен ұсынылады, сондай-ақ қала бойынша гүл жеткізу қызметі қолжетімді.',
+          socials: {
+            instagram: "https://www.instagram.com/zhuldyzflowers.kz/",
+          },
+        },
       },
       {
         id: "floristics-3",
@@ -625,6 +734,19 @@ export const festivalZones: Zone[] = [
         speakerKk: "Жасыл Рейнджерлер клубы",
         type: "workshop",
         speakerLink: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+        company: {
+          name: '«Клуб Зеленых Рейнджеров»',
+          logo: "/images/company_logos/green_ranger.png",
+          description:
+            'Проект «Клуб Зеленых Рейнджеров» —  это серия образовательных встреч и волонтерских акций помощи ботсаду. Клуб объединяет энтузиастов, экспертов, ученых и всех заинтересованных в вопросах городского озеленения, охраны природы, экологичного образа жизни, городской экологии и гражданской науки.',
+          descriptionKk:
+            '«Жасыл рейнджерлер клубы» жобасы — бұл Ботаникалық баққа қолдау көрсетуге бағытталған білім беру кездесулері мен еріктілік акцияларының сериясы. Клуб қаладағы көгалдандыру, табиғатты қорғау, экологиялық өмір салты, қалалық экология және азаматтық ғылым мәселелеріне қызығушылық танытатын энтузиастарды, сарапшыларды, ғалымдарды және барлық ниет білдірушілерді біріктіреді.',
+          socials: {
+            website: "https://botsad.kz/en/news/view/pervaya_v_2026_godu_vstrecha_kluba_zelenih_reindzherov",
+            instagram: "https://www.instagram.com/botsadkz/",
+            
+          },
+        },
       },
     ],
   },
@@ -650,7 +772,18 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
-        speakerLink: "https://amspacealmaty.orgs.biz/"
+        speakerLink: "https://amspacealmaty.orgs.biz/",
+        company: {
+          name: 'American Maker Space',
+          logo: "/images/company_logos/asm.png",
+          description:
+            'Американское пространство - это общественный центр и лаборатория для сотрудничества по различным проектам, где алматинцы могут развивать новые идеи и навыки. Содержит Makerspace Almaty, инновационный технологический центр, который поощряет обучение творческим решениям проблем с помощью технологий.',
+          descriptionKk:
+            'Американское пространство — общественный центр в Алматы, где жители города могут развивать новые идеи, приобретать навыки и работать над совместными проектами. Здесь также расположен Makerspace Almaty — инновационная технологическая лаборатория для творческого обучения и решения задач с помощью современных технологий.',
+          socials: {
+            website: "https://amspacealmaty.orgs.biz/",
+          },
+        },
       },
       {
         id: "steam-2",
@@ -665,7 +798,18 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
-        speakerLink: "https://amspacealmaty.orgs.biz/"
+        speakerLink: "https://amspacealmaty.orgs.biz/",
+        company: {
+          name: 'American Maker Space',
+          logo: "/images/company_logos/asm.png",
+          description:
+            'Американское пространство - это общественный центр и лаборатория для сотрудничества по различным проектам, где алматинцы могут развивать новые идеи и навыки. Содержит Makerspace Almaty, инновационный технологический центр, который поощряет обучение творческим решениям проблем с помощью технологий.',
+          descriptionKk:
+            'Американское пространство — общественный центр в Алматы, где жители города могут развивать новые идеи, приобретать навыки и работать над совместными проектами. Здесь также расположен Makerspace Almaty — инновационная технологическая лаборатория для творческого обучения и решения задач с помощью современных технологий.',
+          socials: {
+            website: "https://amspacealmaty.orgs.biz/",
+          },
+        },
       },
       {
         id: "steam-3",
@@ -680,7 +824,18 @@ export const festivalZones: Zone[] = [
         speaker: "American Maker Space",
         speakerKk: "American Maker Space",
         type: "workshop",
-        speakerLink: "https://amspacealmaty.orgs.biz/"
+        speakerLink: "https://amspacealmaty.orgs.biz/",
+        company: {
+          name: 'American Maker Space',
+          logo: "/images/company_logos/asm.png",
+          description:
+            'Американское пространство - это общественный центр и лаборатория для сотрудничества по различным проектам, где алматинцы могут развивать новые идеи и навыки. Содержит Makerspace Almaty, инновационный технологический центр, который поощряет обучение творческим решениям проблем с помощью технологий.',
+          descriptionKk:
+            'Американское пространство — общественный центр в Алматы, где жители города могут развивать новые идеи, приобретать навыки и работать над совместными проектами. Здесь также расположен Makerspace Almaty — инновационная технологическая лаборатория для творческого обучения и решения задач с помощью современных технологий.',
+          socials: {
+            website: "https://amspacealmaty.orgs.biz/",
+          },
+        },
       },
       {
         id: "steam-4",
@@ -695,7 +850,18 @@ export const festivalZones: Zone[] = [
         speaker: "Sciencely Almaty",
         speakerKk: "Sciencely Almaty",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/sciencely.almaty/?hl=ru"
+        speakerLink: "https://www.instagram.com/sciencely.almaty/?hl=ru",
+        company: {
+          name: 'Sciencely Almaty',
+          logo: "/images/company_logos/science_almaty.png",
+          description:
+            'Sciencely Алматы — образовательный проект для детей 5–14 лет, который знакомит с естественными науками через практические эксперименты, научные кружки и интерактивные программы.',
+          descriptionKk:
+            'Sciencely Алматы — 5–14 жас аралығындағы балаларға арналған білім беру жобасы. Жоба жаратылыстану ғылымдарын тәжірибелер, ғылыми үйірмелер және интерактивті бағдарламалар арқылы қызықты әрі қолжетімді түрде таныстырады.',
+          socials: {
+            instagram: "https://www.instagram.com/sciencely.almaty/?hl=ru"
+          },
+        },
       },
       {
         id: "steam-5",
@@ -710,7 +876,18 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/acsmuseum/"
+        speakerLink: "https://www.instagram.com/acsmuseum/",
+        company: {
+          name: 'Almaty Children Science Museum',
+          logo: "/images/company_logos/science_almaty.png",
+          description:
+            'Almaty Children’s Science Museum — будущий детский научный музей в Алматы, где дети смогут изучать науку через интерактивные экспозиции, практические лаборатории, цифровой планетарий и познавательные пространства под открытым небом.',
+          descriptionKk:
+            'Almaty Children’s Science Museum — Алматыда ашылатын балаларға арналған ғылыми музей. Мұнда балалар интерактивті экспозициялар, зертханалық шеберлік сабақтары, цифрлық планетарий және ашық аспан астындағы танымдық алаңдар арқылы ғылымды қызықты әрі тәжірибелік түрде зерттей алады.',
+          socials: {
+            instagram: "https://www.instagram.com/acsmuseum/"
+          },
+        },
       },
       {
         id: "steam-7",
@@ -725,7 +902,18 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/acsmuseum/"
+        speakerLink: "https://www.instagram.com/acsmuseum/",
+        company: {
+          name: 'Almaty Children Science Museum',
+          logo: "/images/company_logos/museum.png",
+          description:
+            'Almaty Children’s Science Museum — будущий детский научный музей в Алматы, где дети смогут изучать науку через интерактивные экспозиции, практические лаборатории, цифровой планетарий и познавательные пространства под открытым небом.',
+          descriptionKk:
+            'Almaty Children’s Science Museum — Алматыда ашылатын балаларға арналған ғылыми музей. Мұнда балалар интерактивті экспозициялар, зертханалық шеберлік сабақтары, цифрлық планетарий және ашық аспан астындағы танымдық алаңдар арқылы ғылымды қызықты әрі тәжірибелік түрде зерттей алады.',
+          socials: {
+            instagram: "https://www.instagram.com/acsmuseum/"
+          },
+        },
       }
     ],
   },
@@ -751,7 +939,18 @@ export const festivalZones: Zone[] = [
         speaker: "Almaty Children Science Museum",
         speakerKk: "Almaty Children Science Museum",
         type: "workshop",
-        speakerLink: "https://www.instagram.com/acsmuseum/"
+        speakerLink: "https://www.instagram.com/acsmuseum/",
+        company: {
+          name: 'Almaty Children Science Museum',
+          logo: "/images/company_logos/museum.png",
+          description:
+            'Almaty Children’s Science Museum — будущий детский научный музей в Алматы, где дети смогут изучать науку через интерактивные экспозиции, практические лаборатории, цифровой планетарий и познавательные пространства под открытым небом.',
+          descriptionKk:
+            'Almaty Children’s Science Museum — Алматыда ашылатын балаларға арналған ғылыми музей. Мұнда балалар интерактивті экспозициялар, зертханалық шеберлік сабақтары, цифрлық планетарий және ашық аспан астындағы танымдық алаңдар арқылы ғылымды қызықты әрі тәжірибелік түрде зерттей алады.',
+          socials: {
+            instagram: "https://www.instagram.com/acsmuseum/"
+          },
+        },
       },
       {
         id: "art-2",
@@ -767,6 +966,18 @@ export const festivalZones: Zone[] = [
         speakerKk: "Халықаралық білім академиясы (бұрынғы ҚазБСҚА)",
         type: "workshop",
         speakerLink: "https://kazgasa.kz/",
+        company: {
+          name: 'КазГАСА',
+          logo: "/images/company_logos/kazgasa.png",
+          description:
+            'КазГАСА — один из ведущих университетов Казахстана в области архитектуры, строительства, дизайна и инженерии. Университет готовит высококвалифицированных специалистов, сочетая современные образовательные программы с практической подготовкой и научными исследованиями.',
+          descriptionKk:
+            'ҚазБСҚА — сәулет, құрылыс, дизайн және инженерия салаларындағы Қазақстанның жетекші жоғары оқу орындарының бірі. Университет заманауи білім беру бағдарламаларын тәжірибелік дайындықпен және ғылыми зерттеулермен ұштастыра отырып, білікті мамандар даярлайды.',
+          socials: {
+            instagram: "https://www.instagram.com/kazgasa.edu.kz/",
+            website: "https://kazgasa.kz/"
+          },
+        },
       },
       {
         id: "art-3",
@@ -781,7 +992,19 @@ export const festivalZones: Zone[] = [
         speaker: "Международная Образовательная Академия (ex-КазГАСА)",
         speakerKk: "Халықаралық білім академиясы (бұрынғы ҚазБСҚА)",
         type: "workshop",
-        speakerLink: "https://kazgasa.kz/"
+        speakerLink: "https://kazgasa.kz/",
+        company: {
+          name: 'КазГАСА',
+          logo: "/images/company_logos/kazgasa.png",
+          description:
+            'КазГАСА — один из ведущих университетов Казахстана в области архитектуры, строительства, дизайна и инженерии. Университет готовит высококвалифицированных специалистов, сочетая современные образовательные программы с практической подготовкой и научными исследованиями.',
+          descriptionKk:
+            'ҚазБСҚА — сәулет, құрылыс, дизайн және инженерия салаларындағы Қазақстанның жетекші жоғары оқу орындарының бірі. Университет заманауи білім беру бағдарламаларын тәжірибелік дайындықпен және ғылыми зерттеулермен ұштастыра отырып, білікті мамандар даярлайды.',
+          socials: {
+            instagram: "https://www.instagram.com/kazgasa.edu.kz/",
+            website: "https://kazgasa.kz/"
+          },
+        },
       },
     ],
   },
@@ -807,7 +1030,18 @@ export const festivalZones: Zone[] = [
         speaker: "Институт Ботаники и Фитоинтродукции",
         speakerKk: "Ботаника және фитоинтродукция институты",
         type: "workshop",
-        speakerLink: "https://botsad.kz/ru/page/about"
+        speakerLink: "https://botsad.kz/ru/page/about",
+        company: {
+          name: "Институт Ботаники и Фитоинтродукции",
+          logo: "/images/logos/botsad.png",
+          description:
+            "Институт Ботаники и Фитоинтродукции — ведущий научно-исследовательский центр Казахстана, занимающийся изучением, сохранением и интродукцией растений, а также развитием ботанической науки и биоразнообразия.",
+          descriptionKk:
+            "Ботаника және фитоинтродукция институты — өсімдіктерді зерттеу, сақтау және интродукциялау, сондай-ақ ботаника ғылымы мен биоалуантүрлілікті дамыту бағытында жұмыс істейтін Қазақстандағы жетекші ғылыми-зерттеу орталығы.",
+          socials: {
+            website: "https://botsad.kz/ru/page/about"
+          },
+        },
       },
     ],
   },
@@ -836,14 +1070,26 @@ export const festivalZones: Zone[] = [
       },
       {
         id: "fashion-2",
-        title: "Выставка поделок из природных материалов",
+        title: "Выставка поделок из природных материалов от посетителей ботсада",
         titleKk: "Табиғи материалдардан жасалған қолөнер бұйымдарының көрмесі",
         time: "11:00-16:00",
         duration: "300 мин",
         description:
-          "Выставка творческих работ посетителей ботанического сада, выполненных из природных материалов.",
+          "Выставка творческих работ, созданных посетителями Ботанического сада из природных материалов.",
         descriptionKk:
-          "Ботаникалық бақ келушілерінің табиғи материалдардан жасаған шығармашылық жұмыстарының көрмесі.",
+          "Ботаникалық бақ келушілері табиғи материалдардан жасаған шығармашылық жұмыстардың көрмесі.",
+        type: "exhibition",
+      },
+      {
+        id: "fashion-3",
+        title: "Выставка рисунков от детей Ресурсного центра 'Асыл Мирас'",
+        titleKk: "«Асыл Мирас» ресурстық орталығы балаларының суреттер көрмесі",
+        time: "11:00-16:00",
+        duration: "300 мин",
+        description:
+          "Выставка творческих работ детей Ресурсного центра «Асыл Мирас»",
+        descriptionKk:
+          "«Асыл Мирас» ресурстық орталығы балаларының суреттер көрмесі",
         speaker: "Посетители ботанического сада",
         speakerKk: "Ботаникалық бақтың келушілері",
         type: "exhibition",
@@ -869,10 +1115,23 @@ export const festivalZones: Zone[] = [
           "Инклюзивное мероприятие для пап и детей с инвалидностью",
         descriptionKk:
           "Әкелер мен мүгедектігі бар балаларға арналған инклюзивті іс-шара",
-        speaker: "Даниэль Джеймс",
-        speakerKk: "Даниэль Джеймс",
+        speaker: 'ОФ "ITeachMe"',
+        speakerKk: 'ОФ "ITeachMe"',
         type: "workshop",
-        speakerLink: "https://www.danieljames.kz/"
+        speakerLink: "https://ineco.botsad.kz/papa",
+        company: {
+          name: 'ОФ "ITeachMe"',
+          logo: "/images/company_logos/iteachme.png",
+          description:
+            'Общественный Фонд «ITeachMe» Центр развития компетенций — создаёт равные возможности для всех.',
+          descriptionKk:
+            '«ITeachMe» Құзыреттерді дамыту орталығы» қоғамдық қоры — баршаға тең мүмкіндіктер қалыптастырады.',
+          socials: {
+            website: "https://iteachme.kz/",
+            instagram: "https://www.instagram.com/iteachme.kz/",
+
+          },
+        },
       },
       {
         id: "audio-tour-2",
@@ -928,7 +1187,18 @@ export const festivalZones: Zone[] = [
         speaker: "ОФ «КОМУНИТИПЛЮС»",
         speakerKk: "«КОМУНИТИПЛЮС» ҚҚ",
         type: "workshop",
-        speakerLink: "https://komuniti.kz/"
+        speakerLink: "https://komuniti.kz/",
+        company: {
+          name: '«КОМУНИТИПЛЮС»',
+          logo: "/images/company_logos/community.png",
+          description:
+            'Наша миссия - создавать устойчивую, безопасную и созидательную среду для детей, родителей, педагогов и местных лидеров в городах и сельских районах Казахстана, развивая неформальное образование, культуру сопричастности и инициативу снизу',
+          descriptionKk:
+            'Біздің миссиямыз — Қазақстанның қалалары мен ауылдық аймақтарындағы балалар, ата-аналар, педагогтер және жергілікті қауымдастық көшбасшылары үшін тұрақты, қауіпсіз әрі қолайлы орта қалыптастыру. Біз бейресми білім беруді, қоғамға ортақ жауапкершілік мәдениетін және жергілікті бастамаларды дамытуға ықпал етеміз.',
+          socials: {
+            website: "https://komuniti.kz/",
+          },
+        },
       },
       {
         id: "book-club-2",
@@ -941,7 +1211,18 @@ export const festivalZones: Zone[] = [
         speaker: "Фонд ДАРА",
         speakerKk: "ДАРА қоры",
         type: "exhibition",
-        speakerLink: "https://dara.kz/"
+        speakerLink: "https://dara.kz/",
+        company: {
+          name: 'ДАРА',
+          logo: "/images/company_logos/dara.png",
+          description:
+            'Проект направлен на помощь детям-сиротам и детям, оставшимся без родительской опеки, в формировании навыков самостоятельной жизни и социальной адаптации через общение с волонтерами-наставниками',
+          descriptionKk:
+            'Жоба жетім балалар мен ата-анасының қамқорлығынсыз қалған балаларға ерікті тәлімгерлердің қолдауы арқылы өз бетінше өмір сүру дағдыларын қалыптастыруға және қоғамға бейімделуге көмектеседі.',
+          socials: {
+            website: "https://dara.kz/",
+          },
+        },
       },
       {
         id: "book-club-3",
@@ -956,6 +1237,17 @@ export const festivalZones: Zone[] = [
         speaker: "Фонд «ДАРА»",
         speakerKk: "«ДАРА» қоры",
         type: "workshop",
+        company: {
+          name: 'ДАРА',
+          logo: "/images/company_logos/dara.png",
+          description:
+            'Проект направлен на помощь детям-сиротам и детям, оставшимся без родительской опеки, в формировании навыков самостоятельной жизни и социальной адаптации через общение с волонтерами-наставниками',
+          descriptionKk:
+            'Жоба жетім балалар мен ата-анасының қамқорлығынсыз қалған балаларға ерікті тәлімгерлердің қолдауы арқылы өз бетінше өмір сүру дағдыларын қалыптастыруға және қоғамға бейімделуге көмектеседі.',
+          socials: {
+            website: "https://dara.kz/",
+          },
+        },
       },
       {
         id: "book-club-4",
@@ -970,6 +1262,17 @@ export const festivalZones: Zone[] = [
         speaker: "Umai Book",
         speakerKk: "Umai Book",
         type: "workshop",
+        company: {
+          name: 'Umai Book',
+          logo: "/images/company_logos/umai_book.png",
+          description:
+            'Umai Books — казахстанское издательство, выпускающее книги для детей с рождения на казахском языке. Проект помогает раннему развитию детей и прививает любовь к родному языку через качественную детскую литературу.',          
+          descriptionKk:
+            'Umai Books — сәбилерге арналған қазақ тіліндегі кітаптарды шығаратын қазақстандық баспа. Жоба балалардың ерте дамуына ықпал етіп, сапалы балалар әдебиеті арқылы ана тіліне деген сүйіспеншілікті қалыптастырады.',          
+          socials: {
+            website: "https://www.instagram.com/umai.books/",
+          },
+        },
       },
       {
         id: "book-club-5",
@@ -984,6 +1287,17 @@ export const festivalZones: Zone[] = [
         speaker: "Shymbulak Outdoor",
         speakerKk: "Shymbulak Outdoor",
         type: "workshop",
+        company: {
+          name: 'Shymbulak Outdoor',
+          logo: "/images/company_logos/umai_book.png",
+          description:
+            'Shymbulak Outdoor Meetings — образовательный проект горного курорта «Шымбулак», посвященный безопасности в горах, экологии и устойчивому туризму. Проект объединяет людей через открытые встречи, лекции и мероприятия на природе.',
+          descriptionKk:
+            'Shymbulak Outdoor Meetings — «Шымбұлақ» тау курортының қауіпсіздік, экология және тұрақты туризмге арналған білім беру жобасы. Жоба табиғат аясындағы ашық кездесулер мен іс-шаралар арқылы адамдарды біріктіреді.',
+          socials: {
+            website: "https://www.instagram.com/shymbulakoutdoor/",
+          },
+        },
       },
       {
         id: "book-club-6",
@@ -1001,150 +1315,237 @@ export const festivalZones: Zone[] = [
       },
     ],
   },
-  {
-    id: "charity-fair",
-    name: "Благотворительная ярмарка фондов и социальных предпринимателей",
-    nameKk: "Қайырымдылық жәрмеңкесі",
-    description:
-      "",
-    descriptionKk:
-      "",
-    color: "#dc2626",
-    icon: "🎗️",
-    activities: [
-      {
-        id: "charity-1",
-        title: 'Фонд Булата Утемуратова: ресурсный центр «Асыл Мирас»',
-        titleKk: 'Бұлат Өтемұратов қоры: «Асыл Мирас» ресурстық орталығы',
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Стенд ресурсного центра «Асыл Мирас»",
-        descriptionKk: "«Асыл Мирас» ресурстық орталығының стенді",
-        speaker: "Фонд Булата Утемуратова",
-        speakerKk: "Бұлат Өтемұратов қоры",
-        type: "workshop",
-        speakerLink: "https://utemuratovfund.org/ru/"
-      },
-      {
-        id: "charity-2",
-        title: 'ОФ «Фонд поддержки и развития социально уязвимых женщин МамаПро»',
-        titleKk: '«МамаПро» әлеуметтік осал әйелдерді қолдау және дамыту қоры ҚҚ',
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Стенд фонда «МамаПро»",
-        descriptionKk: "«МамаПро» қорының стенді",
-        speaker: "ОФ «МамаПро»",
-        speakerKk: "«МамаПро» ҚҚ",
-        type: "workshop",
-        speakerLink: "https://mamapro.kz/"
-      },
-      {
-        id: "charity-3",
-        title: "⁠Союз Родителей Особенных Детей и социальные предприниматели",
-        titleKk: "Ерекше балалардың ата-аналар одағы және әлеуметтік кәсіпкерлер",
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Стенд социального НПО/предпринимателя",
-        descriptionKk: "Әлеуметтік ҮЕҰ/кәсіпкердің стенді",
-        speaker: "",
-        speakerKk: "",
-        type: "workshop",
-      },
-      {
-        id: "charity-4",
-        title: 'ОФ «Harmony Fund»',
-        titleKk: '«Harmony Fund» ҚҚ',
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Мерч с изображением картин особенных художников",
-        descriptionKk: "Ерекше суретшілердің картиналары бейнеленген мерч",
-        speaker: 'ОФ «Harmony Fund»',
-        speakerKk: '«Harmony Fund» ҚҚ',
-        type: "workshop",
-        speakerLink: "https://www.hmn.kz/"
-      },
-      {
-        id: "charity-5",
-        title: "3D-изделия из PLA-пластика",
-        titleKk: "PLA-пластиктен жасалған 3D бұйымдар",
-        time: "12:00-16:00",
-        duration: "240 мин",
+{
+  id: "charity-fair",
+  name: "Благотворительная ярмарка фондов и социальных предпринимателей",
+  nameKk: "Қайырымдылық жәрмеңкесі",
+  description: "",
+  descriptionKk: "",
+  color: "#dc2626",
+  icon: "🎗️",
+  activities: [
+    {
+      id: "charity-1",
+      title: 'Фонд Булата Утемуратова: ресурсный центр «Асыл Мирас»',
+      titleKk: 'Бұлат Өтемұратов қоры: «Асыл Мирас» ресурстық орталығы',
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Стенд ресурсного центра «Асыл Мирас»",
+      descriptionKk: "«Асыл Мирас» ресурстық орталығының стенді",
+      speaker: "Фонд Булата Утемуратова",
+      speakerKk: "Бұлат Өтемұратов қоры",
+      type: "workshop",
+      speakerLink: "https://utemuratovfund.org/ru/",
+      company: {
+        name: '«Асыл Мирас»',
+        logo: "/images/company_logos/asyl_miras.png",
         description:
-          "Изделия из экоматериала на основе кукурузного крахмала и сахарного тростника",
+          'Центр аутизма «Асыл Мирас» в Алматы оказывает комплексную поддержку детям с расстройствами аутистического спектра и их семьям, предоставляя программы развития, обучения и сопровождения.',
         descriptionKk:
-          "Жүгері крахмалы мен қант құрағы негізіндегі экоматериалдан жасалған бұйымдар",
-        speaker: "",
-        speakerKk: "",
-        type: "workshop",
+          'Алматы қаласындағы «Асыл Мирас» аутизм орталығы аутизм спектрінің бұзылыстары бар балаларға және олардың отбасыларына дамыту, оқыту және қолдау бағдарламалары арқылы кешенді көмек көрсетеді.',
+        socials: {
+          instagram: "https://www.instagram.com/asylmiras_almaty/",
+        },
       },
-      {
-        id: "charity-6",
-        title: "Orken Puzzle в экостиле",
-        titleKk: "Экостильдегі Orken Puzzle",
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Пазлы в экостиле от Orken Puzzle",
-        descriptionKk: "Orken Puzzle-дің экостильдегі пазлдары",
-        speaker: "Orken Puzzle",
-        speakerKk: "Orken Puzzle",
-        type: "workshop",
-        speakerLink: "https://www.instagram.com/orken_puzzle/"
-      },
-      {
-        id: "charity-7",
-        title: "Фонд «Мейірім»",
-        titleKk: "«Мейірім» қоры",
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "Стенд фонда «Мейірім»",
-        descriptionKk: "«Мейірім» қорының стенді",
-        speaker: "Фонд «Мейірім»",
-        speakerKk: "«Мейірім» қоры",
-        type: "workshop",
-        speakerLink: ""
-      },
-      {
-        id: "charity-8",
-        title: "Мастерская ботанического панно Art Botanique",
-        titleKk: "Art Botanique ботаникалық панно шеберханасы",
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "",
-        descriptionKk: "",
-        speaker: "Art Botanique",
-        speakerKk: "Art Botanique",
-        type: "workshop",
-      },
-      {
-        id: "charity-9",
-        title: "Детская деревня SOS",
-        titleKk: "SOS Балалар ауылы",
-        time: "12:00-16:00",
-        duration: "240 мин",
-        description: "",
-        descriptionKk: "",
-        speaker: "Детская деревня SOS",
-        speakerKk: "SOS Балалар ауылы",
-        type: "workshop",
-        speakerLink: "https://sos-kazakhstan.kz/"
-      },
-      {
-        id: "charity-10",
-        title: "Реабилитационное оборудование Fenix Recovery",
-        titleKk: "Fenix Recovery оңалту жабдықтары",
-        time: "11:00-16:00",
-        duration: "300 мин",
+    },
+    {
+      id: "charity-2",
+      title: 'ОФ «Фонд поддержки и развития социально уязвимых женщин МамаПро»',
+      titleKk: '«МамаПро» әлеуметтік осал әйелдерді қолдау және дамыту қоры ҚҚ',
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Стенд фонда «МамаПро»",
+      descriptionKk: "«МамаПро» қорының стенді",
+      speaker: "ОФ «МамаПро»",
+      speakerKk: "«МамаПро» ҚҚ",
+      type: "workshop",
+      speakerLink: "https://mamapro.kz/",
+      company: {
+        name: '«МамаПро»',
+        logo: "/images/company_logos/mamapro.png",
         description:
-          "Презентация запатентованных реабилитационных тренажеров, адаптивных велосипедов и сенсорного оборудования для АФК и ЛФК. Участники смогут познакомиться с современными решениями для реабилитации людей с ДЦП, последствиями инсульта, ЧМТ, спинальных травм и другими особенностями развития.",
+          'Общественный фонд «МамаПро» помогает социально уязвимым женщинам и мамам в трудной жизненной ситуации через программы обучения, психологической поддержки и профессиональной переподготовки.',
         descriptionKk:
-          "Патенттелген оңалту тренажерлары, бейімделген велосипедтер және емдік дене шынықтыру мен бейімделген дене шынықтыруға арналған сенсорлық жабдықтардың таныстырылымы. Қатысушылар Церебралды сал ауруына шалдыққан балаларға оңалту велосипедтерін табыстау.",
-        speaker: "Fenix Recovery",
-        speakerKk: "Fenix Recovery",
-        type: "workshop",
-        speakerLink: "https://www.instagram.com/fenix__recovery/"
+          '«МамаПро» қоғамдық қоры әлеуметтік осал әйелдер мен қиын өмірлік жағдайдағы аналарға оқыту, психологиялық қолдау және кәсіби қайта даярлау бағдарламалары арқылы көмек көрсетеді.',
+        socials: {
+          instagram: "https://mamapro.kz/",
+        },
       },
-    ],
-  },
+    },
+    {
+      id: "charity-3",
+      title: "⁠Союз Родителей Особенных Детей и социальные предприниматели",
+      titleKk: "Ерекше балалардың ата-аналар одағы және әлеуметтік кәсіпкерлер",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Стенд социального НПО/предпринимателя",
+      descriptionKk: "Әлеуметтік ҮЕҰ/кәсіпкердің стенді",
+      speaker: "",
+      speakerKk: "",
+      type: "workshop",
+      company: {
+        name: 'Союз Родителей Особенных Детей',
+        logo: "/images/company_logos/srod.png",
+        description:
+          'Объединение родителей детей с особенностями развития, которое отстаивает права особенных детей, помогает семьям находить друг друга и совместно с социальными предпринимателями развивает проекты по социализации и трудоустройству.',
+        descriptionKk:
+          'Даму ерекшеліктері бар балалардың ата-аналарын біріктіретін ұйым, ерекше балалардың құқықтарын қорғайды, отбасыларға бір-бірін табуға көмектеседі және әлеуметтік кәсіпкерлермен бірге балаларды әлеуметтендіру мен жұмысқа орналастыру жобаларын дамытады.',
+        socials: {},
+      },
+    },
+    {
+      id: "charity-4",
+      title: 'ОФ «Harmony Fund»',
+      titleKk: '«Harmony Fund» ҚҚ',
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Мерч с изображением картин особенных художников",
+      descriptionKk: "Ерекше суретшілердің картиналары бейнеленген мерч",
+      speaker: 'ОФ «Harmony Fund»',
+      speakerKk: '«Harmony Fund» ҚҚ',
+      type: "workshop",
+      speakerLink: "https://www.hmn.kz/",
+      company: {
+        name: '«Harmony Fund»',
+        logo: "/images/company_logos/harmony.png",
+        description:
+          'Общественный фонд «Harmony Fund» поддерживает особенных художников, помогая им раскрывать творческий потенциал, а средства от продажи мерча с их картинами направляет на развитие инклюзивных творческих программ.',
+        descriptionKk:
+          '«Harmony Fund» қоғамдық қоры ерекше суретшілердің шығармашылық әлеуетін ашуға көмектеседі, ал олардың картиналары бейнеленген мерчты сатудан түскен қаражатты инклюзивті шығармашылық бағдарламаларды дамытуға жұмсайды.',
+        socials: {},
+      },
+    },
+    {
+      id: "charity-5",
+      title: "3D-изделия из PLA-пластика",
+      titleKk: "PLA-пластиктен жасалған 3D бұйымдар",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description:
+        "Изделия из экоматериала на основе кукурузного крахмала и сахарного тростника",
+      descriptionKk:
+        "Жүгері крахмалы мен қант құрағы негізіндегі экоматериалдан жасалған бұйымдар",
+      speaker: "",
+      speakerKk: "",
+      type: "workshop",
+    },
+    {
+      id: "charity-6",
+      title: "Orken Puzzle в экостиле",
+      titleKk: "Экостильдегі Orken Puzzle",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Пазлы в экостиле от Orken Puzzle",
+      descriptionKk: "Orken Puzzle-дің экостильдегі пазлдары",
+      speaker: "Orken Puzzle",
+      speakerKk: "Orken Puzzle",
+      type: "workshop",
+      speakerLink: "https://www.instagram.com/orken_puzzle/",
+      company: {
+        name: 'Orken Puzzle',
+        logo: "/images/company_logos/orken_puzzle.png",
+        description:
+          'Orken Puzzle производит деревянные пазлы в экостиле из натуральных и переработанных материалов, сочетая развивающий досуг с заботой об окружающей среде.',
+        descriptionKk:
+          'Orken Puzzle табиғи және қайта өңделген материалдардан жасалған экостильдегі ағаш пазлдар шығарады, дамытушы демалысты қоршаған ортаны қорғаумен ұштастырады.',
+        socials: {
+          instagram: "https://www.instagram.com/orken_puzzle/",
+        },
+      },
+    },
+    {
+      id: "charity-7",
+      title: "Фонд «Мейірім»",
+      titleKk: "«Мейірім» қоры",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "Стенд фонда «Мейірім»",
+      descriptionKk: "«Мейірім» қорының стенді",
+      speaker: "Фонд «Мейірім»",
+      speakerKk: "«Мейірім» қоры",
+      type: "workshop",
+      speakerLink: "",
+      company: {
+        name: '«Мейірім»',
+        logo: "/images/company_logos/meyirim.png",
+        description:
+          'Благотворительный фонд «Мейірім» оказывает адресную помощь нуждающимся семьям, детям и людям в трудной жизненной ситуации, реализуя программы социальной поддержки и милосердия.',
+        descriptionKk:
+          '«Мейірім» қайырымдылық қоры мұқтаж отбасыларға, балаларға және қиын өмірлік жағдайдағы адамдарға нақты көмек көрсетеді, әлеуметтік қолдау мен мейірімділік бағдарламаларын жүзеге асырады.',
+        socials: {},
+      },
+    },
+    {
+      id: "charity-8",
+      title: "Мастерская ботанического панно Art Botanique",
+      titleKk: "Art Botanique ботаникалық панно шеберханасы",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "",
+      descriptionKk: "",
+      speaker: "Art Botanique",
+      speakerKk: "Art Botanique",
+      type: "workshop",
+      company: {
+        name: 'Art Botanique',
+        logo: "/images/company_logos/art_botanique.png",
+        description:
+          'Art Botanique — творческая мастерская, создающая ботанические панно из стабилизированных растений и цветов, где каждый гость может сделать собственное флористическое панно на память.',
+        descriptionKk:
+          'Art Botanique — тұрақтандырылған өсімдіктер мен гүлдерден ботаникалық панно жасайтын шығармашылық шеберхана, мұнда әр қонақ өзіне естелік ретінде флористикалық панно жасай алады.',
+        socials: {},
+      },
+    },
+    {
+      id: "charity-9",
+      title: "Детская деревня SOS",
+      titleKk: "SOS Балалар ауылы",
+      time: "12:00-16:00",
+      duration: "240 мин",
+      description: "",
+      descriptionKk: "",
+      speaker: "Детская деревня SOS",
+      speakerKk: "SOS Балалар ауылы",
+      type: "workshop",
+      speakerLink: "https://sos-kazakhstan.kz/",
+      company: {
+        name: 'Детская деревня SOS',
+        logo: "/images/company_logos/sos_children.png",
+        description:
+          'Международная организация «Детская деревня SOS» заботится о детях, оставшихся без попечения родителей, создавая для них семейное окружение, программы воспитания и поддержки до самостоятельной жизни.',
+        descriptionKk:
+          '«SOS Балалар ауылы» халықаралық ұйымы ата-анасының қамқорлығынсыз қалған балаларға қамқорлық жасайды, олар үшін отбасылық орта, тәрбие және дербес өмірге дейінгі қолдау бағдарламаларын құрады.',
+        socials: {},
+      },
+    },
+    {
+      id: "charity-10",
+      title: "Реабилитационное оборудование Fenix Recovery",
+      titleKk: "Fenix Recovery оңалту жабдықтары",
+      time: "11:00-16:00",
+      duration: "300 мин",
+      description:
+        "Презентация запатентованных реабилитационных тренажеров, адаптивных велосипедов и сенсорного оборудования для АФК и ЛФК. Участники смогут познакомиться с современными решениями для реабилитации людей с ДЦП, последствиями инсульта, ЧМТ, спинальных травм и другими особенностями развития.",
+      descriptionKk:
+        "Патенттелген оңалту тренажерлары, бейімделген велосипедтер және емдік дене шынықтыру мен бейімделген дене шынықтыруға арналған сенсорлық жабдықтардың таныстырылымы. Қатысушылар Церебралды сал ауруына шалдыққан балаларға оңалту велосипедтерін табыстау.",
+      speaker: "Fenix Recovery",
+      speakerKk: "Fenix Recovery",
+      type: "workshop",
+      speakerLink: "https://www.instagram.com/fenix/",
+      company: {
+        name: 'Fenix Recovery',
+        logo: "/images/company_logos/fenix_recovery.png",
+        description:
+          'Fenix Recovery разрабатывает и производит запатентованные реабилитационные тренажёры, адаптивные велосипеды и сенсорное оборудование для адаптивной и лечебной физкультуры, помогая людям с ДЦП, последствиями инсульта, ЧМТ и спинальными травмами.',
+        descriptionKk:
+          'Fenix Recovery церебралды сал ауруы, инсульттан кейінгі жағдайлар, бас-ми жарақаттары мен жұлын жарақаттары бар адамдарға арналған патенттелген оңалту тренажерларын, бейімделген велосипедтер мен сенсорлық жабдықтарды әзірлеп, шығарады.',
+        socials: {
+          instagram: "https://www.instagram.com/fenix__recovery/",
+        },
+      },
+    },
+  ],
+}
 ];
 
 export const stageEvents: StageEvent[] = [
@@ -1363,9 +1764,9 @@ export const festivalInfo = {
   locationKk: "Бас Ботаникалық бақ (Алматы қ-сы)",
   address: "г. Алматы, Бостандыкский район",
   description:
-    "Программа мастер-классов с 11:00 до 15:30, программа сцены с 15:30 до 20:30.",
+    "Программа мастер-классов с 11:00 до 14:00, программа сцены с 15:30 до 20:30.",
   descriptionKk:
-    "Шеберлік сабақтары бағдарламасы 11:00–15:30 аралығында, сахналық бағдарлама 15:30–20:30 аралығында.",
+    "Шеберлік сабақтары бағдарламасы 11:00–14:00 аралығында, сахналық бағдарлама 15:30–20:30 аралығында.",
   mission:
     "Показать, что забота о природе начинается с заботы друг о друге. Мы создаем пространство, где каждый может участвовать, влиять на изменения и становиться частью экологичного и инклюзивного будущего.",
   missionKk:
