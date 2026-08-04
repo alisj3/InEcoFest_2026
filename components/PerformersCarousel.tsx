@@ -11,6 +11,11 @@ import Aiman from "../public/images/Aiman.webp";
 import Madina from "../public/images/Madina.webp";
 import Twiano from "../public/images/Twiano.webp";
 import Dmitriy from "../public/images/Dmitriy.webp";
+import Bayan from "../public/images/speaker/Bayan.webp"
+import Naria from "../public/images/Nuria.webp"
+import Ainur from "../public/images/Mama-pro.webp"
+import Zhaniya from "../public/images/Zhanya.webp"
+import Aibyn from "../public/images/Aibyn.webp"
 import { HalftoneBackground } from "./decor/SectionBackgrounds";
 import { getTranslation } from "@/data/translations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -204,7 +209,7 @@ const performers: Performer[] = [
       tags: "inclusive.tags",
     },
     stats: [
-      { value: "30", labelKey: "inclusive.stats.forbes" },
+      
     ],
     socials: [
       {
@@ -285,6 +290,140 @@ const performers: Performer[] = [
     stats: [
     ],
     socials: [
+    ],
+  },
+  {
+    id: "botsad",
+    name: "Баян Коспенбетова",
+    image: Bayan.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "speaker.botsad.badge",
+      role: "speaker.botsad.role",
+      description: "speaker.botsad.description",
+      mood: "",
+      tags: "speaker.botsad.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Website",
+        href: "https://botsad.kz/", // TODO: проверить ссылку
+      },
+    ],
+  },
+  {
+    id: "water",
+    name: "Жания Хайбуллина",
+    image: Zhaniya.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#6FA0B8",
+      badgeBorder: "#6FA0B8",
+      badgeText: "#BFE7F5",
+    },
+    keys: {
+      badge: "speaker.water.badge",
+      role: "speaker.water.role",
+      description: "speaker.water.description",
+      mood: "speaker.water.mood",
+      tags: "speaker.water.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/zhaniya.khaibullina/",
+      },
+    ],
+  },
+  {
+    id: "mamapro",
+    name: "Айнур Кудайбергенова",
+    image: Ainur.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#FF6B4A",
+      badgeBorder: "#FF6B4A",
+      badgeText: "#FFD9CC",
+    },
+    keys: {
+      badge: "speaker.mamapro.badge",
+      role: "speaker.mamapro.role",
+      description: "speaker.mamapro.description",
+      mood: "speaker.mamapro.mood",
+      tags: "speaker.mamapro.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/mamapro_almaty/",
+      },
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/ainur_mentor/",
+      },
+    ],
+  },
+  {
+    id: "silkroad",
+    name: "Бакишева Нәрия",
+    image: Naria.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "speaker.silkroad.badge",
+      role: "speaker.silkroad.role",
+      description: "speaker.silkroad.description",
+      mood: "speaker.silkroad.mood",
+      tags: "speaker.silkroad.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/acsmuseum/",
+      },
+    ],
+  },
+  {
+    id: "natgeo",
+    name: "Айбын Шагалак",
+    image: Aibyn.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#C9A15A",
+      badgeBorder: "#C9A15A",
+      badgeText: "#F6D48D",
+    },
+    keys: {
+      badge: "speaker.natgeo.badge",
+      role: "speaker.natgeo.role",
+      description: "speaker.natgeo.description",
+      mood: "speaker.natgeo.mood",
+      tags: "speaker.natgeo.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/natgeoqaz/",
+      },
     ],
   },
 ];
