@@ -283,8 +283,6 @@ const performers: Performer[] = [
       tags: "dmitriy.tags",
     },
     stats: [
-      { value: "0", labelKey: "dmitriy.stats.shows" },
-      { value: "0", labelKey: "dmitriy.stats.years" },
     ],
     socials: [
       {
