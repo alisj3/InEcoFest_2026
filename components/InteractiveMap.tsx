@@ -26,8 +26,14 @@ export default function InteractiveMap() {
 
   const handleDownloadMap = () => {
     const link = document.createElement('a');
-    link.href = '/festival-map.pdf';
-    link.download = 'InEco_Fest_2025_Карта.pdf';
+
+    const isKazakh = language === "kk";
+
+    link.href = isKazakh ? "/festival_map_kaz.pdf" : "/festival_map_ru.pdf";
+    link.download = isKazakh
+      ? "InEco_Fest_2026_Карта_KK.pdf"
+      : "InEco_Fest_2026_Карта_RU.pdf";
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -82,7 +88,7 @@ export default function InteractiveMap() {
           >
             <div className="mb-4 sm:mb-6 overflow-hidden rounded-xl sm:rounded-2xl">
               <OptimizedImage
-                src="/images/festival-map.jpg"
+                src={language === "kk" ? "/images/festival-map-kk.png" : "/images/festival-map.png"}
                 alt="Карта фестиваля InEco Fest"
                 width={600}
                 height={420}

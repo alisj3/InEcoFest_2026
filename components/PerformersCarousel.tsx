@@ -16,6 +16,7 @@ import Naria from "../public/images/Nuria.webp"
 import Ainur from "../public/images/Mama-pro.webp"
 import Zhaniya from "../public/images/Zhanya.webp"
 import Aibyn from "../public/images/Aibyn.webp"
+import Diya from "../public/images/Diya.webp"
 import { HalftoneBackground } from "./decor/SectionBackgrounds";
 import { getTranslation } from "@/data/translations";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -423,6 +424,32 @@ const performers: Performer[] = [
       {
         label: "Instagram",
         href: "https://www.instagram.com/natgeoqaz/",
+      },
+    ],
+  },
+  {
+    id: "diya",
+    name: "Дия Батенова",
+    image: Diya.src, // TODO: добавить импорт фото
+    imageSide: "right",
+    accent: {
+      bg: "#388c67",
+      blur: "#6FA0B8",
+      badgeBorder: "#6FA0B8",
+      badgeText: "#BFE7F5",
+    },
+    keys: {
+      badge: "speaker.diya.badge",
+      role: "speaker.diya.role",
+      description: "speaker.diya.description",
+      mood: "speaker.diya.mood",
+      tags: "speaker.diya.tags",
+    },
+    stats: [],
+    socials: [
+      {
+        label: "Instagram",
+        href: "https://www.instagram.com/peremena.media/",
       },
     ],
   },
