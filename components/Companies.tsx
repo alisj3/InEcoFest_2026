@@ -24,6 +24,7 @@ import vasilek from '../public/images/company_logos_bgr/Vasilek-jukebox-bg-remov
 import zerteStudio from '../public/images/company_logos_bgr/Zerte Studio-jukebox-bg-removed.png';
 import zhuldyz from '../public/images/company_logos_bgr/Zhuldyz-jukebox-bg-removed.png';
 import Koktem from '../public/images/company_logos_bgr/Koktem-jukebox-bg-removed.png';
+import CCI from "../public/images/company_logos_bgr/cci.png"
 import { getTranslation } from '@/data/translations';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -55,6 +56,7 @@ const logos: LogoItem[] = [
   { src: zerteStudio, alt: 'Zerte Studio' },
   { src: zhuldyz, alt: 'Zhuldyz' },
   { src: Koktem, alt: 'Koktem' },
+  { src: CCI, alt: "CCI"}
 ];
 
 export default function CompanyLogosMarquee() {

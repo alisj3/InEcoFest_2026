@@ -211,8 +211,8 @@ export default function Hero() {
             className="mb-12 sm:mb-12 flex justify-center"
           >
             <motion.a
-              href={language === "kk" ? '/InEco_Liflet-2026_A5-kaz.pdf' : '/InEco_Liflet-2026_A5-rus.pdf'}
-              download={'InEco Fest 2026 программа_v2'}
+              href={language === "kk" ? "/program-kaz.docx" : "/program.docx"}
+              download={'InEco Fest 2026 программа'}
               whileHover={{ scale: 1.04, y: -2 }}
               whileTap={{ scale: 0.98 }}
               className="inline-flex items-center gap-3 rounded-full bg-[#f9bf00] px-6 py-3 text-sm sm:px-10 sm:py-4 sm:text-lg font-semibold text-[#fff] shadow-lg transition-all duration-300 hover:shadow-2xl"

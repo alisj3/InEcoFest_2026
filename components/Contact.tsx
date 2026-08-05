@@ -95,7 +95,7 @@ ${formData.message}`;
                 <div>
                   <h4 className="font-semibold text-gray-900">Телефон</h4>
                   <p className="text-gray-600">+7 708 970 91 52</p>
-                  <p className="text-gray-600">{getTranslation("contacts.park", language)}: +7 708 970 52 66</p>
+                  <p className="text-gray-600">{getTranslation("contacts.park", language)}: +7 708 970 58 66</p>
                 </div>
               </div>
 
