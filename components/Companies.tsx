@@ -31,6 +31,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 interface LogoItem {
   src: StaticImageData;
   alt: string;
+  bgClassName?: string;
 }
 
 const logos: LogoItem[] = [
@@ -50,7 +51,7 @@ const logos: LogoItem[] = [
   { src: recycleBirge, alt: 'Recycle Birge' },
   { src: scienceAlmaty, alt: 'Science Almaty' },
   { src: sos, alt: 'SOS' },
-  { src: srod, alt: 'SROD' },
+  { src: srod, alt: 'SROD', bgClassName: 'bg-slate-800' },
   { src: umaiBook, alt: 'Umai Book' },
   { src: vasilek, alt: 'Vasilek' },
   { src: zerteStudio, alt: 'Zerte Studio' },
@@ -72,7 +73,7 @@ export default function CompanyLogosMarquee() {
         {marqueeLogos.map((logo, index) => (
           <div
             key={`${logo.alt}-${index}`}
-            className="flex h-28 w-[calc((100vw-4.5rem)/2)] shrink-0 items-center justify-center rounded-2xl bg-white p-4 shadow-sm sm:h-28 sm:w-[calc((100vw-6rem)/3)] sm:p-4 md:h-28 md:w-[calc((100vw-7.5rem)/6)] md:p-5"
+            className={`flex h-28 w-[calc((100vw-4.5rem)/2)] shrink-0 items-center justify-center rounded-2xl ${logo.bgClassName ?? 'bg-white'} p-4 shadow-sm sm:h-28 sm:w-[calc((100vw-6rem)/3)] sm:p-4 md:h-28 md:w-[calc((100vw-7.5rem)/6)] md:p-5`}
           >
             <div className="relative h-full w-full">
               <Image
