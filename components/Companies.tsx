@@ -64,15 +64,15 @@ export default function CompanyLogosMarquee() {
   const { language } = useLanguage();
 
   return (
-    <div className="w-full overflow-hidden bg-[#388c67] py-10">
-        <h2 className="text-center mb-10 mt-4 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
+    <div className="w-full overflow-hidden bg-[#388c67] py-14 sm:py-20 md:py-28">
+        <h2 className="text-center mb-8 sm:mb-10 mt-2 sm:mt-6 text-3xl sm:text-4xl md:text-6xl font-black leading-tight text-[#f9bf00] break-words">
             {getTranslation('other.partners.title', language)}
         </h2>
       <div className="flex w-max animate-marquee gap-6">
         {marqueeLogos.map((logo, index) => (
           <div
             key={`${logo.alt}-${index}`}
-            className="flex h-28 w-[calc((100vw-7.5rem)/6)] shrink-0 items-center justify-center rounded-2xl bg-white p-5 shadow-sm"
+            className="flex h-28 w-[calc((100vw-4.5rem)/2)] shrink-0 items-center justify-center rounded-2xl bg-white p-4 shadow-sm sm:h-28 sm:w-[calc((100vw-6rem)/3)] sm:p-4 md:h-28 md:w-[calc((100vw-7.5rem)/6)] md:p-5"
           >
             <div className="relative h-full w-full">
               <Image
